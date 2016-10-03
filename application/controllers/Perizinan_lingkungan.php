@@ -144,7 +144,7 @@ class Perizinan_lingkungan extends CI_Controller
 						<tr>
 							<td><label>Nama Lengkap</label></td>
 							<td>:</td>
-							<td>".$r->nama."</td>
+							<td>".$r->nama_pemohon."</td>
 						</tr>
 						<tr>
 							<td><label>Jabatan</label></td>
@@ -154,7 +154,7 @@ class Perizinan_lingkungan extends CI_Controller
 						<tr>
 							<td><label>Alamat</label></td>
 							<td>:</td>
-							<td>".$r->alamat."</td>
+							<td>".$r->alamat_pemohon."</td>
 						</tr>
 						<tr>
 							<td><label>Kecamatan</label></td>
@@ -169,12 +169,12 @@ class Perizinan_lingkungan extends CI_Controller
 						<tr>
 							<td><label>NIK</label></td>
 							<td>:</td>
-							<td>".$r->nik."</td>
+							<td>".$r->nik_pemohon."</td>
 						</tr>
 						<tr>
 							<td><label>No. Telp</label></td>
 							<td>:</td>
-							<td>".$r->no_telp."</td>
+							<td>".$r->notelp_pemohon."</td>
 						</tr>
 					</table>";
 			}
@@ -193,17 +193,17 @@ class Perizinan_lingkungan extends CI_Controller
 				<tr>
 					<td><label>Nama Perusahaan</label></td>
 					<td>:</td>
-					<td>".$r->nama."</td>
+					<td>".$r->nama_perusahaan."</td>
 				</tr>
 				<tr>
 					<td><label>Status Perusahaan</label></td>
 					<td>:</td>
-					<td>".$r->status."</td>
+					<td>".$r->status_perusahaan."</td>
 				</tr>
 				<tr>
 					<td><label>Alamat Perusahaan</label></td>
 					<td>:</td>
-					<td>".$r->alamat."</td>
+					<td>".$r->alamat_perusahaan."</td>
 				</tr>
 				<tr>
 					<td><label>Kecamatan</label></td>
@@ -218,7 +218,7 @@ class Perizinan_lingkungan extends CI_Controller
 				<tr>
 					<td><label>No. Telp</label></td>
 					<td>:</td>
-					<td>".$r->no_telp."</td>
+					<td>".$r->notelp_perusahaan."</td>
 				</tr>
 				<tr>
 					<td><label>Jenis usaha</label></td>
@@ -255,7 +255,7 @@ class Perizinan_lingkungan extends CI_Controller
 		echo "<option></option>";
 		if($sql->num_rows()>0) {
 			foreach ($sql->result() as $r) {
-				echo "<option value={$r->pemohon_id}>{$r->nama}</option>";
+				echo "<option value={$r->pemohon_id}>{$r->nama_pemohon}</option>";
 		}}
 	}
 
@@ -265,7 +265,7 @@ class Perizinan_lingkungan extends CI_Controller
 		echo "<option></option>";
 		if($sql->num_rows()>0) {
 			foreach ($sql->result() as $r) {
-				echo "<option value={$r->perusahaan_id}>{$r->nama}</option>";
+				echo "<option value={$r->perusahaan_id}>{$r->nama_perusahaan}</option>";
 		}}
 	}
 
@@ -286,12 +286,12 @@ class Perizinan_lingkungan extends CI_Controller
 		$member_id = $this->session->userdata('member_id');
 
 			$data=array(
-				'nik' => $nik,
-				'nama' => $nama,
+				'nik_pemohon' => $nik,
+				'nama_pemohon`' => $nama,
 				'jabatan' => $jabatan,
-				'alamat' => $alamat,
+				'alamat_pemohon' => $alamat,
 				'kelurahan_id' => $kel,
-				'no_telp' => $no_telp,
+				'notelp_pemohon' => $no_telp,
 				'member_id' => $member_id
 				);
 
@@ -318,13 +318,13 @@ class Perizinan_lingkungan extends CI_Controller
 			$kondisi = $this->input->post('kondisi');
 			$member_id = $this->session->userdata('member_id');
 
-				$data =array('nama' => $nama,
-							 'status' => $status,
-							 'alamat' => $alamat,
+				$data =array('nama_perusahaan' => $nama,
+							 'status_perusahaan' => $status,
+							 'alamat_perusahaan' => $alamat,
 							 'kelurahan_id' => $kel2,
 							 'lat' => $lat,
 							 'lng' => $lng,
-							 'no_telp' => $no_telp,
+							 'notelp_perusahaan' => $no_telp,
 							 'jenis_usaha' => $jenis_usaha,
 							 'kapasitas_produksi' => $kapasitas_produksi,
 							 'luas_lahan' => $luas_lahan,

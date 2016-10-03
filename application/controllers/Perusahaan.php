@@ -52,13 +52,13 @@ class Perusahaan extends CI_Controller
 			$member_id = $this->session->userdata('member_id');
 
 			if (isset($_POST['simpan'])){
-				$data =array('nama' => $nama,
-							 'status' => $status,
-							 'alamat' => $alamat,
+				$data =array('nama_perusahaan' => $nama,
+							 'status_perusahaan' => $status,
+							 'alamat_perusahaan' => $alamat,
 							 'kelurahan_id' => $kelurahan,
 							 'lat' => $lat,
 							 'lng' => $lng,
-							 'no_telp' => $no_telp,
+							 'notelp_perusahaan' => $no_telp,
 							 'jenis_usaha' => $jenis_usaha,
 							 'kapasitas_produksi' => $kapasitas_produksi,
 							 'luas_lahan' => $luas_lahan,
@@ -87,12 +87,12 @@ class Perusahaan extends CI_Controller
 											kl.kecamatan_id = kc.kecamatan_id AND
 											perusahaan_id = '".$perusahaan_id."'")->row_array();
 		$data =array('perusahaan_id' => $r['perusahaan_id'],
-					 'nama' => $r['nama'],
-					 'status' => $r['status'],
-					 'alamat' => $r['alamat'],
+					 'nama' => $r['nama_perusahaan'],
+					 'status' => $r['status_perusahaan'],
+					 'alamat' => $r['alamat_perusahaan'],
 					 'kel' => $r['kelurahan_id'],
 					 'kec' => $r['kecamatan_id'],
-					 'no_telp' => $r['no_telp'],
+					 'no_telp' => $r['notelp_perusahaan'],
 					 'jenis_usaha' => $r['jenis_usaha'],
 					 'kapasitas_produksi' => $r['kapasitas_produksi'],
 					 'luas_lahan' => $r['luas_lahan'],
@@ -122,13 +122,13 @@ class Perusahaan extends CI_Controller
 			$member_id = $this->session->userdata('member_id');
 
 			if (isset($_POST['update'])){
-				$data =array('nama' => $nama,
-							 'status' => $status,
-							 'alamat' => $alamat,
+				$data =array('nama_perusahaan' => $nama,
+							 'status_perusahaan' => $status,
+							 'alamat_perusahaan' => $alamat,
 							 'kelurahan_id' => $kelurahan,
 							 'lat' => $lat,
 							 'lng' => $lng,
-							 'no_telp' => $no_telp,
+							 'notelp_perusahaan' => $no_telp,
 							 'jenis_usaha' => $jenis_usaha,
 							 'kapasitas_produksi' => $kapasitas_produksi,
 							 'luas_lahan' => $luas_lahan,

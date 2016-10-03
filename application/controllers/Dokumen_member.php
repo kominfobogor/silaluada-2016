@@ -29,13 +29,14 @@ class dokumen_member extends CI_Controller
 															FROM 
 															direktori_member
 															WHERE
-															member_id = '".$member_id."' AND
-															perusahaan_id = '".$perusahaan_id."' ORDER BY perusahaan_id DESC");
+															member_id = '".$member_id."' ORDER BY perusahaan_id DESC");
 			
 			if ($perusahaan_id == ""){
 				echo "";
 			}else{
 				echo "
+				<div class='col-md-12'>
+					<div class='box'>
 				<form method='POST' action='".site_url('dokumen_member/upload')."' enctype='multipart/form-data'> 
 									    	<input type='hidden' value='{$perusahaan_id}' name='perusahaan' required>
 								    		<div>
@@ -48,7 +49,7 @@ class dokumen_member extends CI_Controller
 									    			<tr>
 									    				<td></td>
 									    				<td></td>
-									    				<td align='right'><input type='submit' name='upload' class='btn btn-success' value='Upload'></td>
+									    				<td><input type='submit' name='upload' class='btn btn-success' value='Upload'></td>
 									    			</tr>
 									    			<tr>
 												    	<td colspan='3'>
@@ -79,7 +80,7 @@ class dokumen_member extends CI_Controller
 												    </tr>
 									    		</table>
 								    		</div>	<!-- END -->	
-								    	</form>";
+								    	</form></div></div>";
 			}
 	}
 
@@ -96,6 +97,8 @@ class dokumen_member extends CI_Controller
 
 		$id = md5($perusahaan_id);
 
+		//var_dump($dok);
+
 		if (isset($_POST['upload'])){
 			$data =array('file' => $file,
 						 'member_id' => $member_id,
@@ -109,7 +112,7 @@ class dokumen_member extends CI_Controller
 				$name = date("Ymd").$rand.'.'.$ext;
 				$unggah = $this->supermodel->unggah_dokumen('perizinan/direktori/dokumenmember','file',$name);
 				if($unggah===false) {
-					echo "<script>alert('Upload gagal!');document.location.href='index'</script>";
+					echo "<script>alert('Upload gagal!');document.location.href='index/'".$id."'</script>";
 				}else{
 					$data['file'] = $name;
 					$jalan = $this->supermodel->insertData('direktori_member',$data);

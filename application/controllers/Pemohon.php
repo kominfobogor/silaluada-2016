@@ -50,12 +50,12 @@ class Pemohon extends CI_Controller
 		
 		if (isset($_POST['simpan'])){
 			$data=array(
-				'nik' => $nik,
-				'nama' => $nama,
+				'nik_pemohon' => $nik,
+				'nama_pemohon' => $nama,
 				'jabatan' => $jabatan,
-				'alamat' => $alamat,
+				'alamat_pemohon' => $alamat,
 				'kelurahan_id' => $kelurahan,
-				'no_telp' => $no_telp,
+				'notelp_pemohon' => $no_telp,
 				'member_id' => $member_id
 				);
 			$jalan = $this->supermodel->InsertData('pemohon',$data);
@@ -77,13 +77,13 @@ class Pemohon extends CI_Controller
 															kl.kecamatan_id = kc.kecamatan_id AND
 															pemohon_id = '".$pemohon_id."'")->row_array();
 			$data = array('pemohon_id' => $r['pemohon_id'],
-						'nik' => $r['nik'],
-						'nama' => $r['nama'],
+						'nik' => $r['nik_pemohon'],
+						'nama' => $r['nama_pemohon'],
 						'jabatan' => $r['jabatan'],
-						'alamat' => $r['alamat'],
+						'alamat' => $r['alamat_pemohon'],
 						'kec' => $r['kecamatan_id'],
 						'kel' => $r['kelurahan_id'],
-						'no_telp' => $r['no_telp']
+						'no_telp' => $r['notelp_pemohon']
 						);
 
 			$data['konten'] = "izin_lingkungan/edit_pemohon";
@@ -103,12 +103,12 @@ class Pemohon extends CI_Controller
 		
 		if (isset($_POST['update'])){
 			$data=array(
-				'nik' => $nik,
-				'nama' => $nama,
+				'nik_pemohon' => $nik,
+				'nama_pemohon' => $nama,
 				'jabatan' => $jabatan,
-				'alamat' => $alamat,
+				'alamat_pemohon' => $alamat,
 				'kelurahan_id' => $kelurahan,
-				'no_telp' => $no_telp
+				'notelp_pemohon' => $no_telp
 				);
 			$where = "pemohon_id = '$pemohon_id'";
 			$jalan = $this->supermodel->updateData('pemohon',$data,$where,$field="");

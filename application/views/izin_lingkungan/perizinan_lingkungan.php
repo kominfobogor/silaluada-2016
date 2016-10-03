@@ -1,11 +1,30 @@
+	  <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="margin:0">
+        <!-- Content Header (Page header) -->
 
 
+        <section class="content-header">
+          <h1>
+            Sistem informasi Pelaporan Lalulintas Ternak
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+            <li class="active">Buat Permohonan Izin</li>
+          </ol>
+        </section>
 
-	<!-- KONTEN -->
-					<div class="col-md-8 col-sm-8 right-padding-5">
-						<div style="background:#fff; padding:3%;box-radius:50px;">
-							<div class="clearfix" align="justify">
-							<br>
+        <!-- Main content -->
+        <section class="content">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Buat Permohonan Izin</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+
 								<form method="POST" action="<?php echo site_url('perizinan_lingkungan/simpan')?>" enctype="multipart/form-data">
 									<div style="text-align:right">
 										<a href="<?php echo site_url('dashboard_member/index'); ?>" class="btn btn-danger">Batal</a>
@@ -87,10 +106,14 @@
 									</div>
 								</form>
 			
-							</div>
-						</div>
-					</div>
-	<!-- END KONTEN -->
+							 </div><!-- ./box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
 
 	<!-- MODAL TAMBAH PEMOHON-->
 	  <div class="modal fade" id="modalTambahPemohon" role="dialog">

@@ -1,14 +1,33 @@
-	<!-- KONTEN -->
-					<div class="col-md-8 col-sm-8 right-padding-5" style="">
-						<div style="background:#fff; padding:3%;box-radius:50px; ">
+  <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="margin:0">
+        <!-- Content Header (Page header) -->
 
-							      <h4>Data Pemohon</h4><br>
-							    	<!-- Form Pemohon -->
+
+        <section class="content-header">
+          <h1>
+           Aplikasi Perizinan Lingkungan
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Pemohon</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Data Pemohon</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+
+          
 							    		<table class="table">
 							    			<tr>
-							    				<form method="POST" action="<?php echo site_url('pemohon/tambah')?>" enctype="multipart/form-data"> 
-							    					<td align="right"><input type="submit" name="tambah" value="Tambah Data" class="btn btn-primary"></td>
-							    				</form>
+							    				<td><a href="<?php echo site_url('pemohon/tambah')?>" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Tambah Data</a></td>
 							    			</tr>
 							    			<tr>
 							    				<td></td>
@@ -36,13 +55,13 @@
 											    		?>
 											    			<tr>
 											    				<td><?php echo $no++ ?></td>
-											    				<td><?php echo $r->nama ?></td>
+											    				<td><?php echo $r->nama_pemohon ?></td>
 											    				<td><?php echo $r->jabatan ?></td>
-											    				<td><?php echo $r->alamat ?></td>
+											    				<td><?php echo $r->alamat_pemohon ?></td>
 											    				<td><?php echo $r->kecamatan_nama ?></td>
 											    				<td><?php echo $r->kelurahan_nama ?></td>
-											    				<td><?php echo $r->nik ?></td>
-											    				<td><?php echo $r->no_telp ?></td>
+											    				<td><?php echo $r->nik_pemohon ?></td>
+											    				<td><?php echo $r->notelp_pemohon ?></td>
 											    				<td><a href="<?php echo site_url()."/pemohon/edit/".$r->pemohon_id?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a></td>
 											    			</tr>
 											    		<?php }} ?>
@@ -51,7 +70,11 @@
 							    	<!-- END -->		
 
 
-														</div>
-													</div>
-									<!-- END KONTEN -->
-									
+
+                </div><!-- ./box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->

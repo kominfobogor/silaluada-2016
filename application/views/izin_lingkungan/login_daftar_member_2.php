@@ -63,10 +63,10 @@
 		            <input type="text" name="user_name" class="form-control" placeholder="User Name" autocomplete="off" autofocus >
 		            <br>
 		            <input type="password" name="pass" class="form-control" placeholder="Password" >
-					<br><p style="border: 1px solid lightgrey;background-color:lightgrey;max-width:100px;padding:10px;"><b><?php echo "".$jx." + ".$kx." = ?";?></b></p>
-									  <p>Kode Keamanan </p> <input type="text" name="security_code" placeholder="Ketikkan Hasil Penjumlahan Diatas" class="form-control placeholder-no-fix">
-									  <span class="field" style="display:<?=$cek?>"><?="<font color=\"#FF0000\">Kode Keamanan yang anda masukkan salah</font>";?></span>
-									  <p style="display:none;">Security Code : <input type="text" style="display:none;" name="security_code_veri" value="<?php echo $yx;?>"></p>
+					<br><p style="border: 1px solid lightgrey;background-color:lightgrey;max-width:100px;padding:10px;"><b><?php echo "".$x." + ".$y." = ?";?></b></p>
+									 <input type="text" name="security_codea" placeholder="Ketikkan Hasil Penjumlahan Diatas" class="form-control placeholder-no-fix">
+									  <span class="field" style="display:<?=$cekout?>"><?="<font color=\"#FF0000\">Kode Keamanan yang anda masukkan salah</font>";?></span>
+									  <p style="display:none;">Security Code : <input type="text" style="display:none;" name="security_code_veria" value="<?php echo $z;?>"></p>
 		            <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="#myModal2"> Lupa Password?</a>

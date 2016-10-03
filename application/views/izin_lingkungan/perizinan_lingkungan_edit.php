@@ -1,11 +1,29 @@
+	  <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="margin:0">
+        <!-- Content Header (Page header) -->
 
 
+        <section class="content-header">
+          <h1>
+            Aplikasi Perizinan Lingkungan
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+            <li class="active">Buat Permohonan Izin</li>
+          </ol>
+        </section>
 
-	<!-- KONTEN -->
-					<div class="col-md-8 col-sm-8 right-padding-5">
-						<div style="background:#fff; padding:3%;box-radius:50px;">
-							<div class="clearfix" align="justify">
-							<br>
+        <!-- Main content -->
+        <section class="content">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Buat Permohonan Izin</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
 								<form method="POST" action="<?php echo site_url('perizinan_lingkungan/update')?>" enctype="multipart/form-data">
 
 									<div style="text-align:right">
@@ -59,7 +77,7 @@
 																						$s ="selected";
 																					}
 																       	?>
-																       	<option value="<?php echo $r->pemohon_id ?>" <?php echo $s ?>><?php echo $r->nama; ?></option>
+																       	<option value="<?php echo $r->pemohon_id ?>" <?php echo $s ?>><?php echo $r->nama_pemohon; ?></option>
 																       	<?php }} ?>
 														        	</select>
 											    				</td>
@@ -95,7 +113,7 @@
 																						$s ="selected";
 																					}
 															       	?>
-															       	<option value="<?php echo $r->perusahaan_id ?>" <?php echo $s ?>><?php echo $r->nama; ?></option>
+															       	<option value="<?php echo $r->perusahaan_id ?>" <?php echo $s ?>><?php echo $r->nama_perusahaan; ?></option>
 															       	<?php }} ?>
 													        	</select>
 										    				</td>
@@ -113,10 +131,13 @@
 									</div>
 								</form>
 			
-							</div>
-						</div>
-					</div>
-	<!-- END KONTEN -->
+									 </div><!-- ./box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
 
 	<!-- MODAL TAMBAH PEMOHON-->
 	  <div class="modal fade" id="modalTambahPemohon" role="dialog">

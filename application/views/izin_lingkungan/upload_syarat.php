@@ -17,23 +17,43 @@
 	</script>
 
 
-	<!-- KONTEN -->
-					<div class="col-md-8 col-sm-8 right-padding-5">
-						<div style="background:#fff; padding:3%;box-radius:50px;">
-							<div class="clearfix" align="justify">
+		  <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="margin:0">
+        <!-- Content Header (Page header) -->
+
+
+        <section class="content-header">
+          <h1>
+            Aplikasi Perizinan Lingkungan
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+            <li class="active">Kirim Persyaratan</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Kirim Persyaratan</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
 								<form method="POST" id="urus-perizinan" action="<?php echo site_url('upload_syarat/simpan/'.$permohonan_id)?>" enctype="multipart/form-data">
 								    <input type="hidden" value="<?php echo $permohonan_id; ?>" name="permohonan_id">
 								    <input type="hidden" value="<?php echo $pemohon_id; ?>" name="pemohon_id">
 								    <input type="hidden" value="<?php echo $perusahaan_id; ?>" name="perusahaan_id">
 								    <input type="hidden" value="<?php echo $jenisizin_id; ?>" name="jenisizin_id">
-								      <h3>Pengurusan Izin</h3>
-								    	<!-- Pengurusan Izin -->
 								    		<table class="table">
 								    			<?php
 								    			$sql = $this->supermodel->queryManual("SELECT 
 														    							a.*,
-																						b.nama as nama_pemohon,
-																						c.nama as nama_perusahaan,
+																						b.nama_pemohon,
+																						c.nama_perusahaan,
 																						d.*
 														    							from 
 														    							".$tabel." a,pemohon b,perusahaan c,jenisizin d 
@@ -121,7 +141,7 @@
 									    					</span>
 									    					</td>
 									    				<td>
-									    					<a class="btn btn-success" onclick="show_modal($('#dok_<?php echo $no; ?>'),$('#file_name<?php echo $no; ?>'))" data-toggle="modal" data-target="#myModal" >Pilih File</a>
+									    					<a class="btn btn-primary" onclick="show_modal($('#dok_<?php echo $no; ?>'),$('#file_name<?php echo $no; ?>'))" data-toggle="modal" data-target="#myModal" >Pilih File</a>
 									    				</td>
 									    			</tr>
 									    		<?php }} ?>
@@ -129,10 +149,13 @@
 								    		<input type="submit" name="simpan" class="btn btn-success" value="Simpan">
 								  </div>
 								</form>
-							</div>
-						</div>
-					<!-- </div> -->
-	<!-- END KONTEN -->
+								</div><!-- ./box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
 							    		<!-- MODAL -->
 										  <div class="modal fade" id="myModal" role="dialog">
 										    <div class="modal-dialog"><!-- Modal content-->
@@ -155,11 +178,11 @@
 									  	    											$s="selected";
 									  	    										}
 									  	    							?>
-									  	    								<option value="<?php echo $r->perusahaan_id ?>" <?php echo $s ?>><?php echo $r->nama ?></option>
+									  	    								<option value="<?php echo $r->perusahaan_id ?>" <?php echo $s ?>><?php echo $r->nama_perusahaan ?></option>
 									  	    							<?php }} ?>
 														        	</select>
 									  	    					</td>
-									  	    					<td align="right"><a href="<?php echo site_url('dokumen_member/index/'.md5($perusahaan_id)) ?>" class="btn btn-info">Tambah Dokumen Pemohon</a></td>
+									  	    					<td align="right"><a href="<?php echo site_url('dokumen_member/index/'.md5($perusahaan_id)) ?>" class="btn btn-info">Upload Dokumen Member</a></td>
 									  	    				</tr>
 									  	    				<tr>
 									  	    					<td colspan="2" id="dokumen">

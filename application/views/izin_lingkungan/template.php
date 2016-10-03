@@ -1,16 +1,24 @@
 <!DOCTYPE HTML>
 <html>
+	
 	<head>
-		<link rel="icon" href="<?php echo base_url('assets/css/image/kotabogor.png') ?>">
+    <meta charset="UTF-8">
+    <title>Perizinan Lingkungan</title>
+     <link rel="icon" href="<?php echo base_url('assets/css/image/kotabogor.png') ?>">
+      <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 	    <!-- Bootstrap 3.3.2 -->
 	    <link href="<?php echo base_url()?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	    <!-- Font Awesome Icons -->
 	    <link href="<?php echo base_url()?>assets/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    	<!-- DATA TABLES -->
-    	<link href="<?php echo base_url()?>assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+	    <!-- DATA TABLES -->
+	    <link href="<?php echo base_url()?>assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 	    <link href="<?php echo base_url()?>assets/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
-		
-		<script src="<?php echo base_url()?>assets/plugins/jQuery/jQuery-2.1.3.min.js"></script>
+	    <!-- Theme style -->
+	    <link href="<?php echo base_url()?>assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+	    <link href="<?php echo base_url()?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+	    <link href="<?php echo base_url()?>assets/css/admin.css" rel="stylesheet" type="text/css" />
+
+	    <script src="<?php echo base_url()?>assets/plugins/jQuery/jQuery-2.1.3.min.js"></script>
 
 
 		<!-- Map -->
@@ -18,154 +26,120 @@
 	    <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/gmaps/css/jquery-position-picker.css"/>
 		<script src="<?php echo base_url()?>assets/gmaps/js/OpenLayers.js"></script>
 	   	<script src="<?php echo base_url()?>assets/gmaps/js/jquery-position-picker.debug.js"></script>
-	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body class="skin-red">
+    <div class="wrapper">
+      
+      <header class="main-header">
+      <!-- Logo -->
+        <a href="#" class="logo" style="padding-top:0.7%;"><?php echo "<img src='".base_url('uploads/logo.png')."' class='img-responsive pull-left' style='width:100%;'/>"; ?></a>
+        <!-- Header Navbar: style can be found in header.less -->
+          
+        <nav class="navbar navbar-static-top" role="navigation">
+  <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <?php
+					$id = $this->session->userdata('member_id');
+					$sql = $this->supermodel->queryManual("select * from member WHERE member_id = '".$id."'");
+						if($sql->num_rows()>0) {
+							foreach ($sql->result() as $r) { ?>
+                  <span class="hidden-xs"><?php echo $r->nama_member; ?></span>
+                  <?php }} ?>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="<?php echo base_url('assets/dist/img/avatar.png')?>" class="img-circle" alt="User Image" />
+                    <?php
+					$id = $this->session->userdata('member_id');
+					$sql = $this->supermodel->queryManual("select * from member WHERE member_id = '".$id."'");
+						if($sql->num_rows()>0) {
+							foreach ($sql->result() as $r) { ?>
+                  <p><?php echo $r->nama_member; ?></p>
+                  <?php }} ?>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <!-- <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Ubah Akun</a>
+                    </div> -->
+                    <div class="pull-right">
+                      <a href="<?php echo site_url('login_daftar_member/logout');?>" class="btn btn-default btn-flat">Logout</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="<?php echo base_url('assets/dist/img/avatar.png')?>" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+                  <p>&bull;<?php echo $this->session->userdata('nama'); ?></p>
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="header">MAIN MENU</li>
+            <li class="active treeview">
+              <a href="<?php echo site_url('dashboard_member');?>">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
+              </a>
+            </li>
 
-	   	<style>
-	    	a{
-	    		text-decoration: none;
-	    		color: white;
-	    	}
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-files-o"></i> <span>Data </span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo site_url('pemohon');?>"><i class="fa fa-circle-o"></i>Pemohon</a></li>
+                <li><a href="<?php echo site_url('perusahaan');?>"><i class="fa fa-circle-o"></i>Perusahaan</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="<?php echo site_url('dokumen_member/index/'.md5(0));?>">
+                <i class="fa fa-file-text"></i> <span>Dokumen Member</span></i>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
 
-	    	.perizinan-box{
-	    		width:30%;
-	    		height:100%; 
-	    		background-color:green; 	    		
-	    		text-align:center; 
-	    		padding :4%;    		
-	    		margin:1%;
-	    		float:left;
-	    	}
-	    	.menu{
-	    		float: left;
-	    		height: 100%;
-	    		padding:1%;
-	    	}
-	    	.menu:hover{
-				background-color: green;
-				transition: all ease 0.5s;
-			}
-	    </style>
-		<title>Form Perizinan Lingkungan</title>
-	</head>
-	<body style="background:#f4f4f4">
-	<!-- HEADER -->
-		<div class="section" style="background:#15A531;" >
-		<div class="container" id="header">
-		    <div class="col-md-9 col-sm-8 col-xs-10">
-		      <div class="logo clearfix" style="margin:1% 0%;">
-		      <?php echo "<img src='".base_url('uploads/logo.png')."' class='img-responsive pull-left' style='width:40%;'/>"; ?>
-		      </div>
-		    </div>
-		</div>
-		</div>
-	<!-- END HEADER -->
-
-
-	<div class="section" style="background:#f4f4f4">
-		<div class="container">
-			<div class="row" style="padding-top:20px;">
-				<!-- HEAD -->
-					<div class="col-md-12 col-sm-14 right-padding-2 section" style="margin-bottom:1%;" >
-						<div style="background:#15A531; padding-left:2%;color:white; box-shadow:0px 4px 0px 0px yellow; height:45px;">
-							<div class="menu">
-								<a href="<?php echo site_url('dashboard_member');?>">Dashboard</a>
-							</div>
-							<div class="menu">
-								<a href="<?php echo site_url('pemohon');?>">Pemohon</a>
-							</div>
-							<div class="menu">
-								<a href="<?php echo site_url('perusahaan');?>">Perusahaan</a>
-							</div>
-							<!-- <div class="menu">
-								<a href="<?php echo site_url('dokumen_pemohon/index/'.md5(0));?>">Dokumen Pemohon</a>
-							</div>
-							<div class="menu">
-								<a href="<?php echo site_url('dokumen_perusahaan/index/'.md5(0));?>">Dokumen Perusahaan</a>
-							</div> -->
-							<div class="menu">
-								<a href="<?php echo site_url('dokumen_member/index/'.md5(0));?>">Dokumen Member</a>
-							</div>              
-							<div class="menu" style="float:right;">
-								<a href="<?php echo site_url('login_daftar_member/logout') ?>"><b>Logout</b></a>
-							</div>
-							
-						</div>
-					</div>
-				<!-- END HEAD -->
-
-				<!-- KONTEN -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
 						<?php $this->load->view($konten) ; ?>
-				<!-- END KONTEN -->
+      </div><!-- /.content-wrapper -->
 
-				<!-- SIDE BAR -->
-					<!-- <div style="float:right;"> -->
-						<div class="col-md-4 col-sm-4 left-padding-5" style="float:right;">
-							<div style="background:#15A531; padding:1%; padding-left:5%; margin-bottom:7px; color:white;box-shadow:0px 3px 0px 0px yellow;">
-								<h4><b>User</b></h4>
-							</div>
-							<div style="background:#fff; padding:3%; margin-bottom:2px;" >
-								<table class="table table-bordered table-striped">
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 1.0
+        </div>
+        <strong>Copyright &copy; 2015</strong> All rights reserved.
+      </footer>
 
-									<?php
-										$id = $this->session->userdata('member_id');
-										$sql = $this->supermodel->queryManual("select * from member WHERE member_id = '".$id."'");
-										if($sql->num_rows()>0) {
-											$no=1;
-											foreach ($sql->result() as $r) {
-									?>
-									<tr>
-										<th>Nama Lengkap</th>
-										<td>:</td>
-										<th><?php echo $r->nama_member ?></th>
-									</tr>
-									<tr>
-										<th>Alamat</th>
-										<td>:</td>
-										<td><?php echo $r->alamat_member ?></td>
-									</tr>
-									<tr>
-										<th>NIK</th>
-										<td>:</td>
-										<td><?php echo $r->nik_member ?></td>
-									</tr>
-									<tr>
-										<th>Alamat Email</th>
-										<td>:</td>
-										<td><?php echo $r->email ?></td>
-									</tr>
-									<?php }} ?>
-								</table>
-							</div>
-						</div>
-
-						<div class="col-md-4 col-sm-4 left-padding-5" style="margin-top:1%;float:right;">
-							<div style="background:#15A531; padding:1%; padding-left:5%; margin-bottom:7px; color:white;box-shadow:0px 3px 0px 0px yellow;">
-								<h4><b>Notifikasi</b></h4>
-							</div>
-							<div style="background:#fff; padding:3%; margin-bottom:2px;">
-								<table>
-									<tr>
-										<td><h5><mark>*<small>Belum dibaca</small></mark></h5></td>
-									</tr>
-									<tr>
-										<td>Kesalahan Pada Berkas Yang ke bla bla bla bla bla bla bla bla | 24-02-2016 11:30 </td>
-									</tr>
-								</table>
-							</div>
-
-							<div style="background:#fff; padding:3%;">
-								<table>
-									<tr>
-										<td>Kesalahan Pada Berkas Yang ke bla bla bla bla bla bla bla bla | 24-02-2016 11:30 </td>
-									</tr>
-								</table>
-							</div>
-						</div>
-					<!-- </div> -->
-				<!-- END SIDE BAR -->
-			</div>
-			<div class="row padding-y-10"></div>
-	</div>
+    </div><!-- ./wrapper -->
 
 
 <!-- jQuery 2.1.3 -->
@@ -179,7 +153,7 @@
     <script src="<?php echo base_url()?>assets/dist/js/app.min.js" type="text/javascript"></script>
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
       $(function () {
         $("#example1").dataTable();
       });
@@ -192,5 +166,5 @@
         $("#example3").dataTable();
       });
     </script>
-	</body>
+  </body>
 </html>

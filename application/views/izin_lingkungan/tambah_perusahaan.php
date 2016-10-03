@@ -1,17 +1,39 @@
-	<!-- KONTEN -->
-					<div class="col-md-8 col-sm-8 right-padding-5" style="">
-						<div style="background:#fff; padding:3%;box-radius:50px; ">
-							<form method="POST" action="<?php echo site_url('perusahaan/simpan')?>" enctype="multipart/form-data"> 
-							      <h4>Tambah Perusahaan</h4><br>
-							    	<!-- Form Pemohon -->
+<form method="POST" action="<?php echo site_url('perusahaan/simpan')?>" enctype="multipart/form-data"> 
+<!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="margin:0">
+        <!-- Content Header (Page header) -->
+
+
+        <section class="content-header">
+          <h1>
+           Aplikasi Perizinan Lingkungan
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Perusahaan</li>
+            <li class="active">Tambah Perusahaan</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Tambah Perusahaan</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+
 							    		<table class="table">
 								    		<tr>
 								    			<th>Nama Perusahaan</th>
 								    			<td>:</td>
-								    			<td><input type="text" name="nama" class="form-control"></td>
+								    			<td><input type="text" name="nama" class="form-control" required=""></td>
 								    		</tr>
 								    		<tr>
-												<td><label>Status Perusahaan</label></td>
+												<th>Status Perusahaan</th>
 												<td>:</td>
 												<td>
 													<select name="status" class="form-control">
@@ -88,29 +110,39 @@
 								    			<td>:</td>
 								    			<td><input type="text" name="kondisi" class="form-control"></td>
 								    		</tr>
+							    		</table>
+                </div><!-- ./box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+            <div class="col-md-6">
+              <div class="box">
+                <div class="box-body">
+      									
+								    		<div class="gllpLatlonPicker" align="center" >
+												<div class="gllpMap"><b>Lokasi Perusahaan</b></div><br><br>
+												<input type="text" name="lat" class="gllpLatitude" value="-6.59483" placeholder="Latitude" Required>
+												<input type="text" name="lng" class="gllpLongitude" value="106.79955" placeholder="Longitude" Required>
+											</div>
+
+											<table class="table">
 								    		<tr>
-								    			<td colspan="3">
-								    			 	<div class="gllpLatlonPicker" align="center" >
-											        <div class="gllpMap"><b>Lokasi</b></div><br><br>
-											        	<input type="hidden" name="lat" class="gllpLatitude" value="-6.59483" placeholder="Latitude" Required>
-														<input type="hidden" name="lng" class="gllpLongitude" value="106.79955" placeholder="Longitude" Required>
-											       </div>
-											    </td>
-											 </tr>
-								    		<tr>
-								    			<th></th>
-								    			<td></td>
-								    			<td>
+								    			<td align="right">
 								    				<input type="submit" name="simpan" value="Simpan" class="btn btn-success">
 													<a href="<?php echo site_url('perusahaan') ?>"><div class="btn btn-danger">Batal</div></a>
 												</td>
 								    		</tr>
-							    		</table>
-							</form>	<!-- END -->		
-						</div>
-					</div>
-	<!-- END KONTEN -->
+								    	</table>
+				 </div><!-- ./box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
 
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
+  
+
+</form>	
 				<script>
 					$("#kec").change(function(){
 			 				var id = $("#kec").val();

@@ -1,19 +1,40 @@
-	<!-- KONTEN -->
-					<div class="col-md-8 col-sm-8 right-padding-5" style="">
-						<div style="background:#fff; padding:3%;box-radius:50px; ">
+<!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="margin:0">
+        <!-- Content Header (Page header) -->
+
+
+        <section class="content-header">
+          <h1>
+           Aplikasi Perizinan Lingkungan
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Pemohon</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Tambah Pemohon</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+
 							<form method="POST" action="<?php echo site_url('pemohon/simpan')?>" enctype="multipart/form-data"> 
-							      <h4>Tambah Pemohon</h4><br>
-							    	<!-- Form Pemohon -->
 							    		<table class="table">
 								    		<tr>
 								    			<th>NIK</th>
 								    			<td>:</td>
-								    			<td><input type="number" name="nik" class="form-control"></td>
+								    			<td><input type="number" name="nik" class="form-control" required=""></td>
 								    		</tr>
 								    		<tr>
 								    			<th>Nama Lengkap</th>
 								    			<td>:</td>
-								    			<td><input type="text" name="nama" class="form-control"></td>
+								    			<td><input type="text" name="nama" class="form-control" required=""></td>
 								    		</tr>
 								    		<tr>
 								    			<th>Jabatan</th>
@@ -64,10 +85,15 @@
 												</td>
 								    		</tr>
 							    		</table>
-							</form>	<!-- END -->		
-						</div>
-					</div>
-	<!-- END KONTEN -->
+							</form>	<!-- END -->	
+
+                </div><!-- ./box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
 
 				<script>
 					$("#kec").change(function(){
