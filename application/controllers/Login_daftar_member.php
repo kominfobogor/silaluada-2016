@@ -80,13 +80,13 @@ class Login_daftar_member extends CI_Controller
 		$file = $_FILES['image_ktp']['name'];
 
 		if ($daftar_post == ""){
-			$data = array('nama' => $nama,
-						 'alamat' => $alamat,
-						 'nik' => $nik,
+			$data = array('nama_member' => $nama,
+						 'alamat_member' => $alamat,
+						 'nik_member' => $nik,
 						 'email' => $email,
 						 'password' => $password,
 						 'image_ktp' => $image_ktp,
-						 'status' => '0'
+						 'status_member' => '0'
 						 );
 				$query = $this->db->query("select * from member where email = '$email'");
 				$row = $query->row();
@@ -111,6 +111,10 @@ class Login_daftar_member extends CI_Controller
 									
 								}	
 							}
+						} else {
+								$data['image_ktp'] = '';
+								$jalan = $this->supermodel->insertData('member',$data);
+							echo"<script>alert('Registrasi berhasil');document.location.href='index'</script>";
 						}
 						
 					}

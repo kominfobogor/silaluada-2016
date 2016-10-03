@@ -1,6 +1,7 @@
 <?php
 /**
-* Author Tri Wanda
+* Author Rizki Maulana
+* 04 Agustus 2016
 */
 class Adm_sppl extends CI_Controller
 {
@@ -20,16 +21,20 @@ class Adm_sppl extends CI_Controller
 	{
 		$data['title'] = "Data SPPL";
 		$data['konten'] = 'admin/perizinan/sppl/index_lama';
-		$link = 'adm_sppl/index_lama/';
-		$limit= 10;
-		$uri_segment= 3;
-		$offset= $this->uri->segment($uri_segment);
-		$jum = $this->supermodel->getData('sppl_lama');
-		$data['listview'] = $this->supermodel->getData('sppl_lama',$field='', $order='sppl_lama_id', $dasc='DESC', $limit, $offset);
-		$this->supermodel->paging($link,$jum,$limit,$uri_segment);
-		$data['offset'] = $offset;
+
+		$data['sppl'] = $this->supermodel->queryManual('SELECT * 
+from member, pemohon, perusahaan, jenisizin, sppl
+where 
+sppl.member_id=member.member_id and 
+sppl.pemohon_id=pemohon.pemohon_id and 
+sppl.perusahaan_id=perusahaan.perusahaan_id and 
+sppl.jenisizin_id=jenisizin.jenisizin_id and 
+sppl.status_perizinan=4');
+
 		$this->load->vars($data);
 		$this->load->view('admin/template');
+		
+		
 	}
 
 	function tambah()

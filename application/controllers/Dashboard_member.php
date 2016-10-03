@@ -19,7 +19,5 @@ class Dashboard_member extends CI_Controller
 		$data['konten'] = "izin_lingkungan/dashboard_member";
 		$this->load->view('izin_lingkungan/template',$data);
 	}
-
-
  }
 ?>

@@ -116,17 +116,17 @@
 									<tr>
 										<th>Nama Lengkap</th>
 										<td>:</td>
-										<th><?php echo $r->nama ?></th>
+										<th><?php echo $r->nama_member ?></th>
 									</tr>
 									<tr>
 										<th>Alamat</th>
 										<td>:</td>
-										<td><?php echo $r->alamat ?></td>
+										<td><?php echo $r->alamat_member ?></td>
 									</tr>
 									<tr>
 										<th>NIK</th>
 										<td>:</td>
-										<td><?php echo $r->nik ?></td>
+										<td><?php echo $r->nik_member ?></td>
 									</tr>
 									<tr>
 										<th>Alamat Email</th>

@@ -27,7 +27,27 @@ class Adm_situ extends CI_Controller
 		$this->load->vars($data);
 		$this->load->view('admin/template');
 	}
-
+	function anggalena()
+	{
+		$data['title'] = "Hasil Pengujian Situ Anggalena";
+		$data['konten'] = 'admin/situ/chart/anggalena';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function panjang()
+	{
+		$data['title'] = "Hasil Pengujian Situ Panjang";
+		$data['konten'] = 'admin/situ/chart/panjang';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function gede()
+	{
+		$data['title'] = "Hasil Pengujian Situ Gede";
+		$data['konten'] = 'admin/situ/chart/gede';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
 	function lokasiuji()
 	{
 		$data['title'] = "Lokasi Uji Situ";
@@ -135,6 +155,7 @@ class Adm_situ extends CI_Controller
 		$this->load->view('admin/template');
 	}
 
+		
 	function cekdatapengujian()
 	{
 		$tahun = $this->input->post('tahunuji');

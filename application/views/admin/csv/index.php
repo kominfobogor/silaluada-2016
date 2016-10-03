@@ -33,7 +33,7 @@ if($this->session->flashdata('error')) {
       </div>
       <div class="box-header with-border">
         
-      <a href="<?php echo base_url('assets/excel/format.csv')?>"><button class="btn-warning btn-md"> Download Format </button></a>
+      <a href="<?php echo base_url('assets/excel/format.csv')?>"><button class="btn-warning btn-lg"> Download Format </button></a>
       
       </div>
         <div class="box-body">
@@ -48,28 +48,9 @@ if($this->session->flashdata('error')) {
          
         </div>
 		
-      </div>
-	  
-	  
-	  <div style="border: 1px solid #ddd; padding: 2px; background-color:#dddddd;  text-align: left; color: black; font-family: Verdana,Arial,Helvetica,Georgia; font-size: 11px; line-height:8px;">	
-		<p> </p>
-		<p><b><font face="Arial" font size="2px" font color="red">*Contoh Format Import Data</font></b></p>
-		<p><b><font face="Arial">1. Download Form Pengisian Yang Tertera Di Atas</font></b></p>
-		<p><b><font face="Arial">2. Isikan Data Dengan Sesuai</font></b></p>
-		<p><b><font face="Arial">3. Lalu Save Dengan Format CSV </font></b></p>
-		<p><b><font face="Arial">4. Lalu Klik Choose File </font></b></p>
-		<p><b><font face="Arial">5. Pilih Data Yang Sudah Di Inputkan</font></b></p>
-		<p><b><font face="Arial">5. Lalu Klik Upload</font></b></p>
-      </div>
-	  <!-- box-body -->
+      </div><!-- box-body -->
     </div><!-- box -->
-	<div class="box-header with-border">
-        
-      <a href="<?php echo base_url('index.php/adm_csv/cetak')?>"><button class="btn-warning btn-md"> Download Format </button></a>
-      
-      </div>
   </div>
-  
   <div class="col-lg-8">
     <!-- Default box -->
     <div class="box">

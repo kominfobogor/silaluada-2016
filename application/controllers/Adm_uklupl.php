@@ -1,6 +1,7 @@
 <?php
 /**
-* Author Tri Wanda
+* Author Rizki Maulana
+* 04 Agustus 2016
 */
 class Adm_uklupl extends CI_Controller
 {
@@ -18,128 +19,105 @@ class Adm_uklupl extends CI_Controller
 
 	function index()
 	{
-		$data['title'] = "Data UKL-UPL";
-		$data['konten'] = 'admin/perizinan/ukl-upl/index';
-		$link = 'adm_uklupl/index/';
-		$limit= 10;
-		$uri_segment= 3;
-		$offset= $this->uri->segment($uri_segment);
-		$jum = $this->supermodel->getData('ukl_upl');
-		$data['listview'] = $this->supermodel->getData('ukl_upl',$field='', $order='ukl_upl_id', $dasc='DESC', $limit, $offset);
-		$this->supermodel->paging($link,$jum,$limit,$uri_segment);
-		$data['offset'] = $offset;
+	$data['title'] = "Data UKL UPL ";
+		$data['konten'] = 'admin/perizinan/ukl-upl/index_lama';
+		$data['uklupl'] = $this->supermodel->queryManual('SELECT * 
+			from member, pemohon, perusahaan, jenisizin, ukl_upl
+			where 
+			ukl_upl.member_id=member.member_id and 
+			ukl_upl.pemohon_id=pemohon.pemohon_id and 
+			ukl_upl.perusahaan_id=perusahaan.perusahaan_id and 
+			ukl_upl.jenisizin_id=jenisizin.jenisizin_id and 
+			ukl_upl.status_perizinan=4');
+
 		$this->load->vars($data);
 		$this->load->view('admin/template');
+		
+		
 	}
 
 	function tambah()
 	{
-		$this->form_validation->set_rules('nomor_surat','nomor_surat','required');
-		$this->form_validation->set_rules('tgl_surat','tgl_surat','required');
-		$this->form_validation->set_rules('tahun','tahun','required');
-		$this->form_validation->set_rules('jenis_kegiatanusaha','jenis_kegiatanusaha','required');
-		$this->form_validation->set_rules('kelurahan','kelurahan','required');
-		$this->form_validation->set_rules('alamat_usaha','alamat_usaha','required');
-		$this->form_validation->set_rules('nama_pemilik','nama_pemilik','required');
-		$this->form_validation->set_rules('alamat_pemilik','alamat_pemilik','required');
-
+		//$this->form_validation->set_rules('nama','Nama','required');
+		//$this->form_validation->set_rules('jabatan','Jabatan','required');
+		$this->form_validation->set_rules('nama_perusahaan','Nama Perusahaan','required');
+		//$this->form_validation->set_rules('alamat','Alamat','required');
+		//$this->form_validation->set_rules('alamat_perusahaan','Alamat Perusahaan','required');
 		if($this->form_validation->run()===TRUE) {
-			$in['nomor_surat'] = $this->input->post('nomor_surat');
-			$in['tgl_surat'] = $this->input->post('tgl_surat');
-			$in['tahun'] = $this->input->post('tahun');
-			$in['jenis_kegiatanusaha'] = $this->input->post('jenis_kegiatanusaha');
-			$in['kelurahan_id'] = $this->input->post('kelurahan');
-			$in['alamat_usaha'] = $this->input->post('alamat_usaha');
-			$in['nama_pemilik'] = $this->input->post('nama_pemilik');
-			$in['alamat_pemilik'] = $this->input->post('alamat_pemilik');
-			$in['konsultan'] = $this->input->post('konsultan');
-			$in['keterangan'] = $this->input->post('keterangan');
+			$in['nama'] = $this->input->post('nama');
+			$in['jabatan'] = $this->input->post('jabatan');
+			$in['alamat'] = $this->input->post('alamat');
+			$in['no_telp'] = $this->input->post('no_telp');
+			$in['nama_perusahaan'] = $this->input->post('nama_perusahaan');
+			$in['alamat_perusahaan'] = $this->input->post('alamat_perusahaan');
+			$in['no_telp_perusahaan'] = $this->input->post('no_telp_perusahaan');
+			$in['jenis_sifat'] = $this->input->post('jenis_usaha');
+			$in['kapasitas_produksi'] = $this->input->post('kapasitas_produksi');
+			$in['luas_lahan'] = $this->input->post('luas_lahan');
+			$in['kondisi_lahan'] = $this->input->post('kondisi_lahan');
+			$in['tanggal'] = $this->input->post('tanggal');
 			
-			$this->supermodel->insertData('ukl_upl',$in);
+			$this->supermodel->insertData('sppl_lama',$in);
 			$this->session->set_flashdata('success', 'Penyimpanan data sukses');
-			$this->m_global->activities('Menyimpan data UKL-UPL '.$in['jenis_kegiatanusaha']);
-			redirect('adm_uklupl/tambah');
+			$this->m_global->activities('Menyimpan data SPPL '.$in['nama_perusahaan']);
+			redirect('adm_sppl/tambah');
 		}
-		$data['title'] = "Tambah Data UKL-UPL";
-		$data['konten'] = 'admin/perizinan/ukl-upl/tambah';
-		$data['kecamatan'] = $this->supermodel->getData('kecamatan');
+		$data['title'] = "Tambah Data SPPL";
+		$data['konten'] = 'admin/perizinan/sppl/tambah_lama';
 		$this->load->vars($data);
 		$this->load->view('admin/template');
 	}
 
 	function edit($id=null)
 	{
-		$this->form_validation->set_rules('nomor_surat','nomor_surat','required');
-		$this->form_validation->set_rules('tgl_surat','tgl_surat','required');
-		$this->form_validation->set_rules('tahun','tahun','required');
-		$this->form_validation->set_rules('jenis_kegiatanusaha','jenis_kegiatanusaha','required');
-		$this->form_validation->set_rules('kelurahan','kelurahan','required');
-		$this->form_validation->set_rules('alamat_usaha','alamat_usaha','required');
-		$this->form_validation->set_rules('nama_pemilik','nama_pemilik','required');
-		$this->form_validation->set_rules('alamat_pemilik','alamat_pemilik','required');
-
+		//$this->form_validation->set_rules('nama','Nama','required');
+		//$this->form_validation->set_rules('jabatan','Jabatan','required');
+		$this->form_validation->set_rules('nama_perusahaan','Nama Perusahaan','required');
+		//$this->form_validation->set_rules('alamat','Alamat','required');
+		//$this->form_validation->set_rules('alamat_perusahaan','Alamat Perusahaan','required');
 		if($this->form_validation->run()===TRUE) {
 			$id = $this->input->post('id');
-			$in['nomor_surat'] = $this->input->post('nomor_surat');
-			$in['tgl_surat'] = $this->input->post('tgl_surat');
-			$in['tahun'] = $this->input->post('tahun');
-			$in['jenis_kegiatanusaha'] = $this->input->post('jenis_kegiatanusaha');
-			$in['kelurahan_id'] = $this->input->post('kelurahan');
-			$in['alamat_usaha'] = $this->input->post('alamat_usaha');
-			$in['nama_pemilik'] = $this->input->post('nama_pemilik');
-			$in['alamat_pemilik'] = $this->input->post('alamat_pemilik');
-			$in['konsultan'] = $this->input->post('konsultan');
-			$in['keterangan'] = $this->input->post('keterangan');
-
-			$this->supermodel->updateData('ukl_upl',$in,'ukl_upl_id',$id);
+			$in['nama'] = $this->input->post('nama');
+			$in['jabatan'] = $this->input->post('jabatan');
+			$in['alamat'] = $this->input->post('alamat');
+			$in['no_telp'] = $this->input->post('no_telp');
+			$in['nama_perusahaan'] = $this->input->post('nama_perusahaan');
+			$in['alamat_perusahaan'] = $this->input->post('alamat_perusahaan');
+			$in['no_telp_perusahaan'] = $this->input->post('no_telp_perusahaan');
+			$in['jenis_sifat'] = $this->input->post('jenis_usaha');
+			$in['kapasitas_produksi'] = $this->input->post('kapasitas_produksi');
+			$in['luas_lahan'] = $this->input->post('luas_lahan');
+			$in['kondisi_lahan'] = $this->input->post('kondisi_lahan');
+			$in['tanggal'] = $this->input->post('tanggal');
+			$in['status'] = "$this->input->post('status')";
+			$this->supermodel->updateData('sppl_lama',$in,'sppl_lama_id',$id);
 			$this->session->set_flashdata('success', 'Perubahan data sukses');
-			$this->m_global->activities('Merubah data UKL-UPL '.$in['jenis_kegiatanusaha']);
-			redirect('adm_uklupl/edit/'.$id);
+			$this->m_global->activities('Merubah data SPPL '.$in['nama_perusahaan']);
+			redirect('adm_sppl/edit/'.$id);
 		}
-		$data['title'] = "Edit Data UKL-UPL";
-		$data['konten'] = 'admin/perizinan/ukl-upl/edit';
-
+		$data['title'] = "Edit Data SPPL";
+		$data['konten'] = 'admin/perizinan/sppl/edit_lama';
 		$data['kecamatan'] = $this->supermodel->getData('kecamatan');
-		$data['item'] = $this->supermodel->getData('ukl_upl',array('ukl_upl_id'=>$id))->row_array();
-		$data['kelurahan'] = $this->supermodel->getData('kelurahan', array('kelurahan_id'=>$data['item']['kelurahan_id']))->row_array();
-
+		$data['item'] = $this->supermodel->getData('sppl_lama',array('sppl_lama_id'=>$id))->row_array();
 		$this->load->vars($data);
 		$this->load->view('admin/template');
 	}
 
-	function importdata() {
-
-		$config['upload_path'] = './uploads/dataimport/';
-        $config['allowed_types'] = 'csv';
-        $config['max_size'] = '9000';
-
-        $this->load->library('upload', $config);
-
-            $file_data = $this->upload->data();
-            $file_path =  './uploads/dataimport/'.$file_data['file_name'];
-            
-            if ($this->csvimport->get_array($file_path)) {
-                $csv_array = $this->csvimport->get_array($file_path);
-                foreach ($csv_array as $row) {
-                    $insert_data = array(
-                        'jenis_kegiatanusaha'=>$row['jenis_kegiatanusaha'],
-                        'tahun'=>$row['tahun'],
-                        'kelurahan_id'=>$row['kelurahan_id'],
-                        'alamat'=>$row['alamat'],
-                        'rekom_kaamdal'=>$row['rekom_kaamdal'],
-                        'rekom_amdal'=>$row['rekom_amdal'],
-                        'keterangan'=>$row['keterangan']
-                    );
-                    $this->supermodel->insertData('amdal', $insert_data);
-                }
-                echo "<div class='alert alert-info'><button type='button' class='close' data-dismiss='alert' >×</button>Import data berhasil</div>";
-                $this->load->view('admin/perizinan/amdal/index', $data);
-            } else {
-                echo "<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert' >×</button>Error, file tidak memenuhi kriteria</div>";
-                $this->load->view('admin/perizinan/amdal/index', $data);
-            }
-        
+	function approve($id=null)
+	{
+		if($id=null)
+		{
+			$this->session->set_flashdata('Error','Tidak Berhasil Menghapus Data');
+			redirect('adm_sppl/index');
+		}
+		else
+		{
+			$aye = $this->supermodel->getData('sppl_lama')->row_array();
+			$in['status'] = '1';
+			$dltuser = $this->supermodel->updateData('sppl_lama',$in,'sppl_lama_id',$aye['sppl_lama_id']);
+			$this->session->set_flashdata('success', 'Status Permohonan Telah Dirubah');
+			redirect('adm_sppl/index');
+		}
 	}
-
 }
 ?>

@@ -1,6 +1,7 @@
 <?php
 /**
 * Author Imam Teguh
+edit by : Rizki Maulana
 */
 class Adm_sungai extends CI_Controller
 {
@@ -256,31 +257,68 @@ class Adm_sungai extends CI_Controller
 			$this->load->view('admin/sungai/parameter', $data);
 		}
 	}
+	
 
-	function chart()
+	function cibalok()
 	{
-		$data['title'] = "Pengujian Sungai";
-		$data['konten'] = 'admin/sungai/chart';
-		$data['tahun'] = $this->supermodel->queryManual('select * from tahunuji_sungai order by tahunuji_sungai desc');
-		$data['parameter'] = $this->supermodel->getData('par_sungai_situ');
-		$data['lokasi'] = $this->supermodel->getData('lokasiuji_sungai');
-
-
-		$data['dt'] = array('parameter'=>'');
-		$data['thn'] = '';
-		$data['idp'] = '';
-		$data['bakumutu'] = '';
-		if(isset($_GET['filter'])) {
-			$idp = $this->input->get('parameter');
-			$thn = $this->input->get('tahun');
-			$data['dt'] = $this->supermodel->getData('par_sungai_situ',array('par_sungai_situ_id'=>$idp))->row_array();
-			$data['thn'] = $thn;
-			$data['idp'] = $idp;
-			$bk = $this->supermodel->queryManual('select baku_mutu from hasiluji_sungai where par_sungai_situ_id='.$idp.' group by baku_mutu')->row_array();
-
-			$data['bakumutu'] = $bk['baku_mutu'];
-		}
-
+		$data['title'] = "Hasil Pengujian Sungai Cibalok";
+		$data['konten'] = 'admin/sungai/chart/cibalok';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function cidepit()
+	{
+		$data['title'] = "Hasil Pengujian Sungai Cidepit";
+		$data['konten'] = 'admin/sungai/chart/cidepit';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function ciliwung()
+	{
+		$data['title'] = "Hasil Pengujian Sungai Ciliwung";
+		$data['konten'] = 'admin/sungai/chart/ciliwung';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function ciluar()
+	{
+		$data['title'] = "Hasil Pengujian Sungai Ciluar";
+		$data['konten'] = 'admin/sungai/chart/ciluar';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function cipakancilan()
+	{
+		$data['title'] = "Hasil Pengujian Sungai Cipakancilan";
+		$data['konten'] = 'admin/sungai/chart/cipakancilan';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function ciparigi()
+	{
+		$data['title'] = "Hasil Pengujian Sungai Ciparigi";
+		$data['konten'] = 'admin/sungai/chart/ciparigi';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function cisadane()
+	{
+		$data['title'] = "Hasil Pengujian Sungai Cisadane";
+		$data['konten'] = 'admin/sungai/chart/cisadane';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function cisindang_barang()
+	{
+		$data['title'] = "Hasil Pengujian Sungai Cisindang Barang";
+		$data['konten'] = 'admin/sungai/chart/cisindang_barang';
+		$this->load->vars($data);
+		$this->load->view('admin/template');
+	}
+	function cianten()
+	{
+		$data['title'] = "Hasil Pengujian Sungai Cianten";
+		$data['konten'] = 'admin/sungai/chart/cianten';
 		$this->load->vars($data);
 		$this->load->view('admin/template');
 	}

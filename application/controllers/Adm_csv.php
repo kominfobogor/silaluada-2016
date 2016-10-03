@@ -2,7 +2,7 @@
 /**
 * Author Rizki Maulana
 */
-class adm_csv extends CI_Controller
+class Adm_csv extends CI_Controller
 {
 	
 	function __construct()
@@ -35,25 +35,6 @@ class adm_csv extends CI_Controller
 		$data['offset'] = $offset;
 		$this->load->vars($data);
 		$this->load->view('admin/template');
-	}
-	function cetak()
-	{
-		//$data['title'] = "CSV";
-		$data['konten'] = 'admin/csv/cetak';
-		$link = 'adm_csv/cetak/';
-		$limit= 10;
-		$uri_segment= 3;
-		$offset= $this->uri->segment($uri_segment);
-		
-		$data['list'] = $this->supermodel->getData('pengujian_sungai');
-		$jum = $this->supermodel->getData('pengujian_sungai');
-		
-		$data['listview'] = $this->supermodel->getData('pengujian_sungai',$field='', $order='pengujian_sungai_id', $dasc='DESC');
-		
-		$this->supermodel->paging($link,$jum,$limit,$uri_segment);
-		$data['offset'] = $offset;
-		$this->load->vars($data);
-		$this->load->view('admin/template1');
 	}
 	
 	function importcsv() {
