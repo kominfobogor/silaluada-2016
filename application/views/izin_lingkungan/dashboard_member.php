@@ -46,8 +46,8 @@
 													    			$id = $this->session->userdata('member_id');
 													    			$sql = $this->supermodel->queryManual("SELECT 
 													    													a.*,
-																											b.nama as nama_pemohon,
-																											c.nama as nama_perusahaan,
+																											b.nama_pemohon as nama_pemohon,
+																											c.nama_perusahaan as nama_perusahaan,
 																											d.*
 													    													from 
 													    													sppl a,pemohon b,perusahaan c,jenisizin d 

@@ -59,8 +59,11 @@ class Login_daftar_member extends CI_Controller
 
 
 
-
-	function daftar()
+	/**
+	 * Register Member
+	 * @fix by Hikmahtiar <hikmahtiar.cool@gmail.com>
+	 */
+	public function daftar()
 	{
 		$nama = $this->input->post('nama');
 		$alamat = $this->input->post('alamat');
@@ -68,11 +71,16 @@ class Login_daftar_member extends CI_Controller
 		$email = $this->input->post('email');
 		$password = md5($this->input->post('password'));
 		$image_ktp = $this->input->post('image_ktp');
+		$daftar_post = $this->input->post('daftar');
+
+		if($nama == "" && $nik == "" && $email == "") {
+       		echo "<script>alert('Silahkan cek form pendaftaran');document.location.href='index'</script>";			
+		}
 
 		$file = $_FILES['image_ktp']['name'];
 
-		if (isset($_POST['daftar'])){
-			$data =array('nama' => $nama,
+		if ($daftar_post == ""){
+			$data = array('nama' => $nama,
 						 'alamat' => $alamat,
 						 'nik' => $nik,
 						 'email' => $email,
@@ -85,19 +93,22 @@ class Login_daftar_member extends CI_Controller
 					if (!empty($row)){
 		        		echo "<script>alert('Email sudah dipakai');document.location.href='index'</script>";
 					}else{
-						if($file) {
+
+						if($file != "") {
+							$rand = rand(0, 999999);
 							$explode	= explode('.',$file);
 							$ext	= $explode[count($explode)-1];
 							$name = date("Ymd").$rand.'.'.$ext;
 							$unggah = $this->supermodel->unggah_gambar('perizinan/image_ktp','image_ktp',$name);
-							if($unggah===false) {
+							if($unggah == false) {
 								echo "<script>alert('Upload gagal!');document.location.href='index'</script>";
 							}else{
 								$data['image_ktp'] = $name;
 								$jalan = $this->supermodel->insertData('member',$data);
 								if ($jalan){
-								// $this->supermodel->insertData('persyaratan_izin',array('email'=>$alamatemail,'status'=>"0"));
+								//$this->supermodel->insertData('persyaratan_izin',array('email'=>$email,'status'=>"0"));
 								echo"<script>alert('Data berhasil dikirim, silakan cek kotak masuk atau spam email anda untuk melakukan verifikasi');document.location.href='index'</script>";
+									
 								}	
 							}
 						}
@@ -105,6 +116,6 @@ class Login_daftar_member extends CI_Controller
 					}
 		}
 
-	}	
+	}
 }
 ?>
