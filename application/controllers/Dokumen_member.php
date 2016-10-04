@@ -29,14 +29,17 @@ class dokumen_member extends CI_Controller
 															FROM 
 															direktori_member
 															WHERE
-															member_id = '".$member_id."' ORDER BY perusahaan_id DESC");
+															perusahaan_id = '".$perusahaan_id."' ORDER BY perusahaan_id DESC");
 			
 			if ($perusahaan_id == ""){
 				echo "";
 			}else{
 				echo "
-				<div class='col-md-12'>
-					<div class='box'>
+				  <div class='col-lg-8'>
+				<div class='panel panel-default'>
+					<div class='panel-heading'>Upload Dokumen</div>
+					<div class='panel-body'>
+						<div class='canvas-wrapper'>
 				<form method='POST' action='".site_url('dokumen_member/upload')."' enctype='multipart/form-data'> 
 									    	<input type='hidden' value='{$perusahaan_id}' name='perusahaan' required>
 								    		<div>
@@ -49,11 +52,11 @@ class dokumen_member extends CI_Controller
 									    			<tr>
 									    				<td></td>
 									    				<td></td>
-									    				<td><input type='submit' name='upload' class='btn btn-success' value='Upload'></td>
+									    				<td align='right'><input type='submit' name='upload' class='btn btn-success' value='Upload'></td>
 									    			</tr>
 									    			<tr>
 												    	<td colspan='3'>
-												    		<table class='table table-bordered table-striped' id='example1'>
+												    		<table class='table table-bordered table-striped' id='example2'>
 													    		<thead>
 													    			<tr>
 													    				<th>No</th>
@@ -80,7 +83,11 @@ class dokumen_member extends CI_Controller
 												    </tr>
 									    		</table>
 								    		</div>	<!-- END -->	
-								    	</form></div></div>";
+								    	</form>
+								    	</div>
+					</div>
+				</div>
+			</div>";
 			}
 	}
 

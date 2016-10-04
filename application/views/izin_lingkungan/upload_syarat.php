@@ -16,33 +16,20 @@
 
 	</script>
 
-
-		  <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="margin:0">
-        <!-- Content Header (Page header) -->
-
-
-        <section class="content-header">
-          <h1>
-            Aplikasi Perizinan Lingkungan
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-            <li class="active">Kirim Persyaratan</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <!-- Info boxes -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Kirim Persyaratan</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Dashboard</li>
+				<li class="active">Kirim Persyaratan Perizinan</li>
+			</ol>
+		</div><!--/.row-->
+		<br>
+       <div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">Kirim Persyaratan</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
 								<form method="POST" id="urus-perizinan" action="<?php echo site_url('upload_syarat/simpan/'.$permohonan_id)?>" enctype="multipart/form-data">
 								    <input type="hidden" value="<?php echo $permohonan_id; ?>" name="permohonan_id">
 								    <input type="hidden" value="<?php echo $pemohon_id; ?>" name="pemohon_id">
@@ -146,16 +133,16 @@
 									    			</tr>
 									    		<?php }} ?>
 								    		</table>   
-								    		<input type="submit" name="simpan" class="btn btn-success" value="Simpan">
+								    		<input type="submit" name="simpan" class="btn btn-success" value="Simpan" style="float:right">
 								  </div>
 								</form>
-								</div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
+								</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
 
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
+
 							    		<!-- MODAL -->
 										  <div class="modal fade" id="myModal" role="dialog">
 										    <div class="modal-dialog"><!-- Modal content-->

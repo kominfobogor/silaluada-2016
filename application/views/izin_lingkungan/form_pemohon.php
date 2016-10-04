@@ -1,38 +1,21 @@
-  <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="margin:0">
-        <!-- Content Header (Page header) -->
+  <div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Dashboard</li>
+				<li class="active">Data Pemohon</li>
+			</ol>
+		</div><!--/.row-->
+		<br>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Data Pemohon</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+
+          				<a href="<?php echo site_url('pemohon/tambah')?>" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Tambah Data</a><br><br>
 
 
-        <section class="content-header">
-          <h1>
-           Aplikasi Perizinan Lingkungan
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Pemohon</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <!-- Info boxes -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Data Pemohon</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-
-          
-							    		<table class="table">
-							    			<tr>
-							    				<td><a href="<?php echo site_url('pemohon/tambah')?>" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Tambah Data</a></td>
-							    			</tr>
-							    			<tr>
-							    				<td></td>
-										    </tr>
-										</table>
 												<div style="height:auto;width:auto; overflow:scroll;">
 										    		<table class="table table-bordered table-striped" id="example1">
 											    		<thead>
@@ -69,12 +52,8 @@
 										    		</div>
 							    	<!-- END -->		
 
-
-
-                </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->

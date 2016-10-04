@@ -1,33 +1,22 @@
-	  <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="margin:0">
-        <!-- Content Header (Page header) -->
-
-
-        <section class="content-header">
-          <h1>
-            Aplikasi Perizinan Lingkungan
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dokumen Member</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <!-- Info boxes -->
-          <div class="row">
-            <div class="col-md-4">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Data Perusahaan</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
+<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Dashboard</li>
+				<li class="active">Dokumen Member</li>
+			</ol>
+		</div><!--/.row-->
+		<br>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">Data Perusahaan</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
 
                     <form method="POST" action="<?php echo site_url('dokumen_member/tampil')?>" enctype="multipart/form-data"> 
 								    		<table class="table">
 								    			<tr>
-								    				<th>Pilih Perusahaan</th>
+								    				<th>Pilih</th>
 								    				<td>:</td>
 								    				<td>
 								    					<select name="perusahaan" class="form-control" id="optionPerusahaan">
@@ -52,31 +41,29 @@
 									    		</tr>
 								    		</table>
 								    	</form>
-                </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
+                		</div>
+					</div>
+				</div>
+			</div>
 
+          
 
 					<div id="aksiPerusahaan"></div>
 
-                </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
+		</div><!--/.row-->
 
 
 
 	<script>
 		$(document).ready(function(){
 			$.post("<?php echo site_url('dokumen_member/tampil') ?>",{perusahaan_id:$("#optionPerusahaan option:selected").val() }, function(aksi){
+				console.log(aksi);
 				$("#aksiPerusahaan").html(aksi);
 			});
 
 			$("#optionPerusahaan").change(function(){
 				$.post("<?php echo site_url('dokumen_member/tampil') ?>",{perusahaan_id:$("#optionPerusahaan option:selected").val() }, function(aksi){
+					console.log(aksi);
 					$("#aksiPerusahaan").html(aksi);
 				});
 			});

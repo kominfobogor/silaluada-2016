@@ -19,5 +19,54 @@ class Dashboard_member extends CI_Controller
 		$data['konten'] = "izin_lingkungan/dashboard_member";
 		$this->load->view('izin_lingkungan/template',$data);
 	}
+
+	function vdetail($jenisizin_id,$permohonan_id){
+
+		if($jenisizin_id == "1" || $jenisizin_id == "2" || $jenisizin_id == "3"){
+				$tabel = "sppl";
+			}elseif ($jenisizin_id == "4"){
+				$tabel = "ukl_upl";
+			}elseif ($jenisizin_id == "5"){
+				$tabel = "amdal";
+			}
+
+		$r = $this->supermodel->queryManual("SELECT 
+										    a.*,
+											b.nama_pemohon,
+											c.nama_perusahaan,
+											d.*
+										    from 
+										    $tabel a,pemohon b,perusahaan c,jenisizin d 
+										    WHERE 
+										    a.pemohon_id = b.pemohon_id AND
+										    a.perusahaan_id = c.perusahaan_id AND
+										    a.jenisizin_id = d.jenisizin_id AND
+										    a.permohonan_id = '".$permohonan_id."' ORDER BY a.permohonan_id DESC")->row_array();
+		$data=array('permohonan_id' => $r['permohonan_id'],
+					'nama_perizinan' => $r['nama_perizinan'],
+					'nama_pemohon' => $r['nama_pemohon'],
+					'nama_perusahaan' => $r['nama_perusahaan'],
+					'tgl_permohonan' => $r['tgl_permohonan'],
+					'nama_kegiatan' => $r['nama_kegiatan'],
+					'rencana_lokasi' => $r['rencana_lokasi'],
+					'no_reg' => $r['no_reg'],
+					'no_izin' => $r['no_izin'],
+					'tgl_terbit' => $r['tgl_terbit']);
+
+
+		$data['syarat'] = $this->supermodel->queryManual("SELECT 
+													    a.*,
+														b.*,
+														c.*
+													   	from 
+													   	upload_syarat a,persyaratan b,direktori_member c
+													   	WHERE 
+													   	a.persyaratan_id = b.persyaratan_id AND
+													   	a.dokumen_id = c.dokumen_id AND
+													   	a.permohonan_id = '".$permohonan_id."'");
+
+		$data['konten'] = "izin_lingkungan/vdetail_izin_selesai";
+		$this->load->view('izin_lingkungan/template',$data);
+	}
  }
 ?>

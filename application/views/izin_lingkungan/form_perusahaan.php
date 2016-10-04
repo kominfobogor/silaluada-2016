@@ -1,38 +1,20 @@
-	     <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="margin:0">
-        <!-- Content Header (Page header) -->
-
-
-        <section class="content-header">
-          <h1>
-           Aplikasi Perizinan Lingkungan
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Perusahaan</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <!-- Info boxes -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Data Perusahaan</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-
+  <div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Dashboard</li>
+				<li class="active">Data Perusahaan</li>
+			</ol>
+		</div><!--/.row-->
+		<br>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Data Perusahaan</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
                    
-							    	<table class="table">
-							    			<tr>
-							    				<td><a href="<?php echo site_url('perusahaan/tambah')?>" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Tambah Data</a></td>
-							    			</tr>
-							    			<tr>
-							    				<td></td>
-							    			</tr>
-							    	</table>
+							  <a href="<?php echo site_url('perusahaan/tambah')?>" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Tambah Data</a><br><br>
+							    			
 							    	<div style="height:auto;width:auto; overflow:scroll;">
 							    		<table class="table table-bordered table-striped" id="example1">
 								    		<thead>
@@ -76,10 +58,8 @@
 							    		</table>
 							    	</div>
 							    	<!-- END -->		
-                </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
+                		</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->

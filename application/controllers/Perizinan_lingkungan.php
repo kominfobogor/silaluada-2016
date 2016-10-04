@@ -60,11 +60,13 @@ class Perizinan_lingkungan extends CI_Controller
 		$nama_kegiatan = $this->input->post('nama_kegiatan');
 		$rencana_lokasi = $this->input->post('rencana_lokasi');
 		$member_id = $this->session->userdata('member_id');
+		$tgl = date('Y-m-d');
 
 		if (isset($_POST['simpan'])){
 			$data =array('permohonan_id' => $permohonan_id,
 						 'jenisizin_id' => $jenisizin_id,
 						 'member_id' => $this->session->userdata('member_id'),
+						 'tgl_permohonan' => $tgl,
 						 'perusahaan_id' => $perusahaan,
 						 'nama_kegiatan' => $nama_kegiatan,
 						 'rencana_lokasi' => $rencana_lokasi,

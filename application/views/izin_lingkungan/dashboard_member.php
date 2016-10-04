@@ -1,35 +1,20 @@
-	
-
-
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="margin:0">
-        <!-- Content Header (Page header) -->
-
-
-        <section class="content-header">
-          <h1>
-           	Aplikasi Perizinan Lingkungan
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <!-- Info boxes -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Dashboard</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-
+		
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Dashboard</li>
+			</ol>
+		</div><!--/.row-->
+		<br>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Dashboard</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
                    <!-- Dashboard -->
 							    		<div style="text-align:left;">
-							    			<a data-toggle="modal" data-target="#myModal" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Buat Izin Baru</a>
+							    			<a data-toggle="modal" data-target="#myModal" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Buat Permohonan Izin Baru</a>
 							    		</div><br>
 
 							    		<ul class="nav nav-tabs nav-justified">
@@ -45,6 +30,7 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
+										    			<div style="height:auto;width:auto; overflow:scroll;">
 												    		<table class="table table-bordered table-striped" id="example1">
 													    		<thead>
 													    			<tr>
@@ -70,7 +56,7 @@
 													    													a.pemohon_id = b.pemohon_id AND
 													    													a.perusahaan_id = c.perusahaan_id AND
 													    													a.jenisizin_id = d.jenisizin_id AND
-													    													a.status_perizinan = '0' AND
+													    													a.status_perizinan !='1' AND
 													    													a.member_id = '".$id."' ORDER BY a.permohonan_id DESC");
 																	if($sql->num_rows()>0) {
 																		$no=1;
@@ -93,6 +79,7 @@
 													    			</tr>
 													    		<?php }} ?>
 												    		</table>
+												    		</div>
 												    	</td>
 										    		</tr>
 
@@ -101,7 +88,8 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
-												    		<table class="table table-bordered table-striped" id="example1">
+										    			<div style="height:auto;width:auto; overflow:scroll;">
+												    		<table class="table table-bordered table-striped" id="example4">
 													    		<thead>
 													    			<tr>
 													    				<th>No</th>
@@ -152,6 +140,7 @@
 													    			</tr>
 													    		<?php }} ?>
 												    		</table>
+												    	</div>
 												    	</td>
 										    		</tr>
 												</table>
@@ -164,9 +153,7 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
-															<table class="table">
-													    		<tr>
-													    			<td>
+										    			<div style="height:auto;width:auto; overflow:scroll;">
 															    		<table class="table table-bordered table-striped" id="example2">
 																    		<thead>
 																    			<tr>
@@ -192,6 +179,7 @@
 																    													a.pemohon_id = b.pemohon_id AND
 																    													a.perusahaan_id = c.perusahaan_id AND
 																    													a.jenisizin_id = d.jenisizin_id AND
+																    													a.status_perizinan != '1' AND
 																    													a.member_id = '".$id."' ORDER BY a.permohonan_id DESC");
 																				if($sql->num_rows()>0) {
 																					$no=1;
@@ -214,14 +202,15 @@
 																    			</tr>
 																    		<?php }} ?>
 															    		</table>
-															    	</td>
-															    </tr>
-															    <tr>
+														</div>
+														</td>
+													<tr>
 										    			<td align="center"><label>Permohonan UKL-UPL yang telah selesai</label></td>
 										    		</tr>
 										    		<tr>
 										    			<td>
-												    		<table class="table table-bordered table-striped" id="example1">
+										    			<div style="height:auto;width:auto; overflow:scroll;">
+												    		<table class="table table-bordered table-striped" id="example5">
 													    		<thead>
 													    			<tr>
 													    				<th>No</th>
@@ -272,11 +261,9 @@
 													    			</tr>
 													    		<?php }} ?>
 												    		</table>
+												    	</div>
 												    	</td>
 										    		</tr>
-															</table>
-														</td>
-													</tr>
 												</table>
 											</div>
 
@@ -287,6 +274,7 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
+										    			<div style="height:auto;width:auto; overflow:scroll;">
 												    		<table class="table table-bordered table-striped" id="example3">
 													    		<thead>
 													    			<tr>
@@ -312,6 +300,7 @@
 													    													a.pemohon_id = b.pemohon_id AND
 													    													a.perusahaan_id = c.perusahaan_id AND
 													    													a.jenisizin_id = d.jenisizin_id AND
+													    													a.status_perizinan != '1' AND
 													    													a.member_id = '".$id."' ORDER BY a.permohonan_id DESC");
 																	if($sql->num_rows()>0) {
 																		$no=1;
@@ -334,6 +323,7 @@
 													    			</tr>
 													    		<?php }} ?>
 												    		</table>
+												    	</div>
 												    	</td>
 												    </tr>
 												    <tr>
@@ -341,7 +331,8 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
-												    		<table class="table table-bordered table-striped" id="example1">
+										    			<div style="height:auto;width:auto; overflow:scroll;">
+												    		<table class="table table-bordered table-striped" id="example6">
 													    		<thead>
 													    			<tr>
 													    				<th>No</th>
@@ -392,21 +383,20 @@
 													    			</tr>
 													    		<?php }} ?>
 												    		</table>
+												    	</div>
 												    	</td>
 										    		</tr>
 												</table>
 											</div>
 										</div>				   
 
-                </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
 
 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
 	<!-- MODAL -->
 	  <div class="modal fade" id="myModal" role="dialog">
 	    <div class="modal-dialog">

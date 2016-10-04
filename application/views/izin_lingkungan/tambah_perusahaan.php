@@ -1,30 +1,28 @@
 <form method="POST" action="<?php echo site_url('perusahaan/simpan')?>" enctype="multipart/form-data"> 
-<!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="margin:0">
-        <!-- Content Header (Page header) -->
-
-
-        <section class="content-header">
-          <h1>
-           Aplikasi Perizinan Lingkungan
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Perusahaan</li>
-            <li class="active">Tambah Perusahaan</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <!-- Info boxes -->
-          <div class="row">
-            <div class="col-md-6">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Tambah Perusahaan</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
+<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Dashboard</li>
+				<li class="active">Data Perusahaan</li>
+				<li class="active">Tambah Data Perusahaan</li>
+			</ol>
+		</div><!--/.row-->
+		<br>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">Tambah Data Perusahaan	
+						<input type="submit" name="simpan" value="Simpan" class="btn btn-success" style="float:right;margin-left:5px;">
+						<a href="<?php echo site_url('perusahaan') ?>" class="btn btn-danger" style="float:right;">Batal</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="canvas-wrapper">
 
 							    		<table class="table">
 								    		<tr>
@@ -111,34 +109,28 @@
 								    			<td><input type="text" name="kondisi" class="form-control"></td>
 								    		</tr>
 							    		</table>
-                </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-            <div class="col-md-6">
-              <div class="box">
-                <div class="box-body">
+                		</div>
+					</div>
+				</div>
+			</div>
+            <div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">Lokasi Perusahaan</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
       									
 								    		<div class="gllpLatlonPicker" align="center" >
-												<div class="gllpMap"><b>Lokasi Perusahaan</b></div><br><br>
+												<div class="gllpMap"><b>Kota Bogor</b></div><br><br>
 												<input type="text" name="lat" class="gllpLatitude" value="-6.59483" placeholder="Latitude" Required>
 												<input type="text" name="lng" class="gllpLongitude" value="106.79955" placeholder="Longitude" Required>
 											</div>
 
-											<table class="table">
-								    		<tr>
-								    			<td align="right">
-								    				<input type="submit" name="simpan" value="Simpan" class="btn btn-success">
-													<a href="<?php echo site_url('perusahaan') ?>"><div class="btn btn-danger">Batal</div></a>
-												</td>
-								    		</tr>
-								    	</table>
-				 </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
+	
+						</div>
+					</div>
+				</div>
+			</div>
+      </div>
 
   
 

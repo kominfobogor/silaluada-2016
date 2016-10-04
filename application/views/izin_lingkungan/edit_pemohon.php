@@ -1,28 +1,19 @@
-<!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="margin:0">
-        <!-- Content Header (Page header) -->
+<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Dashboard</li>
+				<li class="active">Data Pemohon</li>
+				<li class="active">Edit Data Pemohon</li>
+			</ol>
+		</div><!--/.row-->
+		<br>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Edit Data Pemohon</div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
 
-
-        <section class="content-header">
-          <h1>
-           Aplikasi Perizinan Lingkungan
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Pemohon</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <!-- Info boxes -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Edit Pemohon</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
 
 							<form method="POST" action="<?php echo site_url('pemohon/update')?>" enctype="multipart/form-data"> 
 							    	<input type="hidden" name="pemohon_id" value="<?php echo $pemohon_id; ?>">
@@ -95,23 +86,21 @@
 								    		<tr>
 								    			<th></th>
 								    			<td></td>
-								    			<td>
+								    			<td align="right">
+								    				<a href="<?php echo site_url('pemohon') ?>" class="btn btn-danger">Batal</a>
 								    				<input type="submit" name="update" value="Update" class="btn btn-success">
-													<a href="<?php echo site_url('pemohon') ?>"><div class="btn btn-danger">Batal</div></a>
 												</td>
 								    		</tr>
 							    		</table>
 							</form>	<!-- END -->		
 					
              
-
-                </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
+	
 
 				<script>
 						$("#kec").change(function(){

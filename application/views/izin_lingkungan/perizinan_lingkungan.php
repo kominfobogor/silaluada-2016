@@ -1,36 +1,29 @@
-	  <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="margin:0">
-        <!-- Content Header (Page header) -->
+<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Dashboard</li>
+				<li class="active">Buat Permohonan Izin</li>
+			</ol>
+		</div><!--/.row-->
+		<br>
+		<form method="POST" action="<?php echo site_url('perizinan_lingkungan/simpan')?>" enctype="multipart/form-data">
+								
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+				<div class="panel-heading">Buat Permohonan Izin	
+						<input type='submit' class='btn btn-success' name='simpan' value='Simpan' id='simpan' style="float:right;margin-left:5px;">
+						<a href="<?php echo site_url('dashboard_member/index'); ?>" class="btn btn-danger" style="float:right">Batal</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
-
-        <section class="content-header">
-          <h1>
-            Sistem informasi Pelaporan Lalulintas Ternak
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-            <li class="active">Buat Permohonan Izin</li>
-          </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <!-- Info boxes -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Buat Permohonan Izin</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-
-								<form method="POST" action="<?php echo site_url('perizinan_lingkungan/simpan')?>" enctype="multipart/form-data">
-									<div style="text-align:right">
-										<a href="<?php echo site_url('dashboard_member/index'); ?>" class="btn btn-danger">Batal</a>
-										<input type='submit' class='btn btn-success' name='simpan' value='Simpan' id='simpan'>
-									</div>
-									<br>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="canvas-wrapper">
 									<input type="hidden" name="jenisizin_id" value="<?php echo $jenisizin_id; ?>">
 									<input type="hidden" name="permohonan_id" value="<?php echo $permohonan_id; ?>">
 									<input type="hidden" name="tabel" value="<?php echo $tabel; ?>">
@@ -51,6 +44,15 @@
 											<td><input type="text" name="rencana_lokasi"  class="form-control" required></td>
 										</tr>
 									</table>
+ 						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="canvas-wrapper">
 								  	<ul class="nav nav-tabs nav-justified">
 								    	<li class="active"><a data-toggle="tab" href="#dataPemohon" style="color:black;">Data Pemohon</a></li>
 								   	 	<li><a data-toggle="tab" href="#dataPerusahaan" style="color:black;">Data Perusahaan</a></li>
@@ -62,13 +64,13 @@
 											    	<!-- TAB DATA PEMOHON -->
 											    		<table class="table">
 											    			<tr>
-											    				<td><label>Pilih Data Pemohon / Pemrakarsa</label></td>
+											    				<td><label>Pilih Pemohon</label></td>
 											    				<td>:</td>
 											    				<td>
 											    					<select name="pemohon" class="form-control" id="optionPemohon" ruquired>
 														        	</select>
 											    				</td>
-											    				<td><a class="btn btn-info" data-toggle="modal" data-target="#modalTambahPemohon"><i class="fa fa-plus"> </i>Tambah Baru</a></td>
+											    				<td><a class="btn btn-info" data-toggle="modal" data-target="#modalTambahPemohon"><i class="fa fa-plus"> </i></a></td>
 											    			</tr>
 											    			<tr>
 											    				<td colspan="4">
@@ -91,7 +93,7 @@
 										    					<select name="perusahaan" class="form-control" id="optionPerusahaan" required>
 													        	</select>
 										    				</td>
-										    				<td><a class="btn btn-info" data-toggle="modal" data-target="#modalTambahPerusahaan"><i class="fa fa-plus"> </i>Tambah Baru</a></td>
+										    				<td><a class="btn btn-info" data-toggle="modal" data-target="#modalTambahPerusahaan"><i class="fa fa-plus"> </i></a></td>
 										    			</tr>
 										    			<tr>
 										    				<td colspan="4">
@@ -104,16 +106,15 @@
 										    </div>  
 										    
 									</div>
-								</form>
+								
 			
-							 </div><!-- ./box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
+							</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
 
-        </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-
+</form>
 
 	<!-- MODAL TAMBAH PEMOHON-->
 	  <div class="modal fade" id="modalTambahPemohon" role="dialog">
