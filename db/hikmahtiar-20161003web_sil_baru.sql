@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 03, 2016 at 11:14 PM
--- Server version: 5.5.47-0ubuntu0.12.04.1
--- PHP Version: 5.6.25-2+deb.sury.org~precise+1
+-- Generation Time: Oct 04, 2016 at 06:28 PM
+-- Server version: 10.1.17-MariaDB-1~precise
+-- PHP Version: 7.0.11-1+deb.sury.org~precise+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -21198,12 +21198,10 @@ CREATE TABLE `perusahaan` (
   `perusahaan_id` int(5) NOT NULL,
   `nama_perusahaan` varchar(50) NOT NULL,
   `status_perusahaan` varchar(20) NOT NULL,
-  `nama_kegiatan` varchar(80) NOT NULL,
   `alamat_perusahaan` varchar(50) NOT NULL,
   `kelurahan_id` int(3) NOT NULL,
-  `lat` decimal(8,0) NOT NULL,
-  `lng` decimal(8,0) NOT NULL,
-  `lokasi` varchar(50) NOT NULL,
+  `lat` varchar(50) NOT NULL,
+  `lng` varchar(50) NOT NULL,
   `notelp_perusahaan` varchar(15) NOT NULL,
   `jenis_usaha` varchar(30) NOT NULL,
   `kapasitas_produksi` varchar(20) NOT NULL,
@@ -21217,9 +21215,9 @@ CREATE TABLE `perusahaan` (
 -- Dumping data for table `perusahaan`
 --
 
-INSERT INTO `perusahaan` (`perusahaan_id`, `nama_perusahaan`, `status_perusahaan`, `nama_kegiatan`, `alamat_perusahaan`, `kelurahan_id`, `lat`, `lng`, `lokasi`, `notelp_perusahaan`, `jenis_usaha`, `kapasitas_produksi`, `luas_lahan`, `luas_bangunan`, `kondisi`, `member_id`) VALUES
-(1, 'PT BeSmart Global Bogor', 'Milik Perusahaan', 'Perluasan Gedung', 'Bogor', 1, '1', '1', 'Bogor', '058454634254', 'Software House', '33', '2000', '1200', 'BAngunan ', 0),
-(2, 'Perusahaan 1', 'Milik Perusahaan', '', 'Alamat 1', 19, '0', '0', '', '128903', 'IT', '1', '2', '3', '4', 3);
+INSERT INTO `perusahaan` (`perusahaan_id`, `nama_perusahaan`, `status_perusahaan`, `alamat_perusahaan`, `kelurahan_id`, `lat`, `lng`, `notelp_perusahaan`, `jenis_usaha`, `kapasitas_produksi`, `luas_lahan`, `luas_bangunan`, `kondisi`, `member_id`) VALUES
+(1, 'PT BeSmart Global Bogor', 'Milik Perusahaan', 'Bogor', 1, '1', '1', '058454634254', 'Software House', '33', '2000', '1200', 'BAngunan ', 0),
+(2, 'Perusahaan 1', 'Milik Perusahaan', 'Alamat 1', 19, '0', '0', '128903', 'IT', '1', '2', '3', '4', 3);
 
 -- --------------------------------------------------------
 
