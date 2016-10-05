@@ -29,18 +29,19 @@ function menus()
 
 function menu_now()
 {
-	$mn = '<ul class="nav navbar-nav navbar-right" style="font-size: 10px;">';
+	$mn = '<ul class="w3-navbar w3-light-grey w3-border" style="font-size: 12px;">';
+	$mn .= '<li><a class="w3-black" href="'.site_url().'">Home</a></li>';
 	$ci =& get_instance();
 	$get = $ci->db->query("select * from category where parent = 0 order by sort asc");
 	foreach ($get->result() as $rows) {
 		$cek = $ci->db->query("select * from category where parent = '".$rows->category_id."' order by sort asc ");
 		if($cek->num_rows()>0) {
-			$mn .= '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$rows->category_name.' <span class="caret"></span></a>';
-			$mn .= '<ul class="dropdown-menu" style="font-size: 12px;">';
+			$mn .= '<li class="w3-dropdown-hover w3-hover-grey"><a class="w3-hover-grey" data-toggle="dropdown" href="#">'.$rows->category_name.' <span class="caret"></span></a>';
+			$mn .= '<div class="w3-dropdown-content w3-white w3-card-4" style="font-size: 12px;">';
 			foreach ($cek->result() as $row) {
-				$mn .= '<li><a href="'.site_url('kategori/kode/'.$row->category_id).'">'.$row->category_name.'</a></li>';
+				$mn .= '<a href="'.site_url('kategori/kode/'.$row->category_id).'">'.$row->category_name.'</a>';
 			}
-			$mn .= "</ul>";
+			$mn .= "</div>";
 			$mn .= "</li>";
 		} else {
 			$mn .= '<li><a href="'.site_url('kategori/kode/'.$rows->category_id).'">'.$rows->category_name.'</a></li>';
@@ -49,7 +50,6 @@ function menu_now()
 	$mn .= '<li><a href="'.site_url('ragam_data').'">RAGAM DATA</a></li>';
 	$mn .= '<li><a href="'.site_url('galeri').'">GALERI</a></li>';
 	$mn .= '<li><a href="'.site_url('gis').'">WEB GIS</a></li>';
-	$mn .= '<li><a href="'.site_url('kontak').'">KONTAK KAMI</a></li>';
 	$mn .= "</ul>";
 
 	return $mn;

@@ -1,382 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<title>BPLH Kota Bogor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="<?php echo base_url('assets/css/image/kotabogor.png') ?>">
+<!--
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-blue-grey.css">
+-->
+<link href="<?php echo base_url()?>assets/css/w3.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url()?>assets/css/w3-theme-blue-grey.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url()?>assets/css/cldr.css" rel="stylesheet" type="text/css" />
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>BPLH Kota Bogor</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url(); ?>assets/frontend/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="<?php echo base_url(); ?>assets/frontend/css/modern-business.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/frontend/css/style.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/plugins/datepicker/datepicker3.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="<?php echo base_url(); ?>assets/frontend/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <link rel="icon" href="<?php echo base_url('assets/css/image/kotabogor.png') ?>">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
+    <link href="<?php echo base_url('asset/css/metro-bootstrap.css')?>" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="<?php echo base_url('asset/css/bootstrap.css')?>" rel="stylesheet">
+    <!-- Add custom CSS here -->
+    <link href="<?php echo base_url('asset/css/style.css')?>" rel="stylesheet">
+     <link href="<?php echo base_url('asset/css/nivo-slider.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('asset/css/default/default.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('asset/font-awesome/css/font-awesome.min.css')?>" rel="stylesheet">
+    <script src="<?php echo base_url('asset/js/jquery-1.10.2.js')?>"></script>
+    <script src="<?php echo base_url('asset/js/bootstrap.js')?>"></script>
+    <script src="<?php echo base_url('asset/js/jquery/jquery.min.js')?>"></script>
+    <script src="<?php echo base_url('asset/js/jquery/jquery.widget.min.js')?>"></script>
+    <script src="<?php echo base_url('asset/js/metro.min.js')?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/js/fancybox/jquery.fancybox.css?v=2.1.5')?>" media="screen" />
+    <script type="text/javascript" src="<?php echo base_url('asset/js/fancybox/jquery.fancybox.js?v=2.1.5')?>"></script>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="<?php echo site_url(); ?>">
-                    <img class="img img-responsive pull-left" style="margin-top: -5px; width: 25px;" src="<?php echo base_url('assets/css/image/kotabogor.png') ?>">
-                    <span style="margin-left: 10px;">
-                        BPLH
-                    </span>
-                </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <?php echo menu_now(); ?>
-            </div>
-            <!-- /.navbar-collapse -->
+<div class="w3-container w3-content w3-light-grey w3-card-4"><br>
+	<div class="w3-container w3-content w3-white">
+	<!-- Slider -->
+		<div class="w3-section w3-content w3-round w3-white" style="padding-top:10px;padding-bottom:15px;">
+
+			<img class="mySlides w3-animate-left" src="<?php echo base_url()?>assets/css/image/1.jpg" style="width:100%">
+			<img class="mySlides w3-animate-left" src="<?php echo base_url()?>assets/css/image/2.jpg" style="width:100%">
+
+		</div>
+	<!-- MENU ATAS -->
+    
+        <div class="w3-section w3-content">
+            
+            <?php echo menu_now(); ?>
+        
         </div>
-        <!-- /.container -->
-    </nav>
+		
+	</div>
+<div class="w3-row w3-white">
+	<!-- left column -->
+	<div class="w3-container w3-twothird w3-content w3-white">
+	    <!-- SAMBUTAN -->
+	    <div class="w3-card-2 w3-round w3-white">
+			<div class="w3-container w3-padding">
+				<?php
+				if($sambutan) {
+					foreach ($sambutan->result() as $s) {
+				?>
+					<div class="w3-container">
+						<h2 class="w3-xlarge"><?php echo $s->title ?></h2>
+						<div class="w3-content w3-justify" >
+						<?php echo $s->body; ?>
+						</div>
+					</div>
+				<?php
+					}
+				}
+				?>	
+			  </div>
+		</div><br>	
+		<!-- BERITA -->
+		<div class="w3-card-2 w3-white w3-round">
+			<div class="w3-container w3-padding">
+			<h3>Terbaru</h3>
+				<div class="w3-row">
+					<?php
+					if ($terbaru) {
+						foreach ($terbaru->result() as $row) {
+					?>
+					<div class="w3-content w3-third w3-white w3-padding">
+						<a href="<?php echo linked($row->post_id, $row->title) ?>"></a>
+						<img src="<?php echo get_image($row->body, $row->image) ?>" alt="<?php echo $row->title ?>">
+					</div>
+					<div class="w3-content w3-twothird w3-white">
+						<h4><a href="<?php echo linked($row->post_id, $row->title) ?>"><?php echo $row->title ?></a></h4>
+						<small><i class="fa fa-calendar"></i> <?php echo convert_tanggal($row->date_publish) ?> </small>
+						<small class="margin-x-10"><i class="fa fa-eye"></i> Views : <?php echo $row->view ?></small>
+						<small><i class="fa fa-user"></i> By <a><?php echo $row->user_name ?></a></small>
+						<br><p>
+						<?php echo strip_tags(substr($row->body, 0,350))?>.. </p>
+					</div>
+						<?php
+							}
+						}
+						?>
+						<h4><a href="<?php echo site_url('kategori/kode/'.$row->category_id) ?>" class="more">Berita sebelumnya <i class="fa fa-angle-right"></i></a></h4>	  
+				</div>				
+			</div>
+		</div><br>
+	    <!-- GALERI -->
+	    <div class="w3-card-2 w3-round w3-white">
+			<div class="w3-container w3-padding">
+				<h3>Galeri</h3>
+					<?php
+					if ($galeri) {
+						foreach ($galeri->result() as $g) {
+					?>
+						<img src="<?php echo base_url('uploads/galeri/thumb/'.$g->image)?>">
+					<?php
+						}
+					}
+					?>				
+			  </div>
+				<div class="text-right"><br>
+					<a href="<?php echo base_url('/index.php/galeri'); ?>" style="margin-right:10px;">Selengkapnya</a>
+				</div>				  
+		</div><br>		
+	</div>
+	
+	
+	<!-- end of left column -->
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+	<!-- right column -->
+	<div class="w3-container w3-third w3-content w3-white">
+		<!-- KALENDER -->
+		<div class="w3-card-2 w3-round w3-white">
+			<div class="w3-container">
+			<h4>Kalender</h4>
+				<div class="metro">
+				<div id="kalender" class="calendar small"></div>
+				</div>
+					<script type="text/javascript">
+					$(function() {
+						$("#kalender").calendar({
+							click:false,
+							getDates:false,
+							weekStart:0
+						});
+					});
+					</script>
+			</div>
+			<br>			
+		</div>
+		<br>
+		<!--BANNER -->
+		<div class="w3-card-2 w3-round w3-white">
+			  <div class="w3-container">
+				<h4>Banner</h4>
+						<?php
+						if($banner) {
+							foreach ($banner->result() as $b) {
+							echo "<p><a href='".$b->link."' target='_blank'><img src='".base_url('uploads/banner/'.$b->banner_file)."' alt='".$b->title."' width='100%'/></a></p>";
+							}
+						}
+						?>	
+			  </div>
+			  <br>
+		</div><br>
+		<!--- LAIN LAIN -->
+		<div class="w3-card-2 w3-round w3-white">
+			  <div class="w3-container">
+				<h3>Kontak Kami</h3>
+					<?php echo $embed_map ?>
+					<p>Alamat : <?php echo $alamat ?><br>
+					Telp. <?php echo $no_telp ?><br>
+					Email : <?php echo $mail_site ?><br>
+					</p>
+					Sosial Media :<br/>
+					Facebook (<?php echo $fb_site ?>)<br/>
+					Twitter (<?php echo $twitter_site ?>)
+			  </div>
+			  <br>
+		</div>	
+		
+	<!-- end of right column -->
+	</diV>
+</div>
+	<div class="w3-container w3-content w3-black w3-center">
+		CopyRight &copy; <?php echo date('Y'); ?> <?php echo $name_site; ?> Kota Bogor
+	</div>
 
-                
-                <!-- Header Carousel -->
-                <div id="myCarousel" class="carousel slide">
+</div>
+<script>
+var myIndex = 0;
+carousel();
 
-                    <ol class="carousel-indicators">
-                        <?php
-                        if($slide->num_rows()>0) {
-                            $no = 0;
-                            foreach ($slide->result() as $rows) {
-                            $cls = "";
-                            if($no==0) {
-                                $cls = "active";
-                            }
-                        ?>
-
-                        <li data-target="#myCarousel" data-slide-to="<?php echo $no; ?>" class="<?php echo $cls; ?>"></li>
-
-                        <?php
-                            $no++;
-                            }
-                        } else {
-                        ?>
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-
-                        <?php
-                        }
-                        ?>
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <?php
-                        if($slide->num_rows()>0) {
-                            $no = 1;
-                            foreach ($slide->result() as $rows) {
-                            $cls = "";
-                            if($no==1) {
-                                $cls = "active";
-                            }
-                        ?>
-                        <div class="item <?php echo $cls ?>">
-                            <img src="<?php echo base_url('uploads/slide/'.$rows->slide_file)?>" style="width: 100%;" class="img img-responsive img-slide">
-                         </div>
-                        <?php
-                            $no++;
-                            }
-                        } else {
-                        ?>
-                            <div class="item active">
-                            <img src="<?php echo base_url('uploads/slide/red.jpg')?>" style="width: 100%;" class="img img-responsive img-slide">
-                          </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <span class="icon-prev"></span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <span class="icon-next"></span>
-                    </a>
-                </div>
-
-            </div>
-            </div>
-
-    </div>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row" style="padding-top:20px;">
-
-
-                <div class="col-md-8">
-                    <div class="row">
-
-                        <div class="col-md-12 col-sm-12 box">
-                            <?php
-                            if($sambutan) {
-                                foreach ($sambutan->result() as $s) {
-                            ?>
-                                <div class="sambutan">
-                                    <h1 class="page-header">
-                                        <?php echo $s->title ?>
-                                    </h1>
-                                    <div class="clearfix" align="justify">
-                                    <?php echo $s->body; ?>
-                                    </div>
-                                </div>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </div>
-
-
-                        <div class="col-md-12 col-sm-12" style="margin-top: 40px;">
-                            <h1 class="page-header">
-                                Berita Terbaru
-                            </h1>
-                            <?php
-                            if ($terbaru) {
-                                foreach ($terbaru->result() as $row) {
-                            ?>
-                            <div class="row list-content clearfix" style="padding-bottom: 20px;">
-                                <div class="col-md-4">
-                                    <div class="image-container">
-                                        <a href="<?php echo linked($row->post_id, $row->title) ?>">
-                                            <img style="width: 200px;" src="<?php echo get_image($row->body, $row->image) ?>" alt="<?php echo $row->title ?>">
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-8 no-left-padding">
-                                    <h4 class="no-margin"><a href="<?php echo linked($row->post_id, $row->title) ?>"><?php echo $row->title ?></a></h4>
-                                    <div class="content-meta margin-y-5">
-                                        <small><i class="fa fa-calendar"></i> <?php echo convert_tanggal($row->date_publish) ?> </small>
-                                        <small class="margin-x-10"><i class="fa fa-eye"></i> Views : <?php echo $row->view ?></small>
-                                        <small><i class="fa fa-user"></i> By <a><?php echo $row->user_name ?></a></small>
-                                    </div>
-                                    <div align="justify">
-                                        <?php echo strip_tags(substr($row->body, 0,350))?>..
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                                }
-                            }
-                            ?>
-
-                            <div class="clearfix padding-y-10">
-                                <div class="pull-right"><h4><a href="<?php echo site_url('kategori/kode/'.$row->category_id) ?>" class="more">Berita sebelumnya <i class="fa fa-angle-right"></i></a></h4></div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    
-                </div>
-
-                <div class="col-md-4">
-                    <div class="row">
-
-                        <div class="col-md-12">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h4><i class="fa fa-fw fa-calendar"></i> Kalender</h4>
-                                </div>
-                                <div class="panel-body">
-                                    
-                                    <div id="kalender" data-date="<?php echo date('m-d-Y'); ?>"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="panel panel-warning">
-                                <div class="panel-heading">
-                                    <h4> <i class="fa fa-fw fa-file"></i> Terpopuler</h4>
-                                </div>
-                                <div class="panel-body">
-                                    <?php
-                                    if ($populer) {
-                                    $no = 1;
-                                        foreach ($populer->result() as $p) {
-                                    ?>
-                                        <div class="media">
-                                            <div class="pull-left">
-                                                <span class="num-populer">
-                                                    <?php echo $no; ?>.
-                                                </span>
-                                            </div>
-                                            <div class="media-body">
-                                                <h5 class="media-heading">
-                                                    <a href="<?php echo linked($p->post_id, $p->title) ?>"><?php echo $p->title ?></a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    <?php
-                                    $no++;
-                                        }
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="panel panel-success">
-                                <div class="panel-heading">
-                                    <h4><i class="fa fa-fw fa-image"></i> Banner</h4>
-                                </div>
-                                <div class="panel-body">
-                                   <?php if($banner) : ?>
-                                        <?php foreach ($banner->result() as $b): ?>
-                                        <p>
-                                            <a href="<?php echo $b->link; ?>" target='_blank'>
-                                                <img src="<?php echo base_url('uploads/banner/'.$b->banner_file); ?>" 
-                                                    alt="<?php echo $b->title; ?>" width='100%'/>
-                                            </a>
-                                        </p>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-        </div>
-
-        <div class="row padding-y-10"></div>
-
-
-        <hr>
-
-        <!-- Call to Action Section -->
-        <div class="well">
-            <div class="row">
-                <div class="col-md-8">
-                    <p>
-                        <h3><i class="fa fa-picture-o"></i> Galeri</h3>
-                        <?php
-                        if ($galeri) {
-                            foreach ($galeri->result() as $g) {
-                        ?>
-                                <img style="width: 150px;height: 150px;padding-right: 10px;" class="pull-left img img-responsive" src="<?php echo base_url('uploads/galeri/'.$g->image)?>">
-                            
-                        <?php
-                            }
-                        }
-                        ?>
-                        <div class="row"></div>
-                            
-                        <br>
-
-                        <div class="pull-left">
-                            <a href="<?php echo site_url('galeri'); ?>">
-                                Selengkapnya <i class="fa fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    
-                    <h3>
-                        <i class="fa fa-phone-square"></i> Kontak Kami
-                    </h3>
-                        <?php echo $embed_map ?>
-                    <p>
-                        Alamat : <?php echo $alamat ?>
-                    </p>
-                    <p>
-                        Telp. <?php echo $no_telp ?>
-                    </p>
-                    <p>
-                        Email : <?php echo $mail_site ?>
-                    </p>
-                    <p>
-                        Sosial Media : <br/>
-                        Facebook (<?php echo $fb_site ?>) <br/>
-                        Twitter (<?php echo $twitter_site ?>)
-                    </p>
-
-                </div>
-            </div>
-        </div>
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>
-                        Hak Cipta &copy;  
-                        <?php echo date('Y'); ?>
-                        <?php echo $name_site; ?>
-                    </p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="<?php echo base_url(); ?>assets/frontend/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo base_url(); ?>assets/frontend/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/plugins/datepicker/bootstrap-datepicker.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 3000 //changes the speed
-    })
-    </script>
-    <script type="text/javascript">
-        $(function() {
-            $("#kalender").datepicker();
-        });
-    </script>
-
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 5500);
+}
+</script>
 </body>
-
 </html>
+

@@ -46,54 +46,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 		</div>
 	<!-- MENU ATAS -->
 		<div class="w3-section w3-content">
-			<ul class="w3-navbar w3-light-grey w3-border">
-			  <li><a class="w3-black" href="<?php echo site_url() ?>">Home</a></li>
-			  <li class="w3-dropdown-hover w3-hover-grey">
-				<a class="w3-hover-grey" href="#">Profil<i class="fa fa-caret-down"></i></a>
-				<div class="w3-dropdown-content w3-white w3-card-4">
-				  <a href="<? echo base_url('/index.php/kategori/kode/10'); ?>">Sekapur Sirih</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/11'); ?>">Struktur Organisasi</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/15'); ?>">Data Pejabat</a>				  
-				  <a href="<? echo base_url('/index.php/kategori/kode/13'); ?>">Tugas Pokok dan Fungsi</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/9'); ?>">Renstra</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/12'); ?>">Visi dan Misi</a>			  
-				</div>
-			  </li>			  
-			  <li><a href="<?echo base_url('/index.php/kategori/kode/7'); ?>">Berita</a></li>
-			  <li class="w3-dropdown-hover w3-hover-grey">
-				<a class="w3-hover-grey" href="#">Laporan<i class="fa fa-caret-down"></i></a>
-				<div class="w3-dropdown-content w3-white w3-card-4">
-				  <a href="<? echo base_url('/index.php/kategori/kode/30'); ?>">Hasil Sidak Pemantauan Air Tanah</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/18'); ?>">Buku SLHD 2012</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/19'); ?>">Buku SLHD 2013</a>
-				  <a href="#">Buku SLHD 2014</a>	
-				  <a href="<? echo base_url('/index.php/kategori/kode/36'); ?>">Buku SLHD 2015</a>					  
-				</div>
-			  </li>
-			  <li class="w3-dropdown-hover w3-hover-grey">
-				<a class="w3-hover-grey" href="#">Peraturan<i class="fa fa-caret-down"></i></a>
-				<div class="w3-dropdown-content w3-white w3-card-4">
-				  <a href="<? echo base_url('/index.php/kategori/kode/21'); ?>">Undang-Undang</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/22'); ?>">Peraturan Pemerintah</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/23'); ?>">Peraturan Menteri</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/24'); ?>">Keputusan Menteri</a>	
-				  <a href="<? echo base_url('/index.php/kategori/kode/25'); ?>">KEPKA BAPEDAL</a>		
-				  <a href="<? echo base_url('/index.php/kategori/kode/26'); ?>">Peraturan Daerah</a>						  
-				</div>
-			  </li>	
-			  <li class="w3-dropdown-hover w3-hover-grey">
-				<a class="w3-hover-grey" href="#">Izin Lingkungan<i class="fa fa-caret-down"></i></a>
-				<div class="w3-dropdown-content w3-white w3-card-4">
-				  <a href="<? echo base_url('/index.php/kategori/kode/34'); ?>">Pengumuman</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/35'); ?>">SPPL</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/35'); ?>">UKL-UPL</a>
-				  <a href="<? echo base_url('/index.php/kategori/kode/35'); ?>">AMDAL</a>				  
-				</div>
-			  </li>	
-			  <li><a href="<?php echo base_url('/index.php/ragam_data'); ?>">Ragam Data</a></li>
-			  <li><a href="<?php echo base_url('/sig'); ?>">Web GIS</a></li>
-			  <li><a href="<?php echo base_url('/index.php/kontak'); ?>">Kontak Kami</a></li>			  
-			</ul>
+            
+            <?php echo menu_now(); ?>
+                
 		</div>	
 </div>		
 	<div class="w3-row w3-white">
@@ -104,7 +59,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
 
 	<div class="w3-container w3-content w3-black w3-center">
-		CopyRight (c) BPLH Kota Bogor
+        CopyRight &copy; <?php echo date('Y'); ?> <?php echo $name_site; ?> Kota Bogor
 	</div>
 
 </div>
