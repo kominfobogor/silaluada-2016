@@ -27,6 +27,34 @@ function menus()
 	return $mn;
 }
 
+function menu_now()
+{
+	$mn = '<ul class="nav navbar-nav navbar-right" style="font-size: 10px;">';
+	$ci =& get_instance();
+	$get = $ci->db->query("select * from category where parent = 0 order by sort asc");
+	foreach ($get->result() as $rows) {
+		$cek = $ci->db->query("select * from category where parent = '".$rows->category_id."' order by sort asc ");
+		if($cek->num_rows()>0) {
+			$mn .= '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$rows->category_name.' <span class="caret"></span></a>';
+			$mn .= '<ul class="dropdown-menu" style="font-size: 12px;">';
+			foreach ($cek->result() as $row) {
+				$mn .= '<li><a href="'.site_url('kategori/kode/'.$row->category_id).'">'.$row->category_name.'</a></li>';
+			}
+			$mn .= "</ul>";
+			$mn .= "</li>";
+		} else {
+			$mn .= '<li><a href="'.site_url('kategori/kode/'.$rows->category_id).'">'.$rows->category_name.'</a></li>';
+		}
+	}
+	$mn .= '<li><a href="'.site_url('ragam_data').'">RAGAM DATA</a></li>';
+	$mn .= '<li><a href="'.site_url('galeri').'">GALERI</a></li>';
+	$mn .= '<li><a href="'.site_url('gis').'">WEB GIS</a></li>';
+	$mn .= '<li><a href="'.site_url('kontak').'">KONTAK KAMI</a></li>';
+	$mn .= "</ul>";
+
+	return $mn;
+}
+
 function color()
 {
 	$warna = array(

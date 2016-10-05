@@ -33,7 +33,7 @@ class Login_daftar_member extends CI_Controller
 				$sess['getLoginAct'] = "01n2s0129n1kz012klla";
 				$sess['member_id'] = $login['member_id'];
 				$sess['email'] = $login['email'];
-				$sess['nama'] = $login['nama'];
+				$sess['nama'] = $login['nama_member'];
 				$this->session->set_userdata($sess);
 				// $this->m_global->activities('Login administrator');
 				echo"<script>alert('Login Berhasil...!');</script>";

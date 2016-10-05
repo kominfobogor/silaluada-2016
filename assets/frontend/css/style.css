@@ -1,0 +1,29 @@
+.navbar-inverse {
+	background: #15A531 !important;
+}
+
+.navbar-brand {
+	color: #FFF !important;
+}
+
+.navbar-nav li a {
+	color: #FFF !important;
+}
+
+ul.dropdown-menu {
+	background: #2FCF4E !important;
+}
+
+ul.dropdown-menu li:hover a {
+	background: #82C34F !important;
+	color: #000 !important;
+}
+
+.carousel-control {
+	background: none !important;
+}
+
+.carousel {
+	background: none !important;
+	box-shadow: 1px 0px 7px;
+}
