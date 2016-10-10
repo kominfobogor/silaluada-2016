@@ -108,8 +108,8 @@ class Supermodel extends CI_Model {
 		ini_set('post_max_size','64M');
 		ini_set('upload_max_filesize', '64M');
 		$config['upload_path'] = './uploads/'.$path;
-		$config['allowed_types'] = 'pdf';
-		$config['max_size'] = '640000';
+		$config['allowed_types'] = 'pdf|jpg|png|gif|bmp';
+		$config['max_size'] = '6400000';
 
 		if($rename!=null) {
 			$config['file_name'] = $rename;

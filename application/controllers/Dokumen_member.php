@@ -10,6 +10,7 @@ class dokumen_member extends CI_Controller
 		parent::__construct();
 		$this->load->model('m_global');
 		$this->load->model('supermodel');
+		$this->load->model('Perizinan_model');
 		 if($this->session->userdata('getLoginAct')==FALSE) {
 		 		echo"<script>alert('Anda belum login !!!');document.location.href='".site_url('login_daftar_member/index')."'</script>";
 		 }
@@ -119,7 +120,8 @@ class dokumen_member extends CI_Controller
 				$name = date("Ymd").$rand.'.'.$ext;
 				$unggah = $this->supermodel->unggah_dokumen('perizinan/direktori/dokumenmember','file',$name);
 				if($unggah===false) {
-					echo "<script>alert('Upload gagal!');document.location.href='index/'".$id."'</script>";
+					echo "<script>alert('Upload gagal!');</script>";
+					echo '<script>document.location.href="index/'.$id.'"</script>';
 				}else{
 					$data['file'] = $name;
 					$jalan = $this->supermodel->insertData('direktori_member',$data);
@@ -133,11 +135,15 @@ class dokumen_member extends CI_Controller
 
 	function hapus($dokumen_id,$id){
 		$where = array('dokumen_id' => $dokumen_id);
+		$get_dokumen = $this->Perizinan_model->get_dokumen_name($dokumen_id);
 		$jalan = $this->supermodel->deleteData('direktori_member',$where,$field="");
 		$perusahaan_id = $this->input->post('perusahaan');
+		
 		if ($jalan){
-			echo"<script>alert('Berhasil menghapus data...');document.location.href='".site_url('dokumen_member/index/'.$id)."'</script>";
-
+			
+			@unlink('./uploads/perizinan/direktori/dokumenmember/'.$get_dokumen->file);
+			echo "<script>alert('Berhasil menghapus data...');</script>";
+			echo "<script>document.location.href='".site_url('dokumen_member/index/'.$id)."'</script>";
 		}
 	}
 
