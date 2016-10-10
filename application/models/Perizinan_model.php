@@ -9,7 +9,6 @@ class Perizinan_model extends CI_Model
 	private $upload_syarat;
 	private $direktori_member;
 
-
 	public function __construct()
 	{
 		$this->upload_syarat = 'upload_syarat';
@@ -63,6 +62,30 @@ class Perizinan_model extends CI_Model
 		return $sql->update($this->upload_syarat, array(
 			'dokumen_id' => $dokumen_id
 		));
+	}
+
+	public function change_status_to($table, $permohonan_id, $status)
+	{
+		$sql_amdal = $this->db;
+		$sql_amdal->select('*');
+		$sql_amdal->from($table);
+		$sql_amdal->where('permohonan_id', $permohonan_id);
+
+		$get_amdal = $sql_amdal->get();
+		$resul_amdal = $get_amdal->row();
+
+		if($resul_amdal) {
+
+			$data = [
+				'status_perizinan' => $status
+			];
+			$this->db->where('permohonan_id', $permohonan_id);
+			$this->db->update($table, $data);
+
+			return TRUE;
+		}
+
+		return FALSE;
 	}
 
 }

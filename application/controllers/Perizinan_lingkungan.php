@@ -29,17 +29,14 @@ class Perizinan_lingkungan extends CI_Controller
 				$izin = "AMDAL";
 			}
 
-			$r = $this->supermodel->querymanual("SELECT max(permohonan_id) as permohonan_id FROM $tabel LIMIT 1")->row_array();
-			$cek = $r['permohonan_id'];
-			$str = substr($cek, -4);
-			$num = $str+1;
-			if ($num < 10) {
-				$num = "000".$num;
-			}elseif ($num < 100) {
-				$num = "00".$num;
-			}elseif ($num < 1000) {
-				$num = "0".$num;
-			}
+			$r = $this->supermodel->querymanual("SELECT max(permohonan_id) as permohonan_i FROM $tabel LIMIT 1")->row_array();
+			$cek = $r['permohonan_i'];
+
+			$str_expl = explode('-', $cek);
+
+			$str = end($str_expl);
+			$num = $str + 1;
+			$num .= uniqid();
 
 			$data = array('jenisizin_id' => $jenisizin_id,
 						  'permohonan_id' => $izin."-".date('Y')."-".$num,

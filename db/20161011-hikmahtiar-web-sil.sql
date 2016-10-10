@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 05, 2016 at 10:31 AM
--- Server version: 10.1.17-MariaDB-1~precise
--- PHP Version: 7.0.11-1+deb.sury.org~precise+1
+-- Generation Time: Oct 10, 2016 at 11:33 PM
+-- Server version: 5.5.47-0ubuntu0.12.04.1
+-- PHP Version: 5.6.25-2+deb.sury.org~precise+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -233,10 +233,7 @@ CREATE TABLE `amdal` (
 --
 
 INSERT INTO `amdal` (`permohonan_id`, `member_id`, `pemohon_id`, `perusahaan_id`, `tgl_permohonan`, `jenisizin_id`, `nama_kegiatan`, `rencana_lokasi`, `no_reg`, `no_izin`, `tgl_terbit`, `status_perizinan`, `keterangan`) VALUES
-('AMDAL-2015-01', 1, 3, 1, '2016-08-01', 5, '', '', '', '', '2016-08-03', 1, ''),
-('AMDAL-2015-02', 1, 1, 1, '2016-08-02', 3, '', '', '', '', '2016-08-05', 2, ''),
-('AMDAL-2015-03', 1, 1, 1, '2016-08-04', 3, '', '', '', '', '2016-08-10', 3, ''),
-('AMDAL-2015-04', 1, 4, 1, '2016-08-04', 3, '', '', '', '', '2016-08-10', 4, '');
+('AMDAL-2016-157fbbdb7', 5, 7, 3, '2016-10-10', 5, 'amdal contoh', 'bogor', '', '', '0000-00-00', 2, '');
 
 -- --------------------------------------------------------
 
@@ -1008,14 +1005,6 @@ CREATE TABLE `direktori_member` (
   `file` varchar(20) NOT NULL,
   `file_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `direktori_member`
---
-
-INSERT INTO `direktori_member` (`dokumen_id`, `perusahaan_id`, `member_id`, `file`, `file_name`) VALUES
-(18, 2, 3, '20161003238.pdf', 'coba3.pdf'),
-(19, 2, 3, '20161003818.pdf', 'testing.pdf');
 
 -- --------------------------------------------------------
 
@@ -18951,15 +18940,11 @@ INSERT INTO `izin_persyaratan` (`jenisizin_id`, `persyaratan_id`) VALUES
 (1, 4),
 (1, 5),
 (1, 6),
-(1, 7),
-(1, 7),
 (1, 8),
 (1, 9),
 (1, 10),
 (2, 1),
 (2, 4),
-(2, 5),
-(2, 5),
 (2, 6),
 (2, 7),
 (2, 11),
@@ -18973,14 +18958,15 @@ INSERT INTO `izin_persyaratan` (`jenisizin_id`, `persyaratan_id`) VALUES
 (4, 2),
 (4, 5),
 (4, 12),
-(4, 6),
-(4, 6),
 (4, 10),
 (5, 3),
 (5, 5),
 (5, 12),
 (5, 6),
-(5, 10);
+(5, 10),
+(1, 7),
+(4, 6),
+(2, 5);
 
 -- --------------------------------------------------------
 
@@ -19456,7 +19442,9 @@ INSERT INTO `logactivity` (`user_id`, `activity`, `time`) VALUES
 (4, 'Menyimpan banner Prosedur Perizinan', '2016-10-05 09:48:07'),
 (4, 'Menghapus data dari tabel category dengan id 27', '2016-10-05 09:49:10'),
 (4, 'Logout administrator', '2016-10-05 09:51:46'),
-(4, 'Login administrator', '2016-10-05 10:01:13');
+(4, 'Login administrator', '2016-10-05 10:01:13'),
+(5, 'Login administrator', '2016-10-10 21:25:35'),
+(5, 'Logout administrator', '2016-10-10 21:26:24');
 
 -- --------------------------------------------------------
 
@@ -20097,7 +20085,8 @@ INSERT INTO `member` (`member_id`, `nama_member`, `alamat_member`, `nik_member`,
 (1, 'Muhammad Febriansyah', 'Bogor', '1122334455668', 'mfebriansyah.mail@gmail.com', '05f3b169ebbf7afc69489485400141c5', '20160723708.JPG', 0),
 (2, 'Jhon', '', '129038123', 'jhon', '4c25b32a72699ed712dfa80df77fc582', '', 1),
 (3, 'Jhon', '', '19283102', 'jhon@gmail.com', '4c25b32a72699ed712dfa80df77fc582', '', 0),
-(4, '', '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', '', 0);
+(4, '', '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', '', 0),
+(5, 'Hikmahtiar', 'bogor', '1231231', 'hikmahtiar6@gmail.com', 'cf60feaff1181cab25caffa7053b44ab', '', 0);
 
 -- --------------------------------------------------------
 
@@ -20620,7 +20609,8 @@ INSERT INTO `pemohon` (`pemohon_id`, `nama_pemohon`, `jabatan`, `alamat_pemohon`
 (3, 'Siti Aulia', 'Sekretaris', 'Bogor', 1, '221622258455634', '085745413336', 0),
 (4, 'Alif M', 'Manager', 'Bogor', 1, '002655568712399', '085411236547', 0),
 (5, 'asdasd', 'asd', 'asd', 1, '435', '234', 0),
-(6, 'Pemohon 1', 'Jabatan 1', 'Alamat 1', 1, '012903123', '111', 3);
+(6, 'Pemohon 1', 'Jabatan 1', 'Alamat 1', 1, '012903123', '111', 3),
+(7, 'Pemohon 2', 'SA', '', 3, '12312321', '', 5);
 
 -- --------------------------------------------------------
 
@@ -21224,7 +21214,8 @@ CREATE TABLE `perusahaan` (
 
 INSERT INTO `perusahaan` (`perusahaan_id`, `nama_perusahaan`, `status_perusahaan`, `alamat_perusahaan`, `kelurahan_id`, `lat`, `lng`, `notelp_perusahaan`, `jenis_usaha`, `kapasitas_produksi`, `luas_lahan`, `luas_bangunan`, `kondisi`, `member_id`) VALUES
 (1, 'PT BeSmart Global Bogor', 'Milik Perusahaan', 'Bogor', 1, '1', '1', '058454634254', 'Software House', '33', '2000', '1200', 'BAngunan ', 0),
-(2, 'Perusahaan 1', 'Milik Perusahaan', 'Alamat 1', 19, '0', '0', '128903', 'IT', '1', '2', '3', '4', 3);
+(2, 'Perusahaan 1', 'Milik Perusahaan', 'Alamat 1', 19, '0', '0', '128903', 'IT', '1', '2', '3', '4', 3),
+(3, 'PT 1', 'Milik Perusahaan', '', 19, '', '', '', '', '', '', '', '', 5);
 
 -- --------------------------------------------------------
 
@@ -21502,11 +21493,9 @@ CREATE TABLE `sppl` (
 --
 
 INSERT INTO `sppl` (`permohonan_id`, `member_id`, `pemohon_id`, `perusahaan_id`, `tgl_permohonan`, `jenisizin_id`, `nama_kegiatan`, `rencana_lokasi`, `no_reg`, `no_izin`, `tgl_terbit`, `keterangan`, `status_perizinan`) VALUES
-('SPPL-2016-0007', 3, 6, 2, '0000-00-00', 1, 'Kegiatan 1', 'Lokasi 1', '', '', '0000-00-00', '', 0),
-('SPPL-2016-23', 1, 1, 1, '2016-08-01', 1, '', '', '', '', '2016-08-01', 'Foto Ktp Kurang Jelas', 1),
-('SPPL-2016-24', 1, 2, 1, '2016-08-01', 2, '', '', '', '', '2016-08-01', 'Disposisi', 2),
-('SPPL-2016-25', 1, 3, 1, '2016-08-01', 3, '', '', '', '', '2016-08-01', '', 3),
-('SPPL-2016-26', 1, 5, 1, '2016-08-01', 4, '', '', '', '', '2016-08-01', '', 4);
+('SPPL-2016-157fbac2c2', 5, 7, 3, '2016-10-10', 1, 'SPL 1', 'bogor', '', '', '0000-00-00', '', 0),
+('SPPL-2016-15857fbbdd', 5, 7, 3, '2016-10-10', 2, 'spl 2', 'jj', '', '', '0000-00-00', '', 0),
+('SPPL-2016-1585857fbb', 5, 7, 3, '2016-10-10', 3, 'spl 3', 'bogor', '', '', '0000-00-00', '', 0);
 
 -- --------------------------------------------------------
 
@@ -22163,10 +22152,7 @@ CREATE TABLE `ukl_upl` (
 --
 
 INSERT INTO `ukl_upl` (`permohonan_id`, `member_id`, `pemohon_id`, `perusahaan_id`, `tgl_permohonan`, `jenisizin_id`, `nama_kegiatan`, `rencana_lokasi`, `no_reg`, `no_izin`, `tgl_terbit`, `status_perizinan`, `keterangan`) VALUES
-('UKL-2016-01', 1, 1, 1, '2016-08-05', 4, '', '', '', '', '2016-08-04', 1, ''),
-('UKL-2016-02', 1, 2, 1, '2016-08-04', 4, '', '', '', '', '2016-08-04', 2, ''),
-('UPL-2016-03', 1, 3, 1, '2016-08-04', 4, '', '', '', '', '2016-08-04', 3, ''),
-('UPL-2016-04', 1, 4, 1, '2016-08-04', 4, '', '', '', '', '2016-08-04', 4, '');
+('UKL-UPL-2016-157fbac', 5, 7, 3, '2016-10-10', 4, 'ukl upl 1', 'bogor', '', '', '0000-00-00', 2, '');
 
 -- --------------------------------------------------------
 
@@ -22180,14 +22166,6 @@ CREATE TABLE `upload_syarat` (
   `dokumen_id` int(5) NOT NULL,
   `status` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `upload_syarat`
---
-
-INSERT INTO `upload_syarat` (`permohonan_id`, `persyaratan_id`, `dokumen_id`, `status`) VALUES
-('SPPL-2016-0007', 1, 19, 0),
-('SPPL-2016-0007', 4, 18, 0);
 
 -- --------------------------------------------------------
 
@@ -22809,7 +22787,7 @@ ALTER TABLE `direktori`
 -- AUTO_INCREMENT for table `direktori_member`
 --
 ALTER TABLE `direktori_member`
-  MODIFY `dokumen_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `dokumen_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `emisi_kdr`
 --
@@ -22914,7 +22892,7 @@ ALTER TABLE `mata_air`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `member_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `mrk_kendaraan`
 --
@@ -22964,7 +22942,7 @@ ALTER TABLE `pemanfaatan_air`
 -- AUTO_INCREMENT for table `pemohon`
 --
 ALTER TABLE `pemohon`
-  MODIFY `pemohon_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `pemohon_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `pengawasan_limbah`
 --
@@ -22994,7 +22972,7 @@ ALTER TABLE `persyaratan`
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `perusahaan_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `perusahaan_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `post`
 --

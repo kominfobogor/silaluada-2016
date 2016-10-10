@@ -99,8 +99,15 @@ class Upload_syarat extends CI_Controller
 		$dokumen_id = $post['dokumen_id'];
 		$persyaratan_id = $post['syarat_id'];
 
-		//var_dump($persyaratan_id);
-		//var_dump($dokumen_id);
+		// rubah status perizinan menjadi 2
+		$permohonan_id_expl = explode("-", $permohonan_id);
+		$permohonan_id_fix = strtolower($permohonan_id_expl[0]);
+
+		if($permohonan_id_fix == 'ukl') {
+			$permohonan_id_fix = 'ukl_upl';
+		}
+
+		$change_status = $this->Perizinan_model->change_status_to($permohonan_id_fix, $permohonan_id, 2);
 
 		$key = 0;
 		foreach($dokumen_id as $row) {

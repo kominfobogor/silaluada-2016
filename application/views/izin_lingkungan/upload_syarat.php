@@ -37,7 +37,7 @@
 								    <input type="hidden" value="<?php echo $jenisizin_id; ?>" name="jenisizin_id">
 								    		<table class="table">
 								    			<?php
-								    			$sql = $this->supermodel->queryManual("SELECT 
+								    			$sql1 = $this->supermodel->queryManual("SELECT 
 														    							a.*,
 																						b.nama_pemohon,
 																						c.nama_perusahaan,
@@ -49,9 +49,9 @@
 														    							a.perusahaan_id = c.perusahaan_id AND
 														    							a.jenisizin_id = d.jenisizin_id AND
 														    							a.permohonan_id = '".$permohonan_id."'");
-								    			if($sql->num_rows()>0) {
+								    			if($sql1->num_rows()>0) {
 													$no=1;
-													foreach ($sql->result() as $r) {
+													foreach ($sql1->result() as $r) {
 								    			?>
 								    			<tr>
 								    				<th>Kode Permohonan Izin</th>
@@ -96,22 +96,23 @@
 									    			</tr>
 									    		</thead>
 									    		<?php
-									    			$sql = $this->supermodel->queryManual("SELECT
+									    			$sql2 = $this->supermodel->queryManual("SELECT
 									    													a.*,b.*,c.* 
 									    													FROM izin_persyaratan a,jenisizin b, persyaratan c
 									    												 	WHERE 
 									    												 	a.jenisizin_id = b.jenisizin_id AND 
 									    												 	a.persyaratan_id = c.persyaratan_id AND
 									    												 	a.jenisizin_id = '".$jenisizin_id."'");
-													if($sql->num_rows()>0) {
+													
+													if($sql2->num_rows()>0) {
 														$no=0;
-														foreach ($sql->result() as $r) {
+														foreach ($sql2->result() as $r) {
 									    				$no++
 									    		?>
 									    			<tr>
 									    				<td><?php echo $no ?></td>
 									    				<td>
-									    					<?php echo $r->persyaratan.' '.$r->persyaratan_id.' '.$r->jenisizin_id. ' '.$permohonan_id; ?>
+									    					<?php echo $r->persyaratan; ?>
 
 									    					<?php 
 									    					$check_dokumen = $check_upload_syarat($permohonan_id, $r->persyaratan_id);
@@ -157,9 +158,9 @@
 									  	    					<td>
 									  	    						<select name="perus" class="form-control" id="perus" ruquired>
 									  	    							<?php
-									  	    								$sql = $this->supermodel->queryManual("SELECT * FROM perusahaan WHERE member_id = '".$member_id."'");
-									  	    								if($sql->num_rows()>0){
-									  	    									foreach ($sql->result() as $r) {
+									  	    								$sql3 = $this->supermodel->queryManual("SELECT * FROM perusahaan WHERE member_id = '".$member_id."'");
+									  	    								if($sql3->num_rows()>0){
+									  	    									foreach ($sql3->result() as $r) {
 									  	    										$s="";
 									  	    										if ($perusahaan_id == $r->perusahaan_id) {
 									  	    											$s="selected";
