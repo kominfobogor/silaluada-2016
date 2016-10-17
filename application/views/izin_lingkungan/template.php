@@ -99,9 +99,9 @@
   <script src="<?php echo base_url() ?>assets/perizinan/js/jquery-1.11.1.min.js"></script>
   <script src="<?php echo base_url() ?>assets/perizinan/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url() ?>assets/perizinan/js/chart.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/perizinan/js/chart-data.js"></script>
+  <!--<script src="<?php echo base_url() ?>assets/perizinan/js/chart-data.js"></script>-->
   <script src="<?php echo base_url() ?>assets/perizinan/js/easypiechart.js"></script>
-  <script src="<?php echo base_url() ?>assets/perizinan/js/easypiechart-data.js"></script>
+  <!--<script src="<?php echo base_url() ?>assets/perizinan/js/easypiechart-data.js"></script>-->
   <script src="<?php echo base_url() ?>assets/perizinan/js/bootstrap-datepicker.js"></script>
 
 

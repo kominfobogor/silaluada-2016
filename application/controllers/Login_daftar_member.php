@@ -14,7 +14,7 @@ class Login_daftar_member extends CI_Controller
 
 	function index()
 	{
-		$this->load->view('izin_lingkungan/login_daftar_member');
+		$this->load->view('izin_lingkungan/login_daftar_member_baru');
 	}
 
 
@@ -39,13 +39,14 @@ class Login_daftar_member extends CI_Controller
 				echo"<script>alert('Login Berhasil...!');</script>";
 				redirect('dashboard_member');
 			} else {
-				// $this->session->set_flashdata('error', 'Maaf kombinasi email dan password tidak tepat!');
-				 //echo $this->input->post('email')." ".md5($this->input->post('password'));
-				// redirect('login_daftar_member');
-				echo"<script>alert('Login Gagal...!');document.location.href='index'</script>";
+				
+				$this->session->set_flashdata('login', '<div class="alert alert-danger">Email atau password anda masih salah</div>');
+
+				$this->index();
 
 			}
 		} else {
+			$this->session->set_flashdata('login', '<div class="alert alert-danger">Silahkan diisi email dan passwordnya</div>');
 			$this->index();
 		}
 	}
