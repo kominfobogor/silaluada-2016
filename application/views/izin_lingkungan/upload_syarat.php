@@ -132,11 +132,17 @@
 									    				<td>
 									    					<?php echo $r->persyaratan; ?>
 															<?php if($r->persyaratan == 'Surat Permohonan Penerbitan SPPL'): ?>
-																&nbsp;&nbsp; <a href="">Download Dokumen</a>
+																&nbsp;&nbsp; 
+																<a href="<?php echo base_url(); ?>asset_app/dokumen/surat_pernyataan_kesanggupan_sppl.docx" target="_blank">
+																	Download Dokumen
+																</a>
 															<?php endif; ?>
 															
 															<?php if($r->persyaratan == 'Surat Pernyataan Kesanggupan Pengelolaan Pemantauan Lingkungan Hidup (SPPL)'): ?>
-																&nbsp;&nbsp; <a href="">Download Dokumen</a>
+																&nbsp;&nbsp; 
+																<a href="<?php echo base_url(); ?>asset_app/dokumen/surat_pernyataan_kesanggupan_sppl.docx" target="_blank">
+																	Download Dokumen
+																</a>
 															<?php endif; ?>
 
 									    					<?php 
