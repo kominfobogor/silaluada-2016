@@ -11,8 +11,7 @@
 <link href="<?php echo base_url()?>assets/css/w3-theme-blue-grey.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url()?>assets/css/cldr.css" rel="stylesheet" type="text/css" />
 
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/font-awesome/css/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
