@@ -85,6 +85,24 @@
 								    			</tr>
 								    			<?php }} ?>
 								    		</table>
+											
+											<?php
+												$idpemohon_expl = explode('-', $permohonan_id);
+												//echo $idpemohon_expl[0];
+												if($idpemohon_expl[0] == "SPPL"):
+											?>
+											
+												<br />
+												<div class="alert alert-info">
+													
+													Silahkan <b>Download</b> Form <b>Surat Permohonan Penerbitan SPPL</b> 
+													dan <b>Surat Pernyataan Kesanggupan Pengelolaan Pemantauan Lingkungan Hidup (SPPL)</b>, <br /> 
+													Isi sesuai pengajuan Izin Anda, Kemudian Upload pada Halaman ini
+												</div>
+												
+											<?php endif; ?>
+											<br />
+											
 
 								    		<table class="table table-bordered table-striped">
 									    		<thead>
@@ -113,6 +131,13 @@
 									    				<td><?php echo $no ?></td>
 									    				<td>
 									    					<?php echo $r->persyaratan; ?>
+															<?php if($r->persyaratan == 'Surat Permohonan Penerbitan SPPL'): ?>
+																&nbsp;&nbsp; <a href="">Download Dokumen</a>
+															<?php endif; ?>
+															
+															<?php if($r->persyaratan == 'Surat Pernyataan Kesanggupan Pengelolaan Pemantauan Lingkungan Hidup (SPPL)'): ?>
+																&nbsp;&nbsp; <a href="">Download Dokumen</a>
+															<?php endif; ?>
 
 									    					<?php 
 									    					$check_dokumen = $check_upload_syarat($permohonan_id, $r->persyaratan_id);
