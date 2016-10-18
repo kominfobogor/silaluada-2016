@@ -1,5 +1,7 @@
 <div class="w3-container" style="padding: 10px 10px 20px 10px;">
   <h2>Data Perizinan</h2>
+  <br />
+  <br />
 
   <ul class="w3-navbar">
     <li>
@@ -32,10 +34,7 @@
 <script>
 
 $('#active-first').click();
-setTimeout(function() {
-    console.log($('#active-first'));
-    $('#active-first').addClass('w3-blue');
-}, 1000);
+
 function openCity(evt, cityName) {
   var i, x, tablinks;
   x = document.getElementsByClassName("city");
@@ -47,7 +46,7 @@ function openCity(evt, cityName) {
       tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
   }
   document.getElementById(cityName).style.display = "block";
-  //evt.currentTarget.className += " w3-blue";
+  evt.target.className += " w3-blue";
   
 }
 
