@@ -79,47 +79,6 @@ class Adminweb extends CI_Controller
 		redirect('loginweb');
 	}
 
-
-		/** 
-		Notif
-		 * @author Febri <mfebriansyah.mail@gmail.com>
-		 */
-	function notif(){
-		$qount = $this->supermodel->queryManual("SELECT COUNT(*) as jml_notif FROM notif_perizinan")->row_array();
-		$sql = $this->supermodel->queryManual("SELECT a.*, b.nama_member FROM notif_perizinan a, member b WHERE a.member_id = b.member_id");
-		
-		echo 	'<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  	<i class="fa fa-bell-o"></i>
-                  	<span class="label label-warning">'.$qount['jml_notif'].'</span>
-                </a>
-                <ul class="dropdown-menu">
-                  	<li class="header">
-                    	Ada '.$qount['jml_notif'].' Permohonan Izin Baru
-                    	<a class="btn btn-box-tool pull-right" data-toogle="tooltip" title="Segarkan" onclick="refreshnotif()"><i class="fa fa-refresh"></i></a>
-                  	</li>
-                  	<li>
-
-
-		                <ul class="menu"  style="overflow:auto;">';
-			        foreach ($sql->result() as $r) {
-			    	echo 	'<li>
-					            <a href="#">
-						            <i class="fa fa-users text-aqua"></i> Member '.$r->nama_member.' telah mengajukan permohonan izin baru dengan kode permohonan '.$r->permohonan_id.'
-						            <button class="btn btn-box-tool pull-right" data-widget="remove" data-toogle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-			            		</a>
-			        		</li>';
-			      	}
-		          echo '</ul>
-                  </li>
-                </ul>';
-        
-  	}
-
-  	function hapusnotif($notif_id){
-  		// $notif_id = $this->input->post('notif');
-  		$jalan = $this->supermodel->deleteData('notif_perizinan',array('notif_id' => $notif_id));
-  	}
-
 }
 
 /* End of file adminweb.php */

@@ -30,7 +30,7 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
-										    			<div style="overflow:auto;">
+										    			<div style="height:auto;width:auto; overflow:scroll;">
 												    		<table class="table table-bordered table-striped" id="example1">
 													    		<thead>
 													    			<tr>
@@ -40,7 +40,6 @@
 													    				<th>Perusahaan</th>
 													    				<th>Jenis Izin</th>
 													    				<th>Tanggal Pengajuan</th>
-													    				<th>Status</th>
 													    				<th>Aksi</th>
 													    			</tr>
 													    		</thead>
@@ -57,7 +56,7 @@
 													    													a.pemohon_id = b.pemohon_id AND
 													    													a.perusahaan_id = c.perusahaan_id AND
 													    													a.jenisizin_id = d.jenisizin_id AND
-													    													a.status_perizinan !='2' AND
+													    													a.status_perizinan !='1' AND
 													    													a.member_id = '".$id."' ORDER BY a.permohonan_id DESC");
 																	if($sql->num_rows()>0) {
 																		$no=1;
@@ -73,7 +72,6 @@
 													    				<td><?php echo $r->nama_perusahaan ?></td>
 													    				<td><?php echo $r->nama_perizinan; ?></td>
 													    				<td><?php echo $tgl."-".$bln."-".$thn;  ?></td>
-													    				<td><?php echo ($r->status_perizinan == 1 ? "Proses Penerbitan Izin" : "Pengajuan Izin dan Verifikasi Data") ?></td>
 													    				<td>
 													    					<a href="<?php echo site_url()."/perizinan_lingkungan/edit/".$r->permohonan_id."/".$r->jenisizin_id?>"  class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
 													    					<a href="<?php echo site_url()."/upload_syarat/index/".$r->pemohon_id."/".$r->perusahaan_id."/".$r->jenisizin_id."/".$r->permohonan_id?>" class="btn btn-info btn-xs"><i class="fa fa-arrow-circle-right "></i></a>
@@ -90,7 +88,7 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
-										    			<div style="overflow:auto;">
+										    			<div style="height:auto;width:auto; overflow:scroll;">
 												    		<table class="table table-bordered table-striped" id="example4">
 													    		<thead>
 													    			<tr>
@@ -102,7 +100,6 @@
 													    				<th>Perusahaan</th>
 													    				<th>Jenis Izin</th>
 													    				<th>Tanggal Terbit</th>
-													    				<th>Status</th>
 													    				<th>Aksi</th>
 													    			</tr>
 													    		</thead>
@@ -119,7 +116,7 @@
 													    													a.pemohon_id = b.pemohon_id AND
 													    													a.perusahaan_id = c.perusahaan_id AND
 													    													a.jenisizin_id = d.jenisizin_id AND
-													    													a.status_perizinan = '2' AND
+													    													a.status_perizinan = '1' AND
 													    													a.member_id = '".$id."' ORDER BY a.permohonan_id DESC");
 																	if($sql->num_rows()>0) {
 																		$no=1;
@@ -137,7 +134,6 @@
 													    				<td><?php echo $r->nama_perusahaan ?></td>
 													    				<td><?php echo $r->nama_perizinan; ?></td>
 													    				<td><?php echo $tgl."-".$bln."-".$thn;  ?></td>
-													    				<td><?php echo ($r->status_perizinan == 2 ? "Penerbitan Izin dan Publikasi Web" : "") ?></td>
 													    				<td>
 													    					<a href="<?php echo site_url('dashboard_member/vdetail/'.$r->jenisizin_id."/".$r->permohonan_id) ?>" class="btn btn-info btn-xs"><i class="fa fa-search"></i></a>
 													    				</td>
@@ -157,7 +153,7 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
-										    			<div style="overflow:auto;">
+										    			<div style="height:auto;width:auto; overflow:scroll;">
 															    		<table class="table table-bordered table-striped" id="example2">
 																    		<thead>
 																    			<tr>
@@ -167,7 +163,6 @@
 																    				<th>Perusahaan</th>
 																    				<th>Jenis Izin</th>
 																    				<th>Tanggal Pengajuan</th>
-																    				<th>Status</th>
 																    				<th>Aksi</th>
 																    			</tr>
 																    		</thead>
@@ -184,7 +179,7 @@
 																    													a.pemohon_id = b.pemohon_id AND
 																    													a.perusahaan_id = c.perusahaan_id AND
 																    													a.jenisizin_id = d.jenisizin_id AND
-																    													a.status_perizinan != '2' AND
+																    													a.status_perizinan != '1' AND
 																    													a.member_id = '".$id."' ORDER BY a.permohonan_id DESC");
 																				if($sql->num_rows()>0) {
 																					$no=1;
@@ -200,7 +195,6 @@
 																    				<td><?php echo $r->nama_perusahaan ?></td>
 																    				<td><?php echo $r->nama_perizinan; ?></td>
 																    				<td><?php echo $tgl."-".$bln."-".$thn;  ?></td>
-																    				<td><?php echo ($r->status_perizinan == 1 ? "Proses Penerbitan Izin" : "Pengajuan Izin dan Verifikasi Data") ?></td>
 																    				<td>
 																    					<a href="<?php echo site_url()."/perizinan_lingkungan/edit/".$r->permohonan_id."/".$r->jenisizin_id?>"  class="btn btn-warning btn-xs"><i class="fa fa-edit "></i></a>
 																    					<a href="<?php echo site_url()."/upload_syarat/index/".$r->pemohon_id."/".$r->perusahaan_id."/".$r->jenisizin_id."/".$r->permohonan_id?>"  class="btn btn-info btn-xs"><i class="fa fa-arrow-circle-right"></i></a>
@@ -215,7 +209,7 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
-										    			<div style="overflow:auto;">
+										    			<div style="height:auto;width:auto; overflow:scroll;">
 												    		<table class="table table-bordered table-striped" id="example5">
 													    		<thead>
 													    			<tr>
@@ -227,7 +221,6 @@
 													    				<th>Perusahaan</th>
 													    				<th>Jenis Izin</th>
 													    				<th>Tanggal Terbit</th>
-													    				<th>Status</th>
 													    				<th>Aksi</th>
 													    			</tr>
 													    		</thead>
@@ -244,7 +237,7 @@
 													    													a.pemohon_id = b.pemohon_id AND
 													    													a.perusahaan_id = c.perusahaan_id AND
 													    													a.jenisizin_id = d.jenisizin_id AND
-													    													a.status_perizinan = '2' AND
+													    													a.status_perizinan = '1' AND
 													    													a.member_id = '".$id."' ORDER BY a.permohonan_id DESC");
 																	if($sql->num_rows()>0) {
 																		$no=1;
@@ -262,7 +255,6 @@
 													    				<td><?php echo $r->nama_perusahaan ?></td>
 													    				<td><?php echo $r->nama_perizinan; ?></td>
 													    				<td><?php echo $tgl."-".$bln."-".$thn;  ?></td>
-													    				<td><?php echo ($r->status_perizinan == 2 ? "Penerbitan Izin dan Publikasi Web" : "") ?></td>
 													    				<td>
 													    					<a href="" class="btn btn-info btn-xs"><i class="fa fa-search"></i></a>
 													    				</td>
@@ -282,7 +274,7 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
-										    			<div style="overflow:auto;">
+										    			<div style="height:auto;width:auto; overflow:scroll;">
 												    		<table class="table table-bordered table-striped" id="example3">
 													    		<thead>
 													    			<tr>
@@ -292,7 +284,6 @@
 													    				<th>Perusahaan</th>
 													    				<th>Jenis Ijin</th>
 													    				<th>Tanggal Pengajuan</th>
-													    				<th>Status</th>
 													    				<th>Aksi</th>
 													    			</tr>
 													    		</thead>
@@ -309,7 +300,7 @@
 													    													a.pemohon_id = b.pemohon_id AND
 													    													a.perusahaan_id = c.perusahaan_id AND
 													    													a.jenisizin_id = d.jenisizin_id AND
-													    													a.status_perizinan != '2' AND
+													    													a.status_perizinan != '1' AND
 													    													a.member_id = '".$id."' ORDER BY a.permohonan_id DESC");
 																	if($sql->num_rows()>0) {
 																		$no=1;
@@ -325,7 +316,6 @@
 													    				<td><?php echo $r->nama_perusahaan ?></td>
 													    				<td><?php echo $r->nama_perizinan; ?></td>
 													    				<td><?php echo $tgl."-".$bln."-".$thn;  ?></td>
-													    				<td><?php echo ($r->status_perizinan == 1 ? "Proses Penerbitan Izin" : "Pengajuan Izin dan Verifikasi Data") ?></td>
 													    				<td>
 													    					<a href="<?php echo site_url()."/perizinan_lingkungan/edit/".$r->permohonan_id."/".$r->jenisizin_id?>"  class="btn btn-warning btn-xs"><i class="fa fa-edit "></i></a>
 													    					<a href="<?php echo site_url()."/upload_syarat/index/".$r->pemohon_id."/".$r->perusahaan_id."/".$r->jenisizin_id."/".$r->permohonan_id?>"  class="btn btn-info btn-xs"><i class="fa fa-arrow-circle-right "></i></a>
@@ -341,7 +331,7 @@
 										    		</tr>
 										    		<tr>
 										    			<td>
-										    			<div style="overflow:auto;">
+										    			<div style="height:auto;width:auto; overflow:scroll;">
 												    		<table class="table table-bordered table-striped" id="example6">
 													    		<thead>
 													    			<tr>
@@ -353,7 +343,6 @@
 													    				<th>Perusahaan</th>
 													    				<th>Jenis Izin</th>
 													    				<th>Tanggal Terbit</th>
-													    				<th>Status</th>
 													    				<th>Aksi</th>
 													    			</tr>
 													    		</thead>
@@ -370,7 +359,7 @@
 													    													a.pemohon_id = b.pemohon_id AND
 													    													a.perusahaan_id = c.perusahaan_id AND
 													    													a.jenisizin_id = d.jenisizin_id AND
-													    													a.status_perizinan = '2' AND
+													    													a.status_perizinan = '1' AND
 													    													a.member_id = '".$id."' ORDER BY a.permohonan_id DESC");
 																	if($sql->num_rows()>0) {
 																		$no=1;
@@ -388,7 +377,6 @@
 													    				<td><?php echo $r->nama_perusahaan ?></td>
 													    				<td><?php echo $r->nama_perizinan; ?></td>
 													    				<td><?php echo $tgl."-".$bln."-".$thn;  ?></td>
-													    				<td><?php echo ($r->status_perizinan == 2 ? "Penerbitan Izin dan Publikasi Web" : "") ?></td>
 													    				<td>
 													    					<a href="" class="btn btn-info btn-xs"><i class="fa fa-search"></i></a>
 													    				</td>

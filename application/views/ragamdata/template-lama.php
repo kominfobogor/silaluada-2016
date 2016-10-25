@@ -108,7 +108,7 @@
                 <li><a href="#" id="sekolah_adiwiyata"><i class="fa fa-circle-o"></i> Sekolah Adiwiyata</a></li>
               </ul>
             </li>
-             <!-- <li class="treeview">
+             <li class="treeview">
               <a href="#">
                 <i class="fa fa-angle-double-right"></i> <span>Perizinan</span>
               </a>
@@ -118,7 +118,7 @@
                 <li><a href="#" id="ukl-upl"><i class="fa fa-circle-o"></i> Data UKL-UPL</a></li>
                 <li><a href="#" id="izin_lc"><i class="fa fa-circle-o"></i> Data Izin Limbah Cair</a></li>
               </ul>
-            </li> -->
+            </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-angle-double-right"></i> <span>Trend Pengujian</span>

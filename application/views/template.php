@@ -16,7 +16,6 @@
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
 
-
     <link href="<?php echo base_url('asset/css/metro-bootstrap.css')?>" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('asset/css/bootstrap.css')?>" rel="stylesheet">
@@ -32,6 +31,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     <script src="<?php echo base_url('asset/js/metro.min.js')?>"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/js/fancybox/jquery.fancybox.css?v=2.1.5')?>" media="screen" />
     <script type="text/javascript" src="<?php echo base_url('asset/js/fancybox/jquery.fancybox.js?v=2.1.5')?>"></script>
+    <script type="text/javascript">
+        CI = {
+            baseUrl: "<?php echo base_url(); ?>",
+            siteUrl: "<?php echo site_url(); ?>"
+        }
+    </script>
 <body>
 
 <div class="w3-container w3-content w3-light-grey w3-card-4"><br>

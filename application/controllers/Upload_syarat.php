@@ -107,7 +107,7 @@ class Upload_syarat extends CI_Controller
 			$permohonan_id_fix = 'ukl_upl';
 		}
 
-		$change_status = $this->Perizinan_model->change_status_to($permohonan_id_fix, $permohonan_id, 1);
+		$change_status = $this->Perizinan_model->change_status_to($permohonan_id_fix, $permohonan_id, 0);
 
 		$key = 0;
 		foreach($dokumen_id as $row) {

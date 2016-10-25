@@ -1,0 +1,33 @@
+/**
+ * Custom Style
+ *
+ * @author Hikmahtiar <hikmahtiar.cool@gmail.com>
+ */
+
+.datatables {
+	width: 100% !important;
+	border-bottom: solid 1px #DDD !important;
+}
+
+.datatables thead tr {
+	background: #EEE;
+	font-weight: bold;
+	text-align: center;
+}
+
+.datatables thead tr td {
+	border-bottom: solid 1px #DDD !important;
+}
+
+.datatables thead tr td {
+	padding-right: 20px;
+}
+
+.table-border tr td {
+	border-left: 1px solid #DDD; 
+	border-top: 1px solid #DDD;
+}
+
+.table-border tr td:last-child {
+	border-right: 1px solid #EEE; 
+}

@@ -8,11 +8,13 @@ class Perizinan_model extends CI_Model
 {
 	private $upload_syarat;
 	private $direktori_member;
+	private $sppl;
 
 	public function __construct()
 	{
 		$this->upload_syarat = 'upload_syarat';
 		$this->direktori_member = 'direktori_member';
+		$this->sppl = 'sppl';
 		parent::__construct();
 	}
 
@@ -86,6 +88,94 @@ class Perizinan_model extends CI_Model
 		}
 
 		return FALSE;
+	}
+
+	public function get_sppl_publish()
+	{
+		$sql = $this->db;
+		$sql->select('sppl.*, pemohon.nama_pemohon, pemohon.alamat_pemohon');
+		$sql->from('sppl');
+		$sql->join('pemohon', 'sppl.pemohon_id = pemohon.pemohon_id');
+		$sql->where('sppl.status_perizinan', 3);
+
+		$get = $sql->get();
+
+		return $get->result();
+	}
+
+	public function get_sppl_lampau_publish()
+	{
+		$sql = $this->db;
+		$sql->select('*');
+		$sql->from('sppl_lampau');
+		$sql->where('nama_kegiatan !=', '');
+
+		$get = $sql->get();
+
+		return $get->result();
+	}
+
+	public function get_uklupl_publish()
+	{
+		$sql = $this->db;
+		$sql->select('ukl_upl.*, pemohon.nama_pemohon, pemohon.alamat_pemohon');
+		$sql->from('ukl_upl');
+		$sql->join('pemohon', 'ukl_upl.pemohon_id = pemohon.pemohon_id');
+		$sql->where('ukl_upl.status_perizinan', 3);
+
+		$get = $sql->get();
+
+		return $get->result();
+	}
+
+	public function get_uklupl_lampau_publish()
+	{
+		$sql = $this->db;
+		$sql->select('*');
+		$sql->from('ukl_upl_lampau');
+		$sql->where('nama_kegiatan !=', '');
+		$sql->where('alamat_kegiatan !=', '');
+
+		$get = $sql->get();
+
+		return $get->result();
+	}
+
+	public function get_amdal_publish()
+	{
+		$sql = $this->db;
+		$sql->select('amdal.*, pemohon.nama_pemohon, pemohon.alamat_pemohon');
+		$sql->from('amdal');
+		$sql->join('pemohon', 'amdal.pemohon_id = pemohon.pemohon_id');
+		$sql->where('amdal.status_perizinan', 3);
+
+		$get = $sql->get();
+
+		return $get->result();
+	}
+
+	public function get_amdal_lampau_publish()
+	{
+		$sql = $this->db;
+		$sql->select('*');
+		$sql->from('amdal_lampau');
+		$sql->where('nama_kegiatan !=', '');
+
+		$get = $sql->get();
+
+		return $get->result();
+	}
+
+	public function get_limbah_cair()
+	{
+		$sql = $this->db;
+		$sql->select('*');
+		$sql->from('izin_lc');
+		$sql->order_by('tgl_terbitizin', 'desc');
+
+		$get = $sql->get();
+
+		return $get->result();
 	}
 
 }

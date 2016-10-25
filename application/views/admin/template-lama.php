@@ -88,11 +88,6 @@
 
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
-          <!--notification-->
-              <li class="dropdown notifications-menu" id="notif">
-                
-              </li>
-
           <!-- Messages: style can be found in dropdown.less-->
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -394,30 +389,6 @@
     <script src="<?php echo base_url()?>assets/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
     <script src="<?php echo base_url()?>assets/dist/js/app.min.js" type="text/javascript"></script>
 
-    <script>
-    /** 
-     Notif
-     * @author Febri <mfebriansyah.mail@gmail.com>
-     */
-    $(document).ready(function(){
-
-      $.post("<?php echo site_url('adminweb/notif') ?>",{}, function(notifikasi){
-              $("#notif").html(notifikasi);
-      });
-
-    });
-
-    function refreshnotif() {
-        $.post("<?php echo site_url('adminweb/notif') ?>",{}, function(notifikasi){
-              console.log("ini dok =>",notifikasi);
-              $("#notif").html(notifikasi);
-         });
-    }
-
-
-    </script>
-
-
     <script type="text/javascript">
       $(function () {
         $("#example1").dataTable();
@@ -464,6 +435,9 @@
     	}
 
       });
+
+    
+      
     </script>
 
 
