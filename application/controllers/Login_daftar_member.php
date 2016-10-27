@@ -37,7 +37,9 @@ class Login_daftar_member extends CI_Controller
 				$this->session->set_userdata($sess);
 				// $this->m_global->activities('Login administrator');
 				echo"<script>alert('Login Berhasil...!');</script>";
-				redirect('dashboard_member');
+				
+				echo "<script>document.location.href='".site_url('dasboard_member')."';</script>";
+				//redirect('dashboard_member');
 			} else {
 				
 				$this->session->set_flashdata('login', '<div class="alert alert-danger">Email atau password anda masih salah</div>');

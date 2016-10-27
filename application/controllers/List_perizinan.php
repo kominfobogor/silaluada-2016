@@ -4,6 +4,7 @@
  *
  * @author Hikmahtiar <hikmahtiar.cool@gmail.com>
  */
+ 
 class List_perizinan extends CI_Controller {
     
     public function __construct()
@@ -260,7 +261,7 @@ class List_perizinan extends CI_Controller {
 		    	if($month_string == 'Januari') {
 		    		$text = '01';
 		    	}
-		    	if($month_string == 'Pebuari' || $month_string == 'Febuari' || $month_string == 'Feruari' || $month_string == 'Februari') {
+		    	if($month_string == 'Pebuari' || $month_string == 'Febuari' || $month_string == 'Feruari' || $month_string == 'Februari' || $month_string == 'Pebruari') {
 		    		$text = '02';
 		    	}
 		    	if($month_string == 'Maret') {
