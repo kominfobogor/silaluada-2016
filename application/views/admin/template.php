@@ -360,6 +360,12 @@
                     </ul>
                 </li>
                 
+                <li>
+                    <a href="<?php echo site_url('Adm_perizinan_member'); ?>">
+                        <i class="fa fa-circle-o"></i> Data Member 
+                    </a>
+                </li>
+                
               </ul>
             </li>
 			<?php } ?>

@@ -38,7 +38,7 @@ class Login_daftar_member extends CI_Controller
 				// $this->m_global->activities('Login administrator');
 				echo"<script>alert('Login Berhasil...!');</script>";
 				
-				echo "<script>document.location.href='".site_url('dasboard_member')."';</script>";
+				echo "<script>document.location.href='".site_url('dashboard_member')."';</script>";
 				//redirect('dashboard_member');
 			} else {
 				
