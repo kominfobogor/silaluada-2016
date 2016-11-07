@@ -29,7 +29,7 @@ class Trash extends CI_Controller
 		if($image!=null) {
 			@unlink($image);
 		}
-		$del = $this->supermodel->deleteData($tabel,$tabel.'_id',$primary);
+		$del = $this->supermodel->deleteData($tabel,'permohonan_id',$primary);
 		if($del) {
 			$this->session->set_flashdata('success','Hapus data berhasil');
 			$this->m_global->activities('Menghapus data dari tabel '.$tabel.' dengan id '.$primary);

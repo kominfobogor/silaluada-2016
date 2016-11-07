@@ -68,5 +68,35 @@ class Dashboard_member extends CI_Controller
 		$data['konten'] = "izin_lingkungan/vdetail_izin_selesai";
 		$this->load->view('izin_lingkungan/template',$data);
 	}
+
+	/** 
+	 *	Notification
+	 * @author Hikmahtiar <hikmahtiar.cool@gmail.com>
+	 */
+	public function notification(){
+		$jml_pesan = $this->supermodel->queryManual("
+			SELECT COUNT(*) as jml FROM pesan 
+			WHERE pesan_untuk_id = ".$this->session->userdata('member_id')."
+			AND pesan_status = 0
+		")->row();
+
+		if($jml_pesan->jml > 0) {
+        echo '
+        	<li class="dropdown pull-right">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            		<i class="fa fa-bell-o"></i> '.$jml_pesan->jml.'
+	          		&nbsp;&nbsp;&nbsp;
+	          	</a>
+
+            	<ul class="dropdown-menu" role="menu">
+              		<li>
+              			<a href="'.site_url('pesan').'"> Ada '.$jml_pesan->jml.' Pesan Baru</a></li>
+            	</ul>
+          </li>
+
+         ';
+		}
+        
+  	}
  }
 ?>

@@ -35,20 +35,26 @@
           <input type="password" name="password" class="form-control" >
           <p class="help-block text-blue">*isi jika ingin dirubah</p>
         </div>
-        <div class="form-group">
-          <label>Level</label>
-          <select name="level" class="form-control">
-            <?php
-            foreach ($level as $no => $nm) {
-              $sel = '';
-              if($row['level']==$no) {
-                $sel = 'selected';
+
+        <?php if($this->session->userdata('userlvl') == 0): ?>
+
+          <div class="form-group">
+            <label>Level</label>
+            <select name="level" class="form-control">
+              <?php
+              foreach ($level as $no => $nm) {
+                $sel = '';
+                if($row['level']==$no) {
+                  $sel = 'selected';
+                }
+                echo "<option value='".$no."' ".$sel.">". $nm."</option>";
               }
-              echo "<option value='".$no."' ".$sel.">". $nm."</option>";
-            }
-            ?>
-          </select>
-        </div>
+              ?>
+            </select>
+          </div>
+
+        <?php endif; ?>
+
         <div class="form-group">
           <button class="btn btn-info" type="submit"><i class="fa fa-save"></i> Save</button>
           <button class="btn btn-default" type="reset">Reset</button>

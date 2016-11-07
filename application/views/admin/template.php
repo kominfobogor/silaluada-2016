@@ -21,8 +21,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <script src="<?php echo base_url()?>assets/plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dashgum/assets/js/jquery-ui-1.9.2.custom.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=drawing, geometry"></script>
   <script type="text/javascript">
+
   var infoWindows;
   var map;
   
@@ -69,13 +71,32 @@
 
 
   </script>
+
+  <script src="<?php echo base_url(); ?>bower_components/jquery-form/jquery.form.js"></script>
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/toastr/toastr.min.css'); ?>" type="text/css">
+  <script type="text/javascript" src="<?php echo base_url('assets/plugins/toastr/toastr.min.js'); ?>"></script>
+  
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/chosen/chosen.css" type="text/css">
+  <script src="<?php echo base_url(); ?>bower_components/chosen/chosen.jquery.js"></script>
+
+      <script src="<?php echo base_url()?>assets/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+  CI = {
+      baseUrl: "<?php echo base_url(); ?>",
+      siteUrl: "<?php echo site_url(); ?>"
+  }
+</script>
   </head>
   <body class="skin-green">
     <!-- Site wrapper -->
     <div class="wrapper">
       
       <header class="main-header">
-        <a href="#" class="logo"><i><b>Web Admin</b>istrator</i></a>
+        <a href="<?php echo site_url('adminweb'); ?>" class="logo"><i><b>Web Admin</b>istrator</i></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -337,6 +358,10 @@
               </ul>
             </li>
             <li><a href="<?php echo site_url('konfig') ?>"><i class="fa fa-cogs"></i> Pengaturan</a></li>
+            <li>
+              <a href="<?php echo site_url('adm_pesan')?>">
+              <i class="fa fa-inbox "></i> Perpesanan</a>
+            </li>
             <?php } else {?>
 			<li class="treeview">
               <a href="#">
@@ -349,7 +374,7 @@
 					<li><a href="<?php echo site_url('Adm_perizinan_sppl')?>"><i class="fa fa-circle-o"></i> Pendaftaran SPPL Baru</a></li>
 					<li><a href="<?php echo site_url('Adm_perizinan_amdal')?>"><i class="fa fa-circle-o"></i> Pendaftaran AMDAL Baru</a></li>
 					<li><a href="<?php echo site_url('Adm_perizinan_uklupl')?>"><i class="fa fa-circle-o"></i> Pendaftaran UKL-UPL Baru</a></li>
-					<li><a href="<?php echo site_url('adm_izin_lc')?>"><i class="fa fa-circle-o"></i> Izin Limbah Cair</a></li>
+					<!--<li><a href="<?php //echo site_url('adm_limbah_cair')?>"><i class="fa fa-circle-o"></i> Izin Limbah Cair</a></li>-->
                </ul>
                 </li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Perizinan <i class="fa fa-angle-left pull-right"></i></a>
@@ -365,8 +390,14 @@
                         <i class="fa fa-circle-o"></i> Data Member 
                     </a>
                 </li>
+
+
                 
               </ul>
+            </li>
+            <li>
+              <a href="<?php echo site_url('adm_pesan')?>">
+              <i class="fa fa-inbox "></i> Perpesanan</a>
             </li>
 			<?php } ?>
           </ul>
@@ -384,41 +415,39 @@
 
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 1.0
+          <b>Version</b> 2.0
         </div>
-        <strong>Copyright &copy; 2015. All rights reserved.</strong>
+        <strong>Copyright &copy; 2016. All rights reserved.</strong>
       </footer>
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
-    <script src="<?php echo base_url()?>assets/plugins/jQuery/jQuery-2.1.3.min.js"></script>
     <!-- Bootstrap 3.3.2 JS -->
     <script src="<?php echo base_url()?>assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- DATA TABES SCRIPT -->
     <script src="<?php echo base_url()?>assets/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
-    <script src="<?php echo base_url()?>assets/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-    <script src="<?php echo base_url()?>assets/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+
     <script src="<?php echo base_url()?>assets/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>asset_app/js/admin/index.js" type="text/javascript"></script>
 
     <script>
     /** 
      Notif
      * @author Febri <mfebriansyah.mail@gmail.com>
+     * @author Hikmahtiar <hikmahtiar.cool@gmail.com>
      */
-    $(document).ready(function(){
-
-      $.post("<?php echo site_url('adminweb/notif') ?>",{}, function(notifikasi){
-              $("#notif").html(notifikasi);
-      });
-
-    });
-
     function refreshnotif() {
         $.post("<?php echo site_url('adminweb/notif') ?>",{}, function(notifikasi){
-              console.log("ini dok =>",notifikasi);
+              //console.log("ini dok =>",notifikasi);
               $("#notif").html(notifikasi);
          });
     }
+
+    refreshnotif();
+
+      setInterval(function() {
+          refreshnotif();
+      }, 30000);
 
 
     </script>
@@ -470,6 +499,13 @@
     	}
 
       });
+    </script>
+
+
+    <script type="text/javascript">
+      
+        window.ADMIN.init();
+
     </script>
 
 

@@ -4,7 +4,7 @@
     <?php echo $title ?>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="<?php echo site_url('adminweb'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
   </ol>
 </section>
 
@@ -16,7 +16,6 @@
       <h3 class="box-title">Log Aktivitas</h3>
       <div class="box-tools pull-right">
         <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-        <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
       </div>
     </div>
     <div class="box-body">
@@ -49,8 +48,13 @@
           </tbody>
         </table>
     </div><!-- /.box-body -->
+
+    <?php if($this->session->userdata('userlvl') == 0): ?>
+
     <div class="box-footer">
       <a href="<?php echo site_url('trash/hapuslog')?>" onclick="return confirm('Anda yakin hapus semua log aktivitas??')" class="btn btn-danger"><i class="fa fa-trash-o"></i> Bersihkan Log Aktivitas</a>
-    </div><!-- /.box-footer-->
+    </div>
+    <?php endif; ?>
+    <!-- /.box-footer-->
   </div><!-- /.box -->
 </section><!-- /.content -->

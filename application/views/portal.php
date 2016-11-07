@@ -40,8 +40,29 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 	<!-- Slider -->
 		<div class="w3-section w3-content w3-round w3-white" style="padding-top:10px;padding-bottom:15px;">
 
-			<img class="mySlides w3-animate-left" src="<?php echo base_url()?>assets/css/image/1.jpg" style="width:100%">
-			<img class="mySlides w3-animate-left" src="<?php echo base_url()?>assets/css/image/2.jpg" style="width:100%">
+			 <?php
+	        if($slide->num_rows()>0) {
+	        	$no = 1;
+	        	foreach ($slide->result() as $rows) {
+	        	$cls = "";
+	        	if($no==1) {
+	        		$cls = "active";
+	        	}
+	        ?>
+	        <div class="item <?php echo $cls ?>">
+	            <img src="<?php echo base_url('uploads/slide/'.$rows->slide_file)?>" class="mySlides w3-animate-left" style="width:100%">
+	         </div>
+	        <?php
+	        	$no++;
+	        	}
+	        } else {
+	        ?>
+	        	<div class="item active">
+	            <img src="<?php echo base_url('uploads/slide/red.jpg')?>" class="mySlides w3-animate-left" style="width:100%">
+	          </div>
+	        <?php
+	        }
+	        ?>
 
 		</div>
 	<!-- MENU ATAS -->

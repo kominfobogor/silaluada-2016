@@ -38,7 +38,10 @@
 				
 		            <form class="form-login" method="POST" action="<?php echo site_url('login_daftar_member/login')?>">
 		        <h2 class="form-login-heading" valign="center">
-		        <img src="<?php echo base_url()?>assets/css/image/kotabogor.png" height="42" width="42">    BPLH Kota Bogor
+		        <img src="<?php echo base_url()?>assets/css/image/kotabogor.png" height="42" width="42">    
+		        <span style="color: #333;">
+	        	BPLH Kota Bogor
+	        	</span>
 		        </h2>
 					
 		        <div class="login-wrap">
@@ -59,7 +62,14 @@
 			            <td colspan="3" style="text-align: center;padding-top: 30px;">
 			            	<input type="submit" value="Login" name="login" class="btn btn-theme btn-block">
 			                <br>
-			                <medium>atau <a data-toggle="modal" data-target="#myModal">Mendaftar</a></medium>
+			                
+			                <medium>
+			                	atau
+			                	<a data-toggle="modal" data-target="#myModal">Mendaftar</a>
+			                	<!--atau 
+			                	<a data-toggle="modal" data-target="#myModal2">Lupa Password</a>
+			                	-->
+			                </medium>
 			            </td>
 			          </tr>
 			      </table> 
@@ -82,8 +92,8 @@
 		
 		                      </div>
 		                      <div class="modal-footer">
-		                        <button class="btn btn-theme btn-block" type="submit" value="kirim" name="button"><i class="fa " ></i> Kirim Permintaan</button>
-								<button data-dismiss="modal" class="btn btn-default btn-block" type="submit" value=""><i class="fa" ></i> Cancel</button>
+		                        <button class="btn btn-theme " type="submit" value="kirim" name="button"><i class="fa " ></i> Kirim Permintaan</button>
+								<button data-dismiss="modal" class="btn btn-default" type="submit" value=""><i class="fa" ></i> Cancel</button>
 		                      </div>
 		                  </div>
 		              </div>
@@ -92,7 +102,7 @@
 				  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
 		              <div class="modal-dialog">
 		                      <div class="modal-body">
-								  <form method="POST" action="<?php echo site_url('login_daftar_member/daftar')?>" enctype="multipart/form-data">
+								  <form method="POST" action="<?php echo site_url('login_daftar_member/daftar')?>" enctype="multipart/form-data" id="frm-register">
 							      <!-- Modal content-->
 							      <div class="modal-content">
 							        <div class="modal-header">
@@ -154,15 +164,27 @@
 	  	</div>
 	  </div>
 
+	<link href="<?php echo base_url(); ?>bower_components/toastr/toastr.min.css" rel="stylesheet">
+
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="<?php echo base_url()?>assets/dashgum/assets/js/jquery.js"></script>
     <script src="<?php echo base_url()?>assets/dashgum/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>bower_components/jquery-form/jquery.form.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>bower_components/toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>asset_app/js/perizinan/member.js"></script>
 
     <!--BACKSTRETCH-->
     <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
     <script type="text/javascript" src="<?php echo base_url()?>assets/dashgum/assets/js/jquery.backstretch.min.js"></script>
     <script>
-        //$.backstretch("<?php echo base_url()?>assets/dashgum/assets/img/", {speed: 500});
+        $.backstretch(
+        	[
+        		"<?php echo base_url()?>assets/dashgum/assets/img/login-bg.jpg", 
+        	],
+        	{speed: 500}
+        );
+
+        window.MEMBER.handleRegister('#frm-register');
     </script>
 
 

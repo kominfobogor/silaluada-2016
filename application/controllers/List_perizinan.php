@@ -10,6 +10,7 @@ class List_perizinan extends CI_Controller {
     public function __construct()
     {
     	parent::__construct();
+		$this->load->model('supermodel');
 		$this->load->model('Perizinan_model');
     }
 
@@ -17,6 +18,8 @@ class List_perizinan extends CI_Controller {
     {
         $data['name_site'] = 'BPLH';
         $data['konten'] = 'izin_lingkungan/list_perizinan';
+		$data['slide'] = $this->supermodel->getData('slide',array('status'=>1));
+
         $this->load->view('template', $data);
     }
 
@@ -24,6 +27,8 @@ class List_perizinan extends CI_Controller {
     {
         $data['name_site'] = 'BPLH';
         $data['konten'] = 'izin_lingkungan/list_limbah_cair';
+		$data['slide'] = $this->supermodel->getData('slide',array('status'=>1));
+
         $this->load->view('template', $data);
     }
 

@@ -20,7 +20,7 @@ class Adm_amdal extends CI_Controller
 	function index()
 	{
 	$data['title'] = "Data AMDAL";
-		$data['konten'] = 'admin/perizinan/amdal/index_lama';
+		$data['konten'] = 'admin/perizinan/amdal/index';
 
 		$data['amdal'] = $this->supermodel->queryManual('SELECT * 
 from member, pemohon, perusahaan, jenisizin, amdal

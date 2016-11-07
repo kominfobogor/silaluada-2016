@@ -1,3 +1,8 @@
+/**
+ * Javacsript Perizinan
+ * @author Hikmahtiar <hikmahtiar.cool@gmail.com>
+ */
+
 window.PERIZINAN = (function($) {
 
 	return {

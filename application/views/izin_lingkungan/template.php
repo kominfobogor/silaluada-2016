@@ -11,6 +11,17 @@
 <link href="<?php echo base_url() ?>assets/perizinan/css/styles.css" rel="stylesheet">
 
 <script src="<?php echo base_url()?>assets/plugins/jQuery/jQuery-2.1.3.min.js"></script>
+<script src="<?php echo base_url(); ?>bower_components/jquery-form/jquery.form.js"></script>
+<script src="<?php echo base_url(); ?>assets/dashgum/assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/perizinan/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="<?php echo base_url('assets/plugins/toastr/toastr.min.css'); ?>" type="text/css">
+<script type="text/javascript" src="<?php echo base_url('assets/plugins/toastr/toastr.min.js'); ?>"></script>
+
+  <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/chosen/chosen.css" type="text/css">
+  <script src="<?php echo base_url(); ?>bower_components/chosen/chosen.jquery.js"></script>
+
 
 <!-- Datatable -->
 <link href="<?php echo base_url()?>assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
@@ -27,6 +38,16 @@
       <link type="text/css" rel="stylesheet" href="<?php echo base_url()?>assets/gmaps/css/jquery-position-picker.css"/>
     <script src="<?php echo base_url()?>assets/gmaps/js/OpenLayers.js"></script>
       <script src="<?php echo base_url()?>assets/gmaps/js/jquery-position-picker.debug.js"></script>
+
+    <script src="<?php echo base_url()?>assets/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      CI = {
+          baseUrl: "<?php echo base_url(); ?>",
+          siteUrl: "<?php echo site_url(); ?>"
+      }
+    </script>
 
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
@@ -59,6 +80,12 @@
             </ul>
           </li>
         </ul>
+
+        <ul class="user-menu notification-message">
+          
+        </ul>
+
+
       </div>
               
     </div><!-- /.container-fluid -->
@@ -66,7 +93,7 @@
     
   <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     <ul class="nav menu">
-      <li class="active"><a href="<?php echo site_url('dashboard_member');?>"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+      <li><a href="<?php echo site_url('dashboard_member');?>"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
       <li class="parent">
         <a href="#stroked-chevron-down">
           <span data-toggle="collapse" href="#sub-item-1">
@@ -87,6 +114,8 @@
         </ul>
       </li>
       <li><a href="<?php echo site_url('dokumen_member/index/'.md5(0));?>"><svg class="glyph stroked open folder"><use xlink:href="#stroked-open-folder"></use></svg> Dokumen Member</a></li>
+
+      <li><a href="<?php echo site_url('pesan');?>"><i class="fa fa-inbox fa-1x"></i> &nbsp;&nbsp;&nbsp; Perpesanan</a></li>
       
     </ul>
 
@@ -96,8 +125,7 @@
     <?php $this->load->view($konten) ; ?>
   </div>  <!--/.main-->
 
-  <script src="<?php echo base_url() ?>assets/perizinan/js/jquery-1.11.1.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/perizinan/js/bootstrap.min.js"></script>
+
   <script src="<?php echo base_url() ?>assets/perizinan/js/chart.min.js"></script>
   <!--<script src="<?php echo base_url() ?>assets/perizinan/js/chart-data.js"></script>-->
   <script src="<?php echo base_url() ?>assets/perizinan/js/easypiechart.js"></script>
@@ -106,12 +134,24 @@
 
 
   <!-- DATA TABES SCRIPT -->
-    <script src="<?php echo base_url()?>assets/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-    <script src="<?php echo base_url()?>assets/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+
     <script src="<?php echo base_url()?>assets/dist/js/app.min.js" type="text/javascript"></script>
  
 
   <script type="text/javascript">
+      
+      function createNotification() {
+          $.post("<?php echo site_url('dashboard_member/notification') ?>",{}, function(notifikasi){
+                  $(".notification-message").html(notifikasi);
+          });
+      }
+
+      createNotification();
+
+      setInterval(function() {
+          createNotification();
+      }, 10000);
+
       $(function () {
         $("#example1").dataTable();
       });

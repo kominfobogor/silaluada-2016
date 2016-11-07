@@ -1,9 +1,9 @@
 <?php
 
-
 class Swiftmailer extends CI_Controller {
     public function __construct()
     {
+
         parent::__construct();
         
         $this->load->helper('email');

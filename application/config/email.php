@@ -5,9 +5,10 @@
  * @author Hikmahtiar <hikmahtiar.cool@gmail.com>
  */
 
- $config['email'] = 'hikmahtiar6@gmail.com';
- $config['pass']  = 'sakonokono';
- $config['smtp']  = 'smtp.gmail.com';
- $config['ssl']   = 'ssl';
- $config['port']  = 465;
+ $config['email'] = 'bplh@kotabogor.go.id';
+ $config['pass']  = 'bplh,216';
+ $config['smtp']  = 'mail.kotabogor.go.id';
+ $config['ssl']   = '';
+ $config['port']  = 587;
+ $config['offline'] = false;
 ?>

@@ -20,7 +20,7 @@ class Adm_uklupl extends CI_Controller
 	function index()
 	{
 	$data['title'] = "Data UKL UPL ";
-		$data['konten'] = 'admin/perizinan/ukl-upl/index_lama';
+		$data['konten'] = 'admin/perizinan/ukl-upl/index';
 		$data['uklupl'] = $this->supermodel->queryManual('SELECT * 
 			from member, pemohon, perusahaan, jenisizin, ukl_upl
 			where 

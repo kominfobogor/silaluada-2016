@@ -42,7 +42,9 @@ class Adminweb extends CI_Controller
 			if($this->input->post('password')) {
 				$in['password'] = $this->input->post('password');
 			}
-			$in['level'] = $this->input->post('level');
+			if($this->input->post('level')) {
+				$in['level'] = $this->input->post('level');
+			}
 			$this->supermodel->updateData('user',$in,'user_id',$id);
 			$this->m_global->activities('Edit profile');
 			redirect('adminweb/edit_profile');
@@ -80,44 +82,117 @@ class Adminweb extends CI_Controller
 	}
 
 
-		/** 
-		Notif
-		 * @author Febri <mfebriansyah.mail@gmail.com>
-		 */
-	function notif(){
+	/** 
+	 *	Notif
+	 * @author Febri <mfebriansyah.mail@gmail.com>
+	 * @author Hikmahtiar <hikmahtiar.cool@gmail.com>
+	 */
+	public function notif(){
+		$jml_pesan = $this->supermodel->queryManual("
+			SELECT COUNT(*) as jml FROM pesan 
+			WHERE pesan_untuk_id = ".$this->session->userdata('userid')."
+			AND pesan_status = 0
+		")->row();
+
 		$qount = $this->supermodel->queryManual("SELECT COUNT(*) as jml_notif FROM notif_perizinan")->row_array();
-		$sql = $this->supermodel->queryManual("SELECT a.*, b.nama_member FROM notif_perizinan a, member b WHERE a.member_id = b.member_id");
+
+		$sql = $this->supermodel->queryManual("SELECT a.*, b.nama_member FROM notif_perizinan a, member b WHERE a.member_id = b.member_id 
+			GROUP BY substring(a.permohonan_id, 1, 3)
+		");
+
+		$id_notif = '';			
 		
 		echo 	'<a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   	<i class="fa fa-bell-o"></i>
-                  	<span class="label label-warning">'.$qount['jml_notif'].'</span>
-                </a>
-                <ul class="dropdown-menu">
+                  	<span class="label label-warning">'.($qount['jml_notif'] + $jml_pesan->jml).'</span>
+                </a><ul class="dropdown-menu">';
+
+		if($qount['jml_notif'] > 0) {
+
+			if($sql->result()) {
+				foreach($sql->result() as $row) {
+					$lower = strtolower($row->permohonan_id);
+					$str_expl = explode('-', $lower);
+
+					$table = $str_expl[0];
+					$link = $table;
+
+					if($table == 'ukl')
+					{
+						$link = 'uklupl';
+						$table = 'ukl_upl';
+					}
+
+					$qount2 = $this->supermodel->queryManual("
+						SELECT COUNT(*) as jml_notif FROM notif_perizinan 
+						WHERE permohonan_id LIKE '%".substr($row->permohonan_id, 0, 3)."%'
+					")->row_array();
+
+					$sqlw = $this->supermodel->queryManual("
+						SELECT * FROM notif_perizinan 
+						WHERE permohonan_id LIKE '%".substr($row->permohonan_id, 0, 3)."%'
+						
+					")->result();
+
+					$id_notifs = '';
+					foreach($sqlw as $sq)
+					{
+						$id_notifs .= $sq->notif_id .',';
+					}
+
+
+			        echo '
+			                  	<li class="header">
+			                  		<a class="reset-notif" href="'.site_url('Adm_perizinan_'.$link).'" data-id="'.$id_notifs.'">
+			                    		Ada '.$qount2['jml_notif'].' Permohonan Izin '.ucwords($table).' Baru
+			                    	</a>
+			                    	<!--<a class="btn btn-box-tool pull-right" data-toogle="tooltip" title="Segarkan" onclick="refreshnotif()"><i class="fa fa-refresh"></i></a>-->
+			                  	</li>';
+					}
+
+					//$id_notif .= $row->notif_id.',';
+				}
+			}
+
+
+		if($jml_pesan->jml > 0) {
+        echo '
                   	<li class="header">
-                    	Ada '.$qount['jml_notif'].' Permohonan Izin Baru
-                    	<a class="btn btn-box-tool pull-right" data-toogle="tooltip" title="Segarkan" onclick="refreshnotif()"><i class="fa fa-refresh"></i></a>
+                  		<a href="'.site_url('adm_pesan').'">
+                    		Ada '.$jml_pesan->jml.' Pesan Baru
+                    	</a>
                   	</li>
-                  	<li>
 
+                  ';
+		}
 
-		                <ul class="menu"  style="overflow:auto;">';
-			        foreach ($sql->result() as $r) {
-			    	echo 	'<li>
-					            <a href="#">
-						            <i class="fa fa-users text-aqua"></i> Member '.$r->nama_member.' telah mengajukan permohonan izin baru dengan kode permohonan '.$r->permohonan_id.'
-						            <button class="btn btn-box-tool pull-right" data-widget="remove" data-toogle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-			            		</a>
-			        		</li>';
-			      	}
-		          echo '</ul>
-                  </li>
-                </ul>';
+		echo '</ul>';
         
   	}
 
   	function hapusnotif($notif_id){
   		// $notif_id = $this->input->post('notif');
   		$jalan = $this->supermodel->deleteData('notif_perizinan',array('notif_id' => $notif_id));
+  	}
+
+  	/**
+  	 * Deleting Notification
+  	 *
+  	 * @author  Hikmahtiar <hikmahtiar.cool@gmail.com>
+  	 */
+  	public function delete_notif()
+  	{
+  		$id = $this->input->post('id');
+
+  		$fix_id = rtrim($id, ',');
+  		$str_expl = explode(',', $fix_id);
+
+  		$status = [];
+
+  		foreach($str_expl as $new_id) {
+  			$this->supermodel->deleteData('notif_perizinan',array('notif_id' => $new_id));
+  		}  		
+
   	}
 
 }

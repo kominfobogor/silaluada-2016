@@ -27,51 +27,51 @@
   <!-- Default box -->
   <div class="box">
     <div class="box-header with-border">
+      <!--
       <a href="<?php echo site_url('adm_sppl_baru/tambah')?>" class="btn btn-sm bg-light-blue"><i class="fa fa-plus"></i> Tambah</a>
+      -->
     </div>
     <div class="box-body">
-    <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>No</th>
-          <th>Jenis Kegiatan/Usaha</th>
-          <th>Tanggal SPLL</th>
-          <th>Nomor SPPL</th>
-          <th>Nama Pemilik</th>
-          <th>Tools</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
-      if($listview->num_rows()>0) {
-        $no = $offset + 1;
-        foreach ($listview->result() as $rows) {
-      ?>
-      <tr>
-        <td><?php echo $no ?></td>
-        <td><?php echo $rows->jenis_kegiatanusaha ?></td>
-        <td><?php echo $rows->tgl_sppl ?></td>
-        <td><?php echo $rows->nomor_sppl ?></td>
-        <td><?php echo $rows->nama_pemilik ?></td>
-        <td align="center">
-          <a href="<?php echo site_url('adm_sppl_baru/edit/'.$rows->sppl_id)?>" class="btn btn-xs bg-green" data-toggle="tooltip" title="Edit Data"><i class="fa fa-pencil"></i></a>
-          <a href="<?php echo site_url('trash/proses?tabel=sppl&primary='.$rows->sppl_id.'&url=adm_sppl_baru')?>" class="btn btn-xs bg-red" data-toggle="tooltip" title="Hapus Data" onclick="return confirm('Anda yakin??')"><i class="fa fa-trash-o"></i></a>
-        </td>
-      </tr>
-      <?php
-      $no++;
-        }
-      } else {
-        echo "<tr><td colspan='10'>No Data...</td></tr>";
-      }
-      ?>
-      </tbody>
+    <table class="datatables table-border table-striped" id="table-sppl">
+        <thead>
+          <tr>
+              <td>
+                  No.
+              </td>
+              <td>
+                  Nomor SPPL
+              </td>
+              <td>
+                  Tanggal
+              </td>
+              <td>
+                  Jenis Kegiatan / Usaha  
+              </td>
+              <td>
+                  Alamat Kegiatan Usaha 
+              </td>
+              <td>
+                  Nama Pemilik/Pengelola  
+              </td>
+              <td>
+                  Alamat Pemilik/Pengelola
+              </td>
+          </tr>
+        </thead>
     </table>
       
     </div><!-- /.box-body -->
     <div class="box-footer">
-    <?php echo $this->pagination->create_links(); ?>
     </div><!-- /.box-footer-->
   </div><!-- /.box -->
 
 </section><!-- /.content -->
+
+<link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables/media/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>asset_app/css/style.css">
+<script type="text/javascript" src="<?php echo base_url(); ?>bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>asset_app/js/perizinan/list.js"></script>
+
+<script>
+    window.LIST_PERIZINAN.init();
+</script>

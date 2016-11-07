@@ -20,7 +20,7 @@ class Adm_sppl extends CI_Controller
 	function index()
 	{
 		$data['title'] = "Data SPPL";
-		$data['konten'] = 'admin/perizinan/sppl/index_lama';
+		$data['konten'] = 'admin/perizinan/sppl/index';
 
 		$data['sppl'] = $this->supermodel->queryManual('SELECT * 
 from member, pemohon, perusahaan, jenisizin, sppl

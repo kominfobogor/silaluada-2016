@@ -1,3 +1,9 @@
+/**
+ * Javacsript List Perizinan
+ * @author Hikmahtiar <hikmahtiar.cool@gmail.com>
+ */
+
+
 window.LIST_PERIZINAN = (function($) {
 
 	return {

@@ -133,14 +133,14 @@
 									    					<?php echo $r->persyaratan; ?>
 															<?php if($r->persyaratan == 'Surat Permohonan Penerbitan SPPL'): ?>
 																&nbsp;&nbsp; 
-																<a href="<?php echo base_url(); ?>asset_app/dokumen/surat_pernyataan_kesanggupan_sppl.docx" target="_blank">
+																<a href="<?php echo base_url(); ?>asset_app/dokumen/surat-permohonan-penerbitan.docx" target="_blank">
 																	Download Dokumen
 																</a>
 															<?php endif; ?>
 															
 															<?php if($r->persyaratan == 'Surat Pernyataan Kesanggupan Pengelolaan Pemantauan Lingkungan Hidup (SPPL)'): ?>
 																&nbsp;&nbsp; 
-																<a href="<?php echo base_url(); ?>asset_app/dokumen/surat_pernyataan_kesanggupan_sppl.docx" target="_blank">
+																<a href="<?php echo base_url(); ?>asset_app/dokumen/surat-pernyataan-kesanggupan-sppl.docx" target="_blank">
 																	Download Dokumen
 																</a>
 															<?php endif; ?>
@@ -234,9 +234,7 @@ $(document).ready(function(){
 </script>
 
 
-<link rel="stylesheet" href="<?php echo base_url('assets/plugins/toastr/toastr.min.css'); ?>" type="text/css">
 <script type="text/javascript" src="<?php echo base_url('asset_app/js/perizinan/index.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/plugins/toastr/toastr.min.js'); ?>"></script>
 <script type="text/javascript">
 
 	var formEl = 'form#urus-perizinan';

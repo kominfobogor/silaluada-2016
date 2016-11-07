@@ -56,34 +56,30 @@
         <td><?php echo $row->nama_perusahaan ?></td>
         <td>
           <?php 
-            if ($row->status_perizinan=="1")
+            if ($row->status_perizinan=="0")
             {
-              echo 'Kelengkapan Dokumen';
+              echo 'Pengajuan Izin dan Verifikasi Data';
             }
+			else if ($row->status_perizinan=="1")
+            {
+              echo 'Proses Penerbitan Izin';
+            } 
 			else if ($row->status_perizinan=="2")
             {
-              echo 'verifikasi Dokumen';
-            } 
-			else if ($row->status_perizinan=="3")
-            {
-              echo 'Proses';
+              echo 'Penerbitan Izin dan Publikasi Web';
             }
-            else
-            {
-              echo 'Penerbitan Izin Dan Publikasi Web';
-            } 
           ?>
          
         </td>
           <td align="center">
 		
-         <!-- <a href="<?php echo site_url('adm_sppl/approve?tabel=sppl_lama&primary='.$rows->sppl_lama_id.'&url=adm_sppl')?>" class="btn btn-xs bg-blue" data-toggle="tooltip" title="Ubah Status Permohonan" onclick="return confirm('Ini akan merubah status permohonan menjadi sudah diterima, lanjutkan?')"><i class="fa fa-check-square"></i></a> 
+         <!-- <a href="<?php echo site_url('adm_sppl/approve?tabel=sppl_lama&primary='.$rows->sppl_lama_id.'&url=adm_perizinan_sppl')?>" class="btn btn-xs bg-blue" data-toggle="tooltip" title="Ubah Status Permohonan" onclick="return confirm('Ini akan merubah status permohonan menjadi sudah diterima, lanjutkan?')"><i class="fa fa-check-square"></i></a> 
 		  <a href="#popup" class="btn btn-xs bg-blue" data-toggle="tooltip" title="Edit Data" onclick="myFunction(<?php echo "'".$rows->sppl_lama_id."'".","."'".$rows->status."'".","."'".$rows->keterangan."'";?>)"><i class="fa fa-pencil"></i></a>
 		 -->
 		  <a href="#popup" class="btn btn-xs bg-blue" data-toggle="tooltip" title="Ubah Status Permohonan" onclick="myFunction(<?php echo "'".$row->permohonan_id."'".","."'".$row->status_perizinan."'".","."'".$row->keterangan."'";?>)"><i class="fa fa-check-square"></i></a>
           <a href="<?php echo site_url('adm_sppl/edit/'.$row->permohonan_id)?>" class="btn btn-xs bg-green" data-toggle="tooltip" title="Edit Data"><i class="fa fa-pencil"></i></a>
 		 
-          <a href="<?php echo site_url('trash/proses?tabel=sppl_lama&primary='.$row->permohonan_id.'&url=adm_sppl')?>" class="btn btn-xs bg-red" data-toggle="tooltip" title="Hapus Data" onclick="return confirm('Anda yakin??')"><i class="fa fa-trash-o"></i></a>
+          <a href="<?php echo site_url('trash/proses?tabel=sppl&primary='.$row->permohonan_id.'&url=dm_perizinan_sppl')?>" class="btn btn-xs bg-red" data-toggle="tooltip" title="Hapus Data" onclick="return confirm('Anda yakin??')"><i class="fa fa-trash-o"></i></a>
         </td>
         </tr>
         <?php

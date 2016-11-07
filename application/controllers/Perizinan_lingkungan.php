@@ -72,7 +72,9 @@ class Perizinan_lingkungan extends CI_Controller
 
 			$jalan = $this->supermodel->insertData($tabel,$data);
 
+
 			if ($jalan){
+				$this->supermodel->insertData("notif_perizinan", array('permohonan_id' => $permohonan_id,'member_id'=> $member_id));
 				echo"<script>alert('Selesai');document.location.href='".site_url()."/upload_syarat/index/".$pemohon."/".$perusahaan."/".$jenisizin_id."/".$permohonan_id."'</script>";
 			}
 		}

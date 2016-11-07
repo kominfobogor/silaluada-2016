@@ -50,7 +50,7 @@
 
       </div><!-- /.login-box-body -->
       <div class="text-center" style="padding-top:5px;">
-        <p>- CopyRight &copy; 2015. All Right Recevied. -</p>
+        <p>- CopyRight &copy; 2016. All Right Recevied. -</p>
       </div><!-- /.social-auth-links -->
     </div><!-- /.login-box -->
 
