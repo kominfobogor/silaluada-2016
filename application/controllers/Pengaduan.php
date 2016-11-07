@@ -24,9 +24,28 @@ class Pengaduan extends CI_Controller {
         $this->load->view('template', $data);
 	}
 
-	public function list_pengaduan()
+	public function count_pengaduan()
 	{
 		$link = $this->config->item('webservice_pengaduan');
+
+		$content = file_get_contents($link);
+
+		$response = [
+			'limit' => $this->config->item('limit_pengaduan'),
+			'total' => count(json_decode($content)) 
+		];
+
+		echo json_encode($response);
+	}
+
+	public function list_pengaduan($offset=0)
+	{
+		$limit = $this->config->item('limit_pengaduan'); 
+		$link = $this->config->item('webservice_pengaduan').'&limit='.$limit;
+
+		if($offset != 0) {
+			$link .= '&offset='.$offset;
+		}
 
 		$content = file_get_contents($link);
 

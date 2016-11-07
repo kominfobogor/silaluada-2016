@@ -13,13 +13,18 @@ window.PENGADUAN = (function($) {
 			
 		},
 
-		handleListPengaduan: function(url, responseEl) {
+		handleListPengaduan: function(url, urlTotal, responseEl) {
+
+			var _this = this;
+
 			$.ajax({
 				url: url,
 				type: 'POST',
 				dataType: 'json',
 				beforeSend: function() {
 				    $('.loader').show();
+
+				    $(responseEl).html('');
 				},
 				success: function(response) {
 					var html = [];	
@@ -83,9 +88,58 @@ window.PENGADUAN = (function($) {
 						html.push(div);
 					});
 
-					$(responseEl).html(html);
+					
 
-				    $('.loader').hide();
+					$(responseEl).html(html);
+					
+
+					$.ajax({
+						url: urlTotal,
+						dataType: 'json',
+						success: function(response) {
+							var pagingNumber = response.total / response.limit;
+							
+							var paging = '<ul class="pagination pgt">';
+
+							for(var j = 0; j<pagingNumber; j++) {
+								
+								var offset = pagingNumber * j;
+
+								var no = j+1;
+
+								var active = 'other';
+
+								if(j == 0) {
+									active = 'active';
+								}
+								var htmlLi = '<li class="'+active+' pagination-pengaduan"  data-offset="'+offset+'"><a href="javascript:;">'+no+'</a></li>';
+								paging = paging + htmlLi;
+							}
+
+							paging = paging + '</ul>';
+
+							if($('.pgt').length == 0) {
+								$(responseEl).after(paging);
+
+								$('.pagination-pengaduan').click(function(){
+									$('.pagination-pengaduan').removeClass('active');
+									$(this).addClass('active');
+
+									_this.handleListPengaduan(
+										CI.siteUrl + '/pengaduan/list_pengaduan/'+$(this).attr('data-offset'),
+										CI.siteUrl + '/pengaduan/count_pengaduan',
+										'.response_content'
+									);
+
+								});
+							}
+
+
+						}
+					});
+
+		    		$('.loader').hide();
+
 				}
 			});
 		},

@@ -34,8 +34,14 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/datatables/media/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="<?php echo base_url(); ?>asset_app/css/style.css">
 <script type="text/javascript" src="<?php echo base_url(); ?>bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+
+<link rel="stylesheet" href="<?php echo base_url(); ?>bower_components/paginationjs/dist/pagination.css">
+<script type="text/javascript" src="<?php echo base_url(); ?>bower_components/paginationjs/dist/pagination.min.js"></script>
+
 <script type="text/javascript" src="<?php echo base_url(); ?>asset_app/js/perizinan/pengaduan.js"></script>
 
 <script>
-    window.PENGADUAN.handleListPengaduan("<?php echo site_url('pengaduan/list_pengaduan'); ?>", '.response_content');
+    var urlList = "<?php echo site_url('pengaduan/list_pengaduan/0'); ?>";
+    var urlTotal = "<?php echo site_url('pengaduan/count_pengaduan'); ?>";
+    window.PENGADUAN.handleListPengaduan(urlList, urlTotal, '.response_content');
 </script>
