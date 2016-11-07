@@ -83,6 +83,7 @@
         data-status="<?php echo $row->status_perizinan; ?>"
         data-email="<?php echo $row->email; ?>"
         data-nama="<?php echo $row->nama_perizinan; ?>"
+        data-placement="left"
         >
           <i class="fa fa-check-square"></i>
       </a>
@@ -90,9 +91,11 @@
       <!--<a href="<?php echo site_url('adm_sppl/edit/'.$row->permohonan_id)?>" class="btn btn-xs bg-green" data-toggle="tooltip" title="Edit Data"><i class="fa fa-pencil"></i></a>-->
 
 
-      <a href="javascript:;" data-id="<?php echo $row->permohonan_id; ?>" class="detail-izin btn btn-xs bg-orange" data-toggle="tooltip" title="Lihat Permohonan"><i class="fa fa-file-text-o"></i></a>
+      <a href="javascript:;" data-id="<?php echo $row->permohonan_id; ?>" class="detail-izin btn btn-xs bg-orange" data-toggle="tooltip" title="Lihat Permohonan" data-placement="left">
+          <i class="fa fa-file-text-o"></i>
+      </a>
       
-      <a href="<?php echo site_url('trash/proses?tabel=sppl&primary='.$row->permohonan_id.'&url=adm_perizinan_sppl')?>" class="btn btn-xs bg-red" data-toggle="tooltip" title="Hapus Data" onclick="return confirm('Anda yakin??')"><i class="fa fa-trash-o"></i></a>
+      <a href="<?php echo site_url('trash/proses?tabel=sppl&primary='.$row->permohonan_id.'&url=adm_perizinan_sppl')?>" class="btn btn-xs bg-red" data-toggle="tooltip" title="Hapus Data" onclick="return confirm('Anda yakin??')" data-placement="left"><i class="fa fa-trash-o"></i></a>
         
 
         <div class="modal fade" tabindex="-1" role="dialog" id="sppl<?php echo $row->permohonan_id; ?>" style="width: 100%">
@@ -115,28 +118,28 @@
                   <label>
                     Nama Member
                   </label>
-                  <input class="form-control" value="<?php echo $row->nama_member; ?>" type="text">
+                  <input class="form-control" value="<?php echo $row->nama_member; ?>" type="text" disabled>
                 </div>
 
                 <div class="form-group">
                   <label>
                     NIK Member
                   </label>
-                  <input class="form-control" value="<?php echo $row->nik_member; ?>" type="text">
+                  <input class="form-control" value="<?php echo $row->nik_member; ?>" type="text" disabled>
                 </div>
 
                 <div class="form-group">
                   <label>
                     Email Member
                   </label>
-                  <input class="form-control" value="<?php echo $row->email; ?>" type="text">
+                  <input class="form-control" value="<?php echo $row->email; ?>" type="text" disabled>
                 </div>
 
                 <div class="form-group">
                   <label>
                     Alamat Member
                   </label>
-                  <textarea class="form-control"><?php echo $row->alamat_member; ?></textarea>
+                  <textarea class="form-control" disabled><?php echo $row->alamat_member; ?></textarea>
                 </div>
 
               </div>
@@ -148,21 +151,28 @@
                   <label>
                     Nama Pemohon
                   </label>
-                  <input class="form-control" value="<?php echo $row->nama_pemohon; ?>" type="text">
+                  <input class="form-control" value="<?php echo $row->nama_pemohon; ?>" type="text" disabled>
                 </div>
 
                 <div class="form-group">
                   <label>
                     NIK Pemohon
                   </label>
-                  <input class="form-control" value="<?php echo $row->nik_pemohon; ?>" type="text">
+                  <input class="form-control" value="<?php echo $row->nik_pemohon; ?>" type="text" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    No. Telp Pemohon
+                  </label>
+                  <input class="form-control" value="<?php echo $row->notelp_pemohon; ?>" type="text" disabled>
                 </div>
 
                 <div class="form-group">
                   <label>
                     Alamat Pemohon
                   </label>
-                  <textarea class="form-control"><?php echo $row->alamat_pemohon; ?></textarea>
+                  <textarea class="form-control" disabled><?php echo $row->alamat_pemohon; ?></textarea>
                 </div>
               </div>
 
@@ -173,14 +183,42 @@
                   <label>
                     Nama Perusahaan
                   </label>
-                  <input class="form-control" value="<?php echo $row->nama_perusahaan; ?>" type="text">
+                  <input class="form-control" value="<?php echo $row->nama_perusahaan; ?>" type="text" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    Jenis Usaha
+                  </label>
+                  <input class="form-control" value="<?php echo $row->jenis_usaha; ?>" type="text" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    Luas Bangunan
+                  </label>
+                  <input class="form-control" value="<?php echo $row->luas_bangunan; ?>" type="text" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    Luas Lahan
+                  </label>
+                  <input class="form-control" value="<?php echo $row->luas_lahan; ?>" type="text" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    Kapasitas Produksi
+                  </label>
+                  <input class="form-control" value="<?php echo $row->kapasitas_produksi; ?>" type="text" disabled>
                 </div>
 
                 <div class="form-group">
                   <label>
                     Alamat Perusahaan
                   </label>
-                  <textarea class="form-control"><?php echo $row->alamat_perusahaan; ?></textarea>
+                  <textarea class="form-control" disabled><?php echo $row->alamat_perusahaan; ?></textarea>
                 </div>
 
               </div>
@@ -193,20 +231,28 @@
                   <label>
                     Nama Kegiatan
                   </label>
-                  <input class="form-control" value="<?php echo $row->nama_kegiatan; ?>" type="text">
+                  <input class="form-control" value="<?php echo $row->nama_kegiatan; ?>" type="text" disabled>
                 </div>
 
                 <div class="form-group">
                   <label>
                     Rencana Lokasi
                   </label>
-                  <input class="form-control" value="<?php echo $row->rencana_lokasi; ?>" type="text">
+                  <input class="form-control" value="<?php echo $row->rencana_lokasi; ?>" type="text" disabled>
                 </div>
 
               </div>
 
               <div class="col-md-4">
-                <h5>Persyaratan</h5>
+                <h5>Data Persyaratan</h5>
+
+                <table class="table table-stripped table-bordered">
+
+                    <tr>
+                        <th>Persyaratan</th>
+                        <th>File</th>
+                    </tr>
+                  
 
                 <?php
                   $sql2 = $this->supermodel->queryManual("SELECT
@@ -226,16 +272,19 @@
                       $dokumennya = ($check_dokumen) ? $check_dokumen->dokumen_id : '';
                       ?>
 
-                      <div class="col-md-6">
-                        <?php echo $persyaratan->persyaratan; ?>
-                      </div>
-                      <div class="col-md-6">
-                        <?php echo $nama_dokumen($dokumennya); ?>
-                      </div>
-                      <div style="clear: both;"> &nbsp; </div>
+                      <tr>
+                          <td><?php echo $persyaratan->persyaratan; ?></td>
+                          <td>
+                              <?php echo $nama_dokumen($dokumennya); ?>
+                            
+                          </td>
+                      </tr>
                       <?php
                   }
                 ?>
+
+                </table>
+
 
               </div>
 
