@@ -34,7 +34,7 @@ class Adm_perizinan_amdal extends CI_Controller
 		$data['nama_dokumen'] = function($dokumen_id) {
 			$dokumen = $this->Perizinan_model->get_dokumen_name($dokumen_id);
 			if($dokumen) {
-				return '<a href="'.base_url().'dokumen_member/view_dok/'.$dokumen->file.'" target="_blank">'.$dokumen->file_name.'</a>';
+				return '<a href="'.site_url().'/dokumen_member/view_dok/'.$dokumen->file.'" target="_blank">'.$dokumen->file_name.'</a>';
 			}
 
 			return 'belum tersedia';

@@ -91,8 +91,7 @@
       <!--<a href="<?php echo site_url('adm_sppl/edit/'.$row->permohonan_id)?>" class="btn btn-xs bg-green" data-toggle="tooltip" title="Edit Data"><i class="fa fa-pencil"></i></a>-->
 
 
-      <a href="javascript:;" data-id="<?php echo $row->permohonan_id; ?>" class="detail-izin btn btn-xs bg-orange" data-toggle="tooltip" title="Lihat Permohonan" asonclick="myFunction1(<?php echo "'".$row->nama_member."'".","."'".$row->alamat_member."'".","."'".$row->nik_member."'".","."'".$row->email."'".","."'".$row->nama_pemohon."'".","."'".$row->jabatan."'".","."'".$row->alamat_pemohon."'".","."'".$row->nik_pemohon."'".","."'".$row->notelp_pemohon."'".","."'".$row->nama_perizinan."'".","."'".$row->permohonan_id."'".","."'".$row->tgl_permohonan."'".","."'".$row->status_perizinan."'".","."'".$row->nama_perusahaan."'".","."'".$row->status_perusahaan."'".","."'".$row->nama_kegiatan."'".","."'".$row->alamat_perusahaan."'".","."'".$row->lat."'".","."'".$row->lng."'".","."'".$row->rencana_lokasi."'".","."'".$row->notelp_perusahaan."'".","."'".$row->jenis_usaha."'".","."'".$row->kapasitas_produksi."'".","."'".$row->luas_lahan."'".","."'".$row->luas_bangunan."'".","."'".$row->kondisi."'";
-      ?>)" data-placement="left"><i class="fa fa-file-text-o"></i></a>
+      <a href="javascript:;" data-id="<?php echo $row->permohonan_id; ?>" class="detail-izin btn btn-xs bg-orange" data-toggle="tooltip" title="Lihat Permohonan" data-placement="left"><i class="fa fa-file-text-o"></i></a>
       
       <a href="<?php echo site_url('trash/proses?tabel=ukl_upl&primary='.$row->permohonan_id.'&url=adm_perizinan_uklupl')?>" class="btn btn-xs bg-red" data-toggle="tooltip" title="Hapus Data" onclick="return confirm('Anda yakin??')" data-placement="left"><i class="fa fa-trash-o"></i></a>
         
@@ -275,7 +274,6 @@
                           <td><?php echo $persyaratan->persyaratan; ?></td>
                           <td>
                               <?php echo $nama_dokumen($dokumennya); ?>
-                            
                           </td>
                       </tr>
                       <?php
