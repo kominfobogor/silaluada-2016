@@ -337,6 +337,11 @@ class Perizinan_lingkungan extends CI_Controller
 				echo($jalan);
 			
 	}
+	
+	public function test()
+	{
+		$this->load->view('map');
+	}
 
 }
 ?>

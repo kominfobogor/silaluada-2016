@@ -93,7 +93,7 @@
 										    					<select name="perusahaan" class="form-control" id="optionPerusahaan" required>
 													        	</select>
 										    				</td>
-										    				<td><a class="btn btn-info" data-toggle="modal" data-target="#modalTambahPerusahaan"><i class="fa fa-plus"> </i></a></td>
+										    				<td><a class="btn btn-info modalTambahPerusahaan" data-toggle="modal" data-target="#modalTambahPerusahaan"><i class="fa fa-plus"> </i></a></td>
 										    			</tr>
 										    			<tr>
 										    				<td colspan="4">
@@ -286,7 +286,7 @@
 	    				<td>:</td>
 	    				<td><input type="text" name="kondisi" class="form-control" id="kondisi"></td>
 	    			</tr>
-	    			<tr>
+	    			<!--<tr>
 	    				<td><label>Latitude</label></td>
 	    				<td>:</td>
 	    				<td><input type="number" name="lat" class="form-control" id="lat"></td>
@@ -295,7 +295,13 @@
 	    				<td><label>Longitude</label></td>
 	    				<td>:</td>
 	    				<td><input type="number" name="lng" class="form-control" id="lng"></td>
-	    			</tr>
+	    			</tr>-->
+					
+					<tr>
+						<td colspan="3" class="testes">
+							
+						</td>
+					</tr>
 				</table>
 	        </div>
 	        <div class="modal-footer">
@@ -399,6 +405,10 @@
 							$("#lng").val("");
 
 						});
+			});
+			
+			$('.modalTambahPerusahaan').click(function() {
+				$('.testes').load("<?php echo site_url('perizinan_lingkungan/test'); ?>");
 			});
 		});
 
