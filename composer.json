@@ -12,7 +12,8 @@
 	},
 	"require": {
 		"php": ">=5.2.4",
-		"swiftmailer/swiftmailer": "^5.4"
+		"swiftmailer/swiftmailer": "^5.4",
+		"phpoffice/phpexcel": "^1.8"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

@@ -18,6 +18,13 @@ class ComposerStaticInit96ce21db13fa68b9d53f09138fa31a85
                 0 => __DIR__ . '/..' . '/mikey179/vfsStream/src/main/php',
             ),
         ),
+        'P' => 
+        array (
+            'PHPExcel' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
+            ),
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
